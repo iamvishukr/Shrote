@@ -1,6 +1,6 @@
-import { Mail, Phone } from "lucide-react";
+import { Mail, Phone, X, XCircle } from "lucide-react";
 import React from "react";
-import { BsFacebook, BsInstagram, BsLinkedin } from "react-icons/bs";
+import { BsFacebook, BsInstagram, BsLinkedin, BsTwitter } from "react-icons/bs";
 
 const Footer = () => {
   return (
@@ -43,6 +43,7 @@ const Footer = () => {
             <h4 className="text-xl font-semibold mb-4">Follow Us</h4>
             <span className="flex gap-4">
               <BsInstagram className="text-2xl " />
+              <BsTwitter className="text-2xl" />
               <BsLinkedin className="text-2xl " />
               <BsFacebook className="text-2xl "/>
             </span>

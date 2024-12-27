@@ -9,7 +9,6 @@ const Hero = () => {
   return (
     <section className="relative min-h-screen text-white">
       <BackgroundCarousel />
-      {/* Hero Content */}
       <div className="container mx-auto px-4 relative z-30 h-screen flex flex-col justify-center items-center text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
