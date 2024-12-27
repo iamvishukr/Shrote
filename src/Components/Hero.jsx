@@ -1,19 +1,16 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-// import { Button } from "@/components/ui/button";
-import { ArrowRight } from 'lucide-react';
+import React, { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
+import { BackgroundCarousel } from './background-carousel'
 
 const Hero = () => {
-  return (
-    <section className="relative min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 bg-grid-white/[0.02] -z-0" />
-      
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-tr from-gray-900 via-gray-900/90 to-gray-900/50 z-10" />
+  const statsRef = useRef(null);
+  const isInView = useInView(statsRef, { once: true, amount: 0.2 });
 
+  return (
+    <section className="relative min-h-screen text-white">
+      <BackgroundCarousel />
       {/* Hero Content */}
-      <div className="container mx-auto px-4 relative z-20 h-screen flex flex-col justify-center items-center text-center">
+      <div className="container mx-auto px-4 relative z-30 h-screen flex flex-col justify-center items-center text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -27,18 +24,14 @@ const Hero = () => {
             We craft exceptional web experiences that drive growth and transform businesses in the digital age.
           </p>
           
-          <div className="sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <button
-              size="lg"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-2 text-lg rounded-full"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg rounded-full transition-colors duration-300"
             >
               Get Started
-              {/* <ArrowRight className="ml-2 h-5 w-5" /> */}
             </button>
             <button
-              variant="outline"
-              size="lg"
-              className="border-gray-600 text-gray-300 hover:text-white px-8 py-6 text-lg rounded-full"
+              className="border border-gray-600 bg-slate-200 text-gray-800 hover:text-gray-900 hover:border-gray-400 px-8 py-3 text-lg rounded-full transition-colors duration-300"
             >
               View Our Work
             </button>
@@ -47,8 +40,9 @@ const Hero = () => {
 
         {/* Stats */}
         <motion.div
+          ref={statsRef}
           initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 text-center"
         >
