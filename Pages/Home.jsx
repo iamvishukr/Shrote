@@ -28,7 +28,6 @@ const Home = () => {
       <Portfolio />
       <Testimonials />
       <CallToAction />
-      <Contact />
     </motion.div>
   );
 };
