@@ -46,7 +46,7 @@ const Hero = () => {
           className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 text-center"
         >
           {[
-            { number: "150+", label: "Projects Completed" },
+            { number: "200+", label: "Projects Completed" },
             { number: "98%", label: "Client Satisfaction" },
             { number: "10+", label: "Years Experience" },
             { number: "24/7", label: "Support Available" }
