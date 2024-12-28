@@ -16,7 +16,7 @@ const Footer = () => {
               style={{
                 '--size': `${2 + Math.random() * 4}rem`,
                 '--distance': `${6 + Math.random() * 4}rem`,
-                '--position': `${-5 + Math.random() * 110}%`,
+                '--position': `${-5 + Math.random() * 95}%`,
                 '--time': `${2 + Math.random() * 2}s`,
                 '--delay': `${-1 * (2 + Math.random() * 2)}s`,
               }}
