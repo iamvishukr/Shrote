@@ -84,7 +84,8 @@ const FlowerAnimation = () => {
 
           vec3 color = base * flower_mask + (flower_new + flower_mid + stem);
           color *= u_clean;
-          color = clamp(color, vec3(0.0), vec3(1.0));
+
+          color = clamp(color, vec3(0.0), vec3(37.0/255.0, 99.0/255.0, 235.0/255.0));
 
           gl_FragColor = vec4(color, 1.);
       }
@@ -130,7 +131,7 @@ const FlowerAnimation = () => {
       ];
 
       createPlane();
-      updateSize();
+      //updateSize();
     };
 
     const createPlane = () => {
@@ -213,7 +214,7 @@ const FlowerAnimation = () => {
     render();
 
     const handleResize = () => {
-      updateSize();
+      //updateSize();
     };
 
     const handleMouseMove = (e) => {
