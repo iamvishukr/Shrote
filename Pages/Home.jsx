@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import SEO from '../src/Components/SEO';
 import Hero from '../src/Components/Hero';
@@ -7,9 +7,10 @@ import Services from '../src/Components/Services';
 import Portfolio from '../src/Components/Portfolio';
 import Testimonials from '../src/Components/Testimonials';
 import CallToAction from '../src/Components/CallToAction';
-import Contact from '../src/Components/Contact';
 
 const Home = () => {
+    const section1Ref = useRef(null);
+  
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -22,10 +23,10 @@ const Home = () => {
         description="Shrote - Elevate your online presence with our expert team's innovative designs and seamless functionality."
         keywords="web design, web development, SEO, digital marketing"
       />
-      <Hero />
+      <Hero section1Ref={section1Ref} />
       <About />
       <Services />
-      <Portfolio />
+      <Portfolio ref={section1Ref}/>
       <Testimonials />
       <CallToAction />
     </motion.div>

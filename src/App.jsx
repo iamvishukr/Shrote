@@ -9,6 +9,7 @@ import '../styles/globals.css';
 import Preloader from './Utils/Preloader';
 import ExitPreloader from './Utils/ExitPreloader';
 import PageTransition from './Utils/PageTransition';
+import ContactPage from './Components/Contact';
 
 const Home = lazy(() => import('../Pages/Home'));
 const Careers = lazy(() => import('../Pages/Careers'));
@@ -16,6 +17,7 @@ const Careers = lazy(() => import('../Pages/Careers'));
 function App() {
   const [isLoading, setIsLoading] = useState(true);
 
+  
   useEffect(() => {
     // Show the preloader for 5 seconds
     const timer = setTimeout(() => {
@@ -37,12 +39,13 @@ function App() {
         <main className="flex-grow">
           <AnimatePresence mode="wait">
             <Suspense fallback={<div className="loader">
-              <ExitPreloader />
+              {/* <ExitPreloader /> */}
               <PageTransition />
             </div>}>
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/careers" element={<Careers />} />
+                <Route path="/contact" element={<ContactPage />} />
               </Routes>
             </Suspense>
           </AnimatePresence>
