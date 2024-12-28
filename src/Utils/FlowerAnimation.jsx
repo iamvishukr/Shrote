@@ -1,10 +1,12 @@
-import React, { useEffect, useRef } from 'react';
-import * as THREE from 'three';
+import React, { useEffect, useRef } from "react";
+import * as THREE from "three";
 
 const FlowerAnimation = () => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
+    if (!canvasRef.current) return;
+
     const canvasEl = canvasRef.current;
     let renderer, sceneShader, sceneBasic, camera, clock, shaderMaterial, basicMaterial;
     let renderTargets = [];
@@ -49,7 +51,7 @@ const FlowerAnimation = () => {
           float flower_angle = atan(_point.y, _point.x) - angle_animated_offset;
           float flower_sectoral_shape = abs(sin(flower_angle * .5 * petals_number + _angle_offset)) + _tickniess * petals_thickness;
 
-          vec2 flower_size_range = vec2(4., 18.);
+          vec2 flower_size_range = vec2(14., 18.);
           float flower_radial_shape = length(_point) * (flower_size_range[0] + flower_size_range[1] * u_stop_randomizer[0]);
           float radius_noise = sin(flower_angle * 13. + 15. * random_by_uv);
           flower_radial_shape += _noise * radius_noise;
@@ -70,21 +72,19 @@ const FlowerAnimation = () => {
           vec2 cursor = vUv - u_point.xy;
           cursor.x *= u_ratio;
 
-          // STEM
           vec3 stem_color = vec3(0., 2., 1.5);
           float stem_radius = .003 * u_speed * u_moving;
           float stem_shape = 1. - pow(smoothstep(0., stem_radius, dot(cursor, cursor)), .03);
           vec3 stem = stem_shape * stem_color;
 
-          // FLOWER
-          vec3 flower_color = vec3(.7 + u_stop_randomizer[1], .8 * u_stop_randomizer[1], 2.9 + u_stop_randomizer[0] * .6);
+          vec3 flower_color = vec3(.9 + u_stop_randomizer[1], .8 * u_stop_randomizer[1], 2.9 + u_stop_randomizer[0] * .6);
           vec3 flower_new = flower_color * flower_shape(cursor, 1., .96, 1., .15, 0.);
           vec3 flower_mask = 1. - vec3(flower_shape(cursor, 1.05, 1.07, 1., .15, 0.));
           vec3 flower_mid = vec3(-.6) * flower_shape(cursor, .15, 1., 2., .1, 1.9);
 
           vec3 color = base * flower_mask + (flower_new + flower_mid + stem);
           color *= u_clean;
-          color = clamp(color, vec3(.0, .0, .15), vec3(1., 1., .4));
+          color = clamp(color, vec3(0.0), vec3(1.0));
 
           gl_FragColor = vec4(color, 1.);
       }
@@ -102,9 +102,12 @@ const FlowerAnimation = () => {
     const init = () => {
       renderer = new THREE.WebGLRenderer({
         canvas: canvasEl,
-        alpha: true,
+        alpha: false,
+        antialias: true,
+        preserveDrawingBuffer: true,
       });
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.setClearColor(0x000000, 1);
+      renderer.setPixelRatio(window.devicePixelRatio);
 
       sceneShader = new THREE.Scene();
       sceneBasic = new THREE.Scene();
@@ -112,8 +115,18 @@ const FlowerAnimation = () => {
       clock = new THREE.Clock();
 
       renderTargets = [
-        new THREE.WebGLRenderTarget(window.innerWidth, window.innerHeight),
-        new THREE.WebGLRenderTarget(window.innerWidth, window.innerHeight)
+        new THREE.WebGLRenderTarget(window.innerWidth * window.devicePixelRatio, window.innerHeight * window.devicePixelRatio, {
+          minFilter: THREE.LinearFilter,
+          magFilter: THREE.LinearFilter,
+          format: THREE.RGBAFormat,
+          stencilBuffer: false
+        }),
+        new THREE.WebGLRenderTarget(window.innerWidth * window.devicePixelRatio, window.innerHeight * window.devicePixelRatio, {
+          minFilter: THREE.LinearFilter,
+          magFilter: THREE.LinearFilter,
+          format: THREE.RGBAFormat,
+          stencilBuffer: false
+        })
       ];
 
       createPlane();
@@ -123,17 +136,17 @@ const FlowerAnimation = () => {
     const createPlane = () => {
       shaderMaterial = new THREE.ShaderMaterial({
         uniforms: {
-          u_stop_time: { type: "f", value: 0 },
-          u_point: { type: "v2", value: new THREE.Vector2(pointer.x, pointer.y) },
-          u_moving: { type: "f", value: 0 },
-          u_speed: { type: "f", value: 0 },
-          u_stop_randomizer: { type: "v2", value: new THREE.Vector2(Math.random(), Math.random()) },
-          u_clean: { type: "f", value: 1 },
-          u_ratio: { type: "f", value: window.innerWidth / window.innerHeight },
-          u_texture: { type: "t", value: null }
+          u_stop_time: { value: 0 },
+          u_point: { value: new THREE.Vector2(pointer.x, pointer.y) },
+          u_moving: { value: 0 },
+          u_speed: { value: 0 },
+          u_stop_randomizer: { value: new THREE.Vector2(Math.random(), Math.random()) },
+          u_clean: { value: 1 },
+          u_ratio: { value: window.innerWidth / window.innerHeight },
+          u_texture: { value: null },
         },
         vertexShader,
-        fragmentShader
+        fragmentShader,
       });
       basicMaterial = new THREE.MeshBasicMaterial();
 
@@ -145,19 +158,29 @@ const FlowerAnimation = () => {
     };
 
     const updateSize = () => {
-      shaderMaterial.uniforms.u_ratio.value = window.innerWidth / window.innerHeight;
-      renderer.setSize(window.innerWidth, window.innerHeight);
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      shaderMaterial.uniforms.u_ratio.value = width / height;
+      renderer.setSize(width, height);
+      renderTargets.forEach((target) => {
+        target.setSize(width * window.devicePixelRatio, height * window.devicePixelRatio);
+      });
     };
 
     const render = () => {
       shaderMaterial.uniforms.u_clean.value = pointer.vanishCanvas ? 0 : 1;
-      shaderMaterial.uniforms.u_point.value = new THREE.Vector2(pointer.x, 1 - pointer.y);
+      shaderMaterial.uniforms.u_point.value = new THREE.Vector2(
+        pointer.x,
+        1 - pointer.y
+      );
       shaderMaterial.uniforms.u_texture.value = renderTargets[0].texture;
-      shaderMaterial.uniforms.u_ratio.value = window.innerWidth / window.innerHeight;
-      
+
       if (pointer.moved) {
         shaderMaterial.uniforms.u_moving.value = 1;
-        shaderMaterial.uniforms.u_stop_randomizer.value = new THREE.Vector2(Math.random(), Math.random());
+        shaderMaterial.uniforms.u_stop_randomizer.value = new THREE.Vector2(
+          Math.random(),
+          Math.random()
+        );
         if (window.innerWidth < 650) {
           shaderMaterial.uniforms.u_stop_randomizer.value.x *= 0.2;
           shaderMaterial.uniforms.u_stop_randomizer.value.x += 0.8;
@@ -167,7 +190,7 @@ const FlowerAnimation = () => {
       } else {
         shaderMaterial.uniforms.u_moving.value = 0;
       }
-      
+
       shaderMaterial.uniforms.u_stop_time.value += clock.getDelta();
       shaderMaterial.uniforms.u_speed.value = pointer.speed;
 
@@ -205,10 +228,10 @@ const FlowerAnimation = () => {
     };
 
     const handleTouchMove = (e) => {
-      const dx = 5 * (e.targetTouches[0].pageX / window.innerWidth - pointer.x);
-      const dy = 5 * (e.targetTouches[0].pageY / window.innerHeight - pointer.y);
-      pointer.x = e.targetTouches[0].pageX / window.innerWidth;
-      pointer.y = e.targetTouches[0].pageY / window.innerHeight;
+      const dx = 5 * (e.touches[0].pageX / window.innerWidth - pointer.x);
+      const dy = 5 * (e.touches[0].pageY / window.innerHeight - pointer.y);
+      pointer.x = e.touches[0].pageX / window.innerWidth;
+      pointer.y = e.touches[0].pageY / window.innerHeight;
       pointer.speed = Math.min(2, 20 * (Math.pow(dx, 2) + Math.pow(dy, 2)));
       pointer.moved = true;
     };
@@ -222,11 +245,11 @@ const FlowerAnimation = () => {
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("touchmove", handleTouchMove);
       renderer.dispose();
-      renderTargets.forEach(target => target.dispose());
+      renderTargets.forEach((target) => target.dispose());
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="w-full h-full" />;
+  return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />;
 };
 
 export default FlowerAnimation;
