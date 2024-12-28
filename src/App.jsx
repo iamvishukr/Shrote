@@ -40,7 +40,7 @@ function App() {
           <AnimatePresence mode="wait">
             <Suspense fallback={<div className="loader">
               {/* <ExitPreloader /> */}
-              <PageTransition />
+              {/* <PageTransition /> */}
             </div>}>
               <Routes>
                 <Route path="/" element={<Home />} />

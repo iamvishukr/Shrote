@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 
-import webDev from "../assets/web-development.jpg";
+import ERP from "../assets/ERP.jpg";
 import ecommerce from "../assets/e-commerce.jpg";
 import digitalSpace from "../assets/digital-workplace.jpg";
 import virtual from '../assets/virtual.png'
@@ -21,8 +21,8 @@ const features = [
 
 const portfolioImages = [
   {
-    src: webDev,
-    alt: "Web Development Services",
+    src: ERP,
+    alt: "ERP Solutions",
     width: 600,
     height: 400,
   },
@@ -34,7 +34,7 @@ const portfolioImages = [
   },
   {
     src: digitalSpace,
-    alt: "Digital Workspace",
+    alt: "HRM Solutions",
     width: 600,
     height: 400,
   },

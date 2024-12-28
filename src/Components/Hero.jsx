@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { BackgroundCarousel } from "./background-carousel";
 import { useNavigate } from "react-router-dom";
+import Typewriter from 'typewriter-effect';
 
 const Hero = ({ section1Ref }) => {
   const navigate = useNavigate();
@@ -25,7 +26,13 @@ const Hero = ({ section1Ref }) => {
           className="max-w-4xl mx-auto"
         >
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400">
-            Elevate Your Digital Presence
+            <Typewriter
+              options={{
+                strings: ["Elevate Your Digital Presence"],
+                autoStart: true,
+                loop: true,
+              }}
+            />
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto">
             We craft exceptional web experiences that drive growth and transform

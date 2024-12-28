@@ -29,7 +29,7 @@ const Footer = () => {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div>
                   <h2 className="text-3xl font-bold mb-4">
-                    <span className="text-blue-500">S</span>hrote
+                    <span className="text-blue-400 ">S</span>hrote
                   </h2>
                   <p className="mb-4">
                     Elevate your online presence with our expert team's innovative
@@ -39,10 +39,10 @@ const Footer = () => {
                 <div>
                   <h4 className="text-xl font-semibold mb-4">Contact Us</h4>
                   <p className="flex items-center gap-4 py-2">
-                    <Phone className="text-sm" size={20} /> 7377547571 / 7991133447
+                    <Phone className="text-sm" size={20} /> +91 7667983607
                   </p>
-                  <p className="flex items-center gap-4">
-                    <Mail className="text-sm" size={20} /> shroteconsultancyservices@gmail.com
+                  <p className="flex items-center gap-4 ">
+                    <Mail className="text-sm" size={20} /> info@shrote.com
                   </p>
                 </div>
                 <div>

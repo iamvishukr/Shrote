@@ -6,7 +6,7 @@ body {
     font-family: 'Open Sans', sans-serif;
     .footer {
         z-index: 1;
-        --footer-background:#73cddf;
+        --footer-background: rgb(77, 79, 192);
         display:grid;
         position: relative;
         grid-area: footer;
@@ -33,7 +33,7 @@ body {
             z-index: 2;
             background-color: var(--footer-background);
             a, p {
-                color:#F5F7FA;
+                color:#ffff;
                 text-decoration:none;
             }
             b {
@@ -41,7 +41,7 @@ body {
             }
             p {
                 margin:0;
-                font-size:.75rem;
+                font-size:1rem;
             }
             >div {
                 display:flex;

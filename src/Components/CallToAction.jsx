@@ -7,7 +7,7 @@ const CallToAction = () => {
   const [ref, isIntersecting] = useIntersectionObserver({ threshold: 0.1 });
 
   return (
-    <section ref={ref} className="bg-blue-600 py-20">
+    <section ref={ref} className="bg-blue-800 py-20">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -15,6 +15,7 @@ const CallToAction = () => {
           transition={{ duration: 0.5 }}
           className="text-center text-white"
         >
+
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Elevate Your Online Presence?</h2>
           <p className="text-xl mb-8">Let's create something amazing together!</p>
           <Link
