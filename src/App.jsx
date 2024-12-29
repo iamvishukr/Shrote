@@ -7,8 +7,8 @@ import ScrollToTop from './Components/ScrollToTop';
 import '../src/index.css';
 import '../styles/globals.css';
 import Preloader from './Utils/Preloader';
-import ExitPreloader from './Utils/ExitPreloader';
-import PageTransition from './Utils/PageTransition';
+// import ExitPreloader from './Utils/ExitPreloader';
+// import PageTransition from './Utils/PageTransition';
 import ContactPage from './Components/Contact';
 import ScheduleCallDialog from './Components/ScheduleCallDialog';
 
@@ -48,7 +48,7 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/career" element={<Careers />} />
                 <Route path="/contact" element={<ContactPage />} />
-                <Route path="/schedule" element={<ScheduleCallDialog />} />
+                {/* <Route path="/schedule" element={<ScheduleCallDialog />} /> */}
               </Routes>
             </Suspense>
           </AnimatePresence>
