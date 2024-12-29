@@ -8,7 +8,7 @@ export default function Preloader() {
 
   useEffect(() => {
     // Simulate loading time (remove this in production and use real loading logic)
-    const timer = setTimeout(() => setLoading(false), 3000);
+    const timer = setTimeout(() => setLoading(false), 1000);
     return () => clearTimeout(timer);
   }, []);
 

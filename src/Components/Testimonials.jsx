@@ -16,12 +16,7 @@ const testimonials = [
     company: 'Partyvines',
     quote: "I'm thrilled with the exceptional service provided by Shrote for my event management website. Their expertise, dedication, and creative approach resulted in a stunning and functional platform that exceeded my expectations. Shrote is a top-notch choice for anyone seeking professional and innovative web solutions."
   },
-  // {
-  //   name: 'Samrat Pandey',
-  //   position: 'Owner',
-  //   company: 'Shree Collection',
-  //   quote: "Exceptional service from Shrote! They've created an outstanding e-commerce store for me, and I couldn't be happier. The website is fantastic, and their service exceeded my expectations."
-  // }
+  
 ];
 
 const Testimonials = () => {
@@ -41,7 +36,7 @@ const Testimonials = () => {
             x: {
               repeat: Infinity,
               repeatType: "loop",
-              duration: 20,
+              duration: 10,
               ease: "linear",
             },
           }}
