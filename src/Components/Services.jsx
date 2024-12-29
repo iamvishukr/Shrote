@@ -92,7 +92,7 @@ const Services = () => {
               <img
                 src={service.image}
                 alt=""
-                srcset=""
+                srcSet=""
                 className="cursor-pointer object-cover blur-md w-full h-64 transition-transform opacity-90 duration-300 group-hover:blur-[2px] group-hover:scale-110"
               />
               <div className="absolute flex text-white items-center inset-0 bg-gradient-to-t from-black/60 to-black/40 group-hover:opacity-100 transition-opacity duration-300">

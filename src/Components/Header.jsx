@@ -1,9 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Home, Briefcase, ChevronDown } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import ScheduleCallDialog from './ScheduleCallDialog'
 
 const Header = () => {
+
+  const [isDialogOpen, setIsDialogOpen] = useState(false)
+
+  const openDialog = () => setIsDialogOpen(true)
+  const closeDialog = () => setIsDialogOpen(false)
+
+
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -16,7 +24,13 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const navigate = useNavigate();
+    const handleRequestQuote = ()=>{
+        navigate("/contact");
+    }
+
   return (
+    
     <motion.header
       className={`fixed w-full z-50 transition-all duration-300 ${
         isScrolled
@@ -48,12 +62,14 @@ const Header = () => {
               <NavItem key={item} label={item} isScrolled={isScrolled} />
             ))}
             <motion.button
+              onClick={openDialog}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="px-6 py-2 bg-gradient-to-r from-purple-600 to-blue-500 text-white rounded-full font-medium hover:shadow-lg transition-shadow duration-300"
             >
-              Request A Quote
+              Schedule A Call
             </motion.button>
+            
           </nav>
 
           {/* Mobile Menu Button */}
@@ -91,17 +107,19 @@ const Header = () => {
                   </motion.a>
                 ))}
                 <motion.button
+                onClick={openDialog}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="mx-6 mt-4 px-6 py-2 bg-gradient-to-r from-purple-600 to-blue-500 text-white rounded-full font-medium"
                 >
-                  Get Started
+                  Schedule A Call
                 </motion.button>
               </nav>
             </motion.div>
           )}
         </AnimatePresence>
       </div>
+      <ScheduleCallDialog isOpen={isDialogOpen} onClose={closeDialog} />
     </motion.header>
   );
 };

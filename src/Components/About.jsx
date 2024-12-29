@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 // import { button } from "@/components/ui/button";
 import { CheckCircle } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import ERP from "../assets/ERP.jpg";
 import ecommerce from "../assets/e-commerce.jpg";
@@ -41,6 +41,11 @@ const portfolioImages = [
 ];
 
 const About = () => {
+  const navigate = useNavigate();
+
+const handleStartProject = () => {
+  navigate("/contact");
+};
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
@@ -165,6 +170,7 @@ const About = () => {
             <button
               size="lg"
               className="bg-blue-600 p-6 rounded-2xl hover:bg-blue-700 text-white"
+              onClick={handleStartProject}
             >
               Start Your Project
             </button>

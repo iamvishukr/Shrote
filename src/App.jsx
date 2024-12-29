@@ -10,6 +10,7 @@ import Preloader from './Utils/Preloader';
 import ExitPreloader from './Utils/ExitPreloader';
 import PageTransition from './Utils/PageTransition';
 import ContactPage from './Components/Contact';
+import ScheduleCallDialog from './Components/ScheduleCallDialog';
 
 const Home = lazy(() => import('../Pages/Home'));
 const Careers = lazy(() => import('../Pages/Careers'));
@@ -47,6 +48,7 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/career" element={<Careers />} />
                 <Route path="/contact" element={<ContactPage />} />
+                <Route path="/schedule" element={<ScheduleCallDialog />} />
               </Routes>
             </Suspense>
           </AnimatePresence>

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import FlowerAnimation from "../Utils/FlowerAnimation";
+import BlackholeAnimation from "../Utils/BlackholeAnimation";
 import {
   FaLinkedin,
   FaFacebook,
@@ -7,6 +8,7 @@ import {
   FaEnvelope,
   FaArrowRight,
   FaInstagram,
+  FaWhatsapp,
 } from "react-icons/fa";
 
 export default function ContactPage() {
@@ -14,7 +16,8 @@ export default function ContactPage() {
     <div className="relative min-h-screen bg-black text-white pt-24 pb-6">
       <div className="absolute inset-0 z-0">
         {/* <FlowerAnimation /> */}
-      </div>
+        < BlackholeAnimation /> 
+        </div>
 
       <div className="relative  z-10 flex flex-col md:flex-row mx-6 md:mx-12 lg:mx-24 xl:mx-48 py-12">
         <div className="w-full border border-gray-800 md:w-1/2 bg-black/80 backdrop-blur-sm p-6 md:p-8 lg:p-12">
@@ -26,6 +29,7 @@ export default function ContactPage() {
           <div className="space-y-4">
             <Link
               to="https://www.linkedin.com/in/shrote-consultancy-services-54ba72337"
+              target="_blank"
               className="flex items-center justify-between text-white border border-white/30 rounded p-3 md:p-4 hover:bg-white/10 transition-colors"
             >
               <div className="flex items-center gap-3 md:gap-4">
@@ -37,6 +41,7 @@ export default function ContactPage() {
 
             <Link
               to="https://www.facebook.com/profile.php?id=61569121190721"
+              target="_blank"
               className="flex items-center justify-between text-white border border-white/30 rounded p-3 md:p-4 hover:bg-white/10 transition-colors"
             >
               <div className="flex items-center gap-3 md:gap-4">
@@ -48,6 +53,7 @@ export default function ContactPage() {
 
             <Link
               to="https://x.com/Shrote_services?t=RlqvR_syDwl03FuUpCTK9w&s=09"
+              target="_blank"
               className="flex items-center justify-between text-white border border-white/30 rounded p-3 md:p-4 hover:bg-white/10 transition-colors"
             >
               <div className="flex items-center gap-3 md:gap-4">
@@ -59,11 +65,24 @@ export default function ContactPage() {
 
             <Link
               to="https://www.instagram.com/shroteconsultancy?igsh=MTVhdTFjaWN0cjVncw=="
+              target="_blank"
               className="flex items-center justify-between text-white border border-white/30 rounded p-3 md:p-4 hover:bg-white/10 transition-colors"
             >
               <div className="flex items-center gap-3 md:gap-4">
                 <FaInstagram className="text-xl md:text-2xl" />
                 <span className="text-lg md:text-xl">Instagram</span>
+              </div>
+              <FaArrowRight />
+            </Link>
+
+            <Link
+              to="https://wa.me/7667983607?text=Hello!%20I%20need%20a%20website%20for%20my%20business"
+              target="_blank"
+              className="flex items-center justify-between text-white border border-white/30 rounded p-3 md:p-4 hover:bg-white/10 transition-colors"
+            >
+              <div className="flex items-center gap-3 md:gap-4">
+                <FaWhatsapp className="text-xl md:text-2xl" />
+                <span className="text-lg md:text-xl">WhatsApp</span>
               </div>
               <FaArrowRight />
             </Link>
