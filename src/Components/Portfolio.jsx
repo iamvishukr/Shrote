@@ -5,16 +5,22 @@ import { motion } from "framer-motion";
 const Portfolio = forwardRef((_, ref) => {
   const portfolioItems = [
     {
+      title: "ScrollPedia",
+      category: "Blog Website",
+      link: "https://scrollpedia.in/",
+      image: "../src/assets/scrollpedia.png"
+    },
+    {
       title: "Partyvines",
       category: "Event management",
       link: "https://www.partyvines.com",
-      image: "../src/assets/e-commerce.jpg",
+      image: "../src/assets/partyvines.jpg",
     },
-    {
-      title: "Shree Collection",
-      category: "E-commerce Store",
-      link: "https://demo6.crazymarketer.online",
-    },
+    // {
+    //   title: "Shree Collection",
+    //   category: "E-commerce Store",
+    //   link: "https://demo6.crazymarketer.online",
+    // },
   ];
 
   return (

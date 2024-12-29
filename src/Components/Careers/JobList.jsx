@@ -9,15 +9,15 @@ const jobListings = [
     description: 'Join our engineering team to build scalable solutions and mentor junior developers.',
     Icon: Briefcase,
     category: 'Engineering',
-    location: 'Remote / Worldwide',
+    location: 'Remote',
     type: 'Full-time'
   },
   {
-    title: 'Product Design Intern',
-    description: 'Learn and contribute to our design process while working on real-world projects.',
+    title: 'Web Developer Intern',
+    description: 'Learn and contribute while working on real-world projects.',
     Icon: GraduationCap,
-    category: 'Design',
-    location: 'Hybrid / New York',
+    category: 'Engineering',
+    location: 'Remote',
     type: 'Internship'
   },
   {
@@ -25,7 +25,7 @@ const jobListings = [
     description: 'Drive our marketing strategy and lead campaigns across multiple channels.',
     Icon: Megaphone,
     category: 'Marketing',
-    location: 'On-site / London',
+    location: 'Remote',
     type: 'Full-time'
   },
   {
@@ -33,7 +33,7 @@ const jobListings = [
     description: 'Create beautiful and intuitive user experiences for our products.',
     Icon: Palette,
     category: 'Design',
-    location: 'Remote / Europe',
+    location: 'Remote',
     type: 'Full-time'
   }
 ];
