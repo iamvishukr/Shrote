@@ -11,9 +11,9 @@ import {
 
 export default function ContactPage() {
   return (
-    <div className="relative min-h-screen bg-black text-white">
+    <div className="relative min-h-screen bg-black text-white pt-24 pb-6">
       <div className="absolute inset-0 z-0">
-        <FlowerAnimation />
+        {/* <FlowerAnimation /> */}
       </div>
 
       <div className="relative  z-10 flex flex-col md:flex-row mx-6 md:mx-12 lg:mx-24 xl:mx-48 py-12">

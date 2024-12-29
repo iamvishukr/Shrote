@@ -24,7 +24,7 @@ const Footer = () => {
           ))}
         </div>
         <div className="content">
-          <footer className=" text-white">
+          <footer className="text-white">
             <div className="container flex justify-center mx-auto px-4 py-6">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div>

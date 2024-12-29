@@ -1,5 +1,5 @@
 import React, { Suspense, lazy, useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
@@ -43,8 +43,9 @@ function App() {
               {/* <PageTransition /> */}
             </div>}>
               <Routes>
+              <Route path="/home" element={<Navigate to="/" />} />
                 <Route path="/" element={<Home />} />
-                <Route path="/careers" element={<Careers />} />
+                <Route path="/career" element={<Careers />} />
                 <Route path="/contact" element={<ContactPage />} />
               </Routes>
             </Suspense>
