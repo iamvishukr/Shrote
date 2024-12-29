@@ -5,7 +5,6 @@ import {
   FaLinkedin,
   FaFacebook,
   FaTwitter,
-  FaEnvelope,
   FaArrowRight,
   FaInstagram,
   FaWhatsapp,
@@ -28,7 +27,7 @@ export default function ContactPage() {
 
           <div className="space-y-4">
             <Link
-              to="https://www.linkedin.com/in/shrote-consultancy-services-54ba72337"
+              to="https://www.linkedin.com/company/shrote-consultancy-services/"
               target="_blank"
               className="flex items-center justify-between text-white border border-white/30 rounded p-3 md:p-4 hover:bg-white/10 transition-colors"
             >

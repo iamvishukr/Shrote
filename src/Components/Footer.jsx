@@ -50,7 +50,7 @@ const Footer = () => {
                   <span className="flex gap-4">
                     <Link to="https://www.instagram.com/shroteconsultancy/?igsh=MTVhdTFjaWN0cjVncw%3D%3D" aria-label="Instagram"><BsInstagram className="text-2xl cursor-pointer" /></Link>
                     <Link to="https://x.com/Shrote_services?t=RlqvR_syDwl03FuUpCTK9w&s=09&mx=2" aria-label="Twitter"><BsTwitter className="text-2xl cursor-pointer" /></Link>
-                    <Link to="https://www.linkedin.com/in/shrote-consultancy-services-54ba72337/" aria-label="LinkedIn"><BsLinkedin className="text-2xl cursor-pointer" /></Link>
+                    <Link to="https://www.linkedin.com/company/shrote-consultancy-services/" aria-label="LinkedIn"><BsLinkedin className="text-2xl cursor-pointer" /></Link>
                     <Link to="https://www.facebook.com/people/Shrote/61569121190721/" aria-label="Facebook"><BsFacebook className="text-2xl cursor-pointer"/></Link>
                   </span>
                 </div>
