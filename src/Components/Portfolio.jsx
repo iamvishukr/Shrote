@@ -1,6 +1,8 @@
 import React, { forwardRef } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import scrollpedia from '../assets/scrollpedia.png'
+import partyvines from "../assets/partyvines.jpg"
 
 const Portfolio = forwardRef((_, ref) => {
   const portfolioItems = [
@@ -8,13 +10,13 @@ const Portfolio = forwardRef((_, ref) => {
       title: "ScrollPedia",
       category: "Blog Website",
       link: "https://scrollpedia.in/",
-      image: "../src/assets/scrollpedia.png"
+      image: scrollpedia
     },
     {
       title: "Partyvines",
       category: "Event management",
       link: "https://www.partyvines.com",
-      image: "../src/assets/partyvines.jpg",
+      image: partyvines,
     },
     // {
     //   title: "Shree Collection",
