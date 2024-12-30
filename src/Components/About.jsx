@@ -188,11 +188,11 @@ const handleStartProject = () => {
               <ul className="space-y-4">
                 <li className="flex items-center space-x-3">
                   <div className="h-2 w-2 bg-blue-500 rounded-full"></div>
-                  <span>10+ Years of Industry Experience</span>
+                  <span>Passionate Team of Experts</span>
                 </li>
                 <li className="flex items-center space-x-3">
                   <div className="h-2 w-2 bg-blue-500 rounded-full"></div>
-                  <span>200+ Successful Projects</span>
+                  <span>Tailored Solutions</span>
                 </li>
                 <li className="flex items-center space-x-3">
                   <div className="h-2 w-2 bg-blue-500 rounded-full"></div>
