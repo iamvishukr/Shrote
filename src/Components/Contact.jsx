@@ -2,6 +2,12 @@ import { Link } from "react-router-dom";
 // import FlowerAnimation from "../Utils/FlowerAnimation";
 // import BlackholeAnimation from "../Utils/BlackholeAnimation";
 import Typewriter from 'typewriter-effect';
+import { getFirestore, collection, addDoc } from "firebase/firestore";
+import app from "../../firebaseConfig";
+import { useState } from "react";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 import {
   FaLinkedin,
@@ -14,6 +20,33 @@ import {
 // import { BiLeftArrowAlt, BiRightArrow, BiRightArrowAlt } from "react-icons/bi";
 
 export default function ContactPage() {
+
+  const db = getFirestore(app); // Initialize Firestore
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    contactNo: "",
+    projectBrief: "",
+  });
+
+  // Handle form field changes
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevent default form behavior
+    try {
+      await addDoc(collection(db, "contacts"), formData); // Save data to Firestore
+      toast.success("Thanks for Contacting. We will reach you Soon")
+      setFormData({ name: "", email: "", contactNo: "", projectBrief: "" }); // Reset form
+    } catch (error) {
+      toast.error("Something went wrong we are working on this issue!")
+    }
+  };
+
   return (
     <div className="relative min-h-screen bg-black text-white pt-24 pb-6">
       <div className="absolute inset-0 z-0">
@@ -109,35 +142,46 @@ export default function ContactPage() {
             <div className="h-0.5 bg-red-500 mt-2"></div>
           </h1>
 
-          <form className="space-y-4">
+          <form className="space-y-4" onSubmit={handleSubmit}>
             <input
               type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
               placeholder="Name"
               className="w-full p-3 md:p-4 border border-gray-400 bg-gray-100 rounded focus:outline-none"
+              required
             />
 
             <input
               type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
               placeholder="Email"
               className="w-full p-3 md:p-4 border border-gray-400 bg-gray-100 rounded focus:outline-none"
+              required
             />
 
             <input
               type="tel"
+              name="contactNo"
+              value={formData.contactNo}
+              onChange={handleChange}
               placeholder="Contact No."
               className="w-full p-3 md:p-4 border border-gray-400 bg-gray-100 rounded focus:outline-none"
+              required
             />
 
             <textarea
+              name="projectBrief"
+              value={formData.projectBrief}
+              onChange={handleChange}
               placeholder="Project Brief"
               rows="4"
               className="w-full p-3 md:p-4 border border-gray-400 bg-gray-100 rounded resize-none focus:outline-none"
+              required
             ></textarea>
-
-            <div
-              className="g-recaptcha"
-              data-sitekey="your-recaptcha-site-key"
-            ></div>
 
             <button
               type="submit"
@@ -146,8 +190,11 @@ export default function ContactPage() {
               Submit
             </button>
           </form>
+
+          
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 }
