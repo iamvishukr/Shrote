@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react'
 import { addDays, format, isSameDay } from 'date-fns'
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "./Dialog"
 import { X } from 'lucide-react'
+import app from "../../firebaseConfig";
+import { getFirestore, collection, addDoc } from "firebase/firestore";
+
+
 
 const timeSlots = [
   '10:00 AM', '10:30 AM', '11:00 AM', '11:30 AM',
@@ -12,6 +16,13 @@ const timeSlots = [
 const weekDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 
 export default function ScheduleCallDialog({ isOpen, onClose }) {
+
+  const db = getFirestore(app);
+  const [email, setEmail] = useState("");
+  const handleEmail = (e)=>{
+    setEmail(e.target.value)
+  }
+
   const [selectedDate, setSelectedDate] = useState(new Date())
   const [selectedTime, setSelectedTime] = useState('11:30 AM')
   const [dateRange, setDateRange] = useState([])
@@ -35,10 +46,26 @@ export default function ScheduleCallDialog({ isOpen, onClose }) {
     }
   }
 
-  const handleBooking = () => {
-    console.log(`Booking for ${format(selectedDate, 'dd MMMM yyyy')} at ${selectedTime}`)
-    onClose()
-  }
+  const handleBooking = async () => {
+    const scheduleData = {
+      email:email,
+      date: format(selectedDate, 'yyyy-MM-dd'),
+      time: selectedTime,
+      timestamp: new Date().toISOString(),
+    };
+  
+    try {
+      const docRef = await addDoc(collection(db, "schedules"), scheduleData);
+      //console.log("Document written with ID: ", docRef.id);
+      alert("Meeting Scheduling Sucessfully");
+      onClose();
+    } catch (error) {
+      //console.error("Error adding document: ", error);
+      alert("An error occurred. Please try again.");
+    }
+  };
+
+
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
@@ -46,7 +73,7 @@ export default function ScheduleCallDialog({ isOpen, onClose }) {
         <DialogHeader>
           <div className="flex items-center justify-between">
             <DialogTitle className="text-xl font-normal">
-              Schedule a call for support
+              Schedule a meeting 
             </DialogTitle>
             <button
               variant="ghost"
@@ -151,6 +178,16 @@ export default function ScheduleCallDialog({ isOpen, onClose }) {
               ))}
             </div>
           </div>
+
+          <input
+              type="email"
+              name="email"
+              value={email}
+              onChange={handleEmail}
+              placeholder="Email"
+              className="w-full p-3 md:p-4 border text-black border-gray-400 bg-gray-100 rounded focus:outline-none"
+              required
+            />
 
           <button
             className="w-full bg-blue-600 hover:bg-blue-700 text-white py-6"
