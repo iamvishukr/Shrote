@@ -73,9 +73,9 @@ const Careers = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
-          className="mt-16 bg-white rounded-2xl p-8 shadow-lg "
+          className=" bg-white rounded-2xl p-8 shadow-lg mt-4"
         >
-          <h2 className="text-3xl font-bold mb-8 text-gray-800">
+          <h2 className="text-3xl font-bold mb-8 text-gray-800 ">
             Why Join Us?
           </h2>
           <div className="grid  grid-cols-1 md:grid-cols-3 gap-6">

@@ -41,7 +41,7 @@ const jobListings = [
 const JobList = () => {
   const handleApply = (jobTitle) => {
     // Replace with your actual form URL
-    const googleFormUrl = `https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform?usp=pp_url&entry.XXXXXX=${encodeURIComponent(jobTitle)}`;
+    const googleFormUrl = `https://docs.google.com/forms/d/e/1FAIpQLSdPkVOaiR8aHrv42zb_fBsZIpx72wnLaVvT7EcXx4LWXyGHMg/viewform?usp=sharing${encodeURIComponent(jobTitle)}`;
     window.open(googleFormUrl, '_blank');
   };
 

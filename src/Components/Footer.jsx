@@ -3,6 +3,7 @@ import React from "react";
 import { BsFacebook, BsInstagram, BsLinkedin, BsTwitter } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import "../../styles/footer.css";
+import { FaXTwitter } from 'react-icons/fa6';
 
 const Footer = () => {
   return (
@@ -49,7 +50,7 @@ const Footer = () => {
                   <h4 className="text-xl font-semibold mb-4">Follow Us</h4>
                   <span className="flex gap-4">
                     <Link to="https://www.instagram.com/shroteconsultancy/?igsh=MTVhdTFjaWN0cjVncw%3D%3D" aria-label="Instagram"><BsInstagram className="text-2xl cursor-pointer" /></Link>
-                    <Link to="https://x.com/Shrote_services?t=RlqvR_syDwl03FuUpCTK9w&s=09&mx=2" aria-label="Twitter"><BsTwitter className="text-2xl cursor-pointer" /></Link>
+                    <Link to="https://x.com/Shrote_services?t=RlqvR_syDwl03FuUpCTK9w&s=09&mx=2" aria-label="Twitter"><FaXTwitter className="text-2xl cursor-pointer" /></Link>
                     <Link to="https://www.linkedin.com/company/shrote-consultancy-services/" aria-label="LinkedIn"><BsLinkedin className="text-2xl cursor-pointer" /></Link>
                     <Link to="https://www.facebook.com/people/Shrote/61569121190721/" aria-label="Facebook"><BsFacebook className="text-2xl cursor-pointer"/></Link>
                   </span>

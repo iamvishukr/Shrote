@@ -17,6 +17,7 @@ import {
   FaInstagram,
   FaWhatsapp,
 } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 // import { BiLeftArrowAlt, BiRightArrow, BiRightArrowAlt } from "react-icons/bi";
 
 export default function ContactPage() {
@@ -128,8 +129,8 @@ export default function ContactPage() {
               className="flex items-center justify-between text-white border border-white/30 rounded p-3 md:p-4 hover:bg-white/10 transition-colors"
             >
               <div className="flex items-center gap-3 md:gap-4">
-                <FaTwitter className="text-xl md:text-2xl text-blue-500" />
-                <span className="text-lg md:text-xl">Twitter</span>
+                <FaXTwitter className="text-xl md:text-2xl text-blue-500" />
+                <span className="text-lg md:text-xl">X</span>
               </div>
               <FaArrowRight />
             </Link>
@@ -194,7 +195,7 @@ export default function ContactPage() {
           
         </div>
       </div>
-      
+      <ToastContainer />
     </div>
   );
 }
