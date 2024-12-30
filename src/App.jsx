@@ -11,6 +11,8 @@ import Preloader from './Utils/Preloader';
 // import PageTransition from './Utils/PageTransition';
 import ContactPage from './Components/Contact';
 import ScheduleCallDialog from './Components/ScheduleCallDialog';
+import About from './Components/About';
+import AboutUs from '../Pages/AboutUs';
 
 const Home = lazy(() => import('../Pages/Home'));
 const Careers = lazy(() => import('../Pages/Careers'));
@@ -46,6 +48,7 @@ function App() {
               <Routes>
               <Route path="/home" element={<Navigate to="/" />} />
                 <Route path="/" element={<Home />} />
+                <Route path="/about" element={<AboutUs />} />
                 <Route path="/career" element={<Careers />} />
                 <Route path="/contact" element={<ContactPage />} />
                 {/* <Route path="/schedule" element={<ScheduleCallDialog />} /> */}

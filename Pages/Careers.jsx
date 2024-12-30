@@ -23,8 +23,8 @@ const Careers = () => {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-16 "
         >
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent">
-            Join Our Team
+          <h1 className="text-4xl md:text-5xl font-bold mb-6  text-black bg-clip-text ">
+            Join Our <span className="text-blue-500">Team</span>
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Be part of our mission to create innovative solutions that make a
