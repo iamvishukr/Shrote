@@ -7,7 +7,7 @@ import Services from '../src/Components/Services';
 import Portfolio from '../src/Components/Portfolio';
 import Testimonials from '../src/Components/Testimonials';
 import CallToAction from '../src/Components/CallToAction';
-import {ogImage} from 'src/assets/og-image.png';
+import ogImage from '../src/assets/og-image.png';
 
 const Home = () => {
     const section1Ref = useRef(null);
