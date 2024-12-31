@@ -20,7 +20,7 @@ const SEO = ({ title, description, keywords, image }) => {
       <title>{fullTitle}</title>
       <meta name="title" content={fullTitle} />
       <meta name="description" content={description || siteDescription} />
-      <meta name="keywords" content={keywords || 'web design, web development, Shrote, websites, SEO'} />
+      <meta name="keywords" content={keywords || 'web design, web development, Shrote, websites, SEO, shrote service, shrote consultancy, web design ranchi, design a website, web development ranchi'} />
 
       {/* Open Graph / Facebook */}
       <meta property="og:type" content="website" />
