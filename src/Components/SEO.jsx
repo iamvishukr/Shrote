@@ -9,9 +9,7 @@ const SEO = ({ title, description, keywords, image }) => {
   const siteUrl = 'https://www.shrote.com';
   
   // Ensure image URL is absolute
-  const imageUrl = image ? 
-    (image.startsWith('http') ? image : `${siteUrl}${image}`) : 
-    `${siteUrl}/og-image.png`;
+  const imageUrl = 'www.shrote.com/wordpress.jpeg';
 
   // Construct full title
   const fullTitle = `${title ? `${title} | ` : ''}${siteTitle}`;
