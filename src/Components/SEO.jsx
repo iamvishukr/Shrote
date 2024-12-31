@@ -5,7 +5,7 @@ const SEO = ({ title, description, keywords, image, url }) => {
   const siteTitle = 'Shrote - Web Design & Development';
   const siteDescription = "Elevate your online presence with Shrote's expert team's innovative designs and seamless functionality.";
   const siteUrl = 'https://www.shrote.com';
-  const defaultImage = 'https://www.shrote.com/assets/og-image.png'; // Replace with the actual hosted image URL
+  const defaultImage = `https://www.shrote.com/${image}`; // Replace with the actual hosted image URL
 
   return (
     <Helmet>
@@ -20,7 +20,7 @@ const SEO = ({ title, description, keywords, image, url }) => {
       <meta property="og:title" content={`${title} | ${siteTitle}`} />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={url || siteUrl} />
-      <meta property="og:image" content={image || defaultImage} />
+      <meta property="og:image" content={defaultImage} />
       <meta property="og:description" content={description || siteDescription} />
       <meta property="og:site_name" content={siteTitle} />
       <meta property="og:locale" content="en_US" />
