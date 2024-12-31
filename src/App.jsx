@@ -30,7 +30,7 @@ function App() {
     // Show the preloader for 5 seconds
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 3000);
+    }, 1000);
 
     return () => clearTimeout(timer); // Cleanup the timer on unmount
   }, []);

@@ -1,17 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
 
 export default function Preloader() {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    // Simulate loading time (remove this in production and use real loading logic)
-    const timer = setTimeout(() => setLoading(false), 1000);
-    return () => clearTimeout(timer);
-  }, []);
-
   const spinTransition = {
     loop: Infinity,
     ease: "linear",
@@ -25,8 +16,6 @@ export default function Preloader() {
     repeat: Infinity,
     repeatType: "reverse",
   };
-
-  if (!loading) return null;
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-white z-50">
