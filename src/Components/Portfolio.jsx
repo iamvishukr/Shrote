@@ -15,7 +15,7 @@ const Portfolio = forwardRef((_, ref) => {
     {
       title: "Partyvines",
       category: "Event management",
-      link: "https://www.partyvines.com",
+      link: "https://gourav-gk.github.io/partyvines/",
       image: partyvines,
     },
     // {
