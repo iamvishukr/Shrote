@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import JobList from "../src/Components/Careers/JobList";
 import SEO from '../src/Components/SEO';
+import ogImage from '../src/assets/og-image.jpeg'
+
 
 const Careers = () => {
   useEffect(() => {
@@ -17,10 +19,11 @@ const Careers = () => {
       className="min-h-screen  bg-gradient-to-b from-purple-50 to-white"
       style={{ marginTop: "100px", marginBottom: "80px" }}
     >
-      <SEO
-        title="Career"
-        description="Shrote - Elevate your online presence with our expert team's innovative designs and seamless functionality."
-        keywords="web design, web development, SEO, digital marketing"
+       <SEO
+        title="Careers"
+        description="Join our team at Shrote and be part of creating innovative digital solutions that transform businesses."
+        keywords="careers, jobs, web development jobs, tech careers, Shrote careers"
+        image= {ogImage}
       />
       <div className="container mx-auto px-4 py-16 ">
         {/* Hero Section */}

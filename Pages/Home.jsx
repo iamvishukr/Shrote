@@ -19,11 +19,11 @@ const Home = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <SEO
+       <SEO
         title="Home"
-        description="Shrote - Elevate your online presence with our expert team's innovative designs and seamless functionality."
+        description="Transform your digital presence with Shrote's expert web design and development services."
         keywords="web design, web development, SEO, digital marketing"
-        image = {ogImage}
+        image={ogImage}
       />
       <Hero section1Ref={section1Ref} />
       <About />

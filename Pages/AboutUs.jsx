@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { FiTarget, FiTrendingUp, FiUsers } from "react-icons/fi";
 import { Rocket, Shield, Zap } from "lucide-react";
 import SEO from '../src/Components/SEO';
+import ogImage from '../src/assets/og-image.jpeg'
 
 
 const AboutUs = () => {
@@ -18,9 +19,10 @@ const AboutUs = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       <SEO
-        title="Career"
-        description="Shrote - Elevate your online presence with our expert team's innovative designs and seamless functionality."
-        keywords="web design, web development, SEO, digital marketing"
+        title="About Us"
+        description="Learn about Shrote's mission to revolutionize web development and empower businesses in the digital age."
+        keywords="about us, web development company, digital solutions, Shrote team"
+        image={ogImage}
       />
       <main
         className="container mx-auto px-4 py-16 sm:px-6 lg:px-8"
