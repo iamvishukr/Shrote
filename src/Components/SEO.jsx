@@ -17,13 +17,13 @@ const SEO = ({ title, description, keywords, image }) => {
       <meta name="twitter:creator" content="@Shrote_services" /> 
       <meta name="twitter:title" content={`${title} | ${siteTitle}`} />
       <meta name="twitter:description" content={description || siteDescription} />
-      <meta name="twitter:image" content={image || '../assets/og-image.png'} />
+      <meta name="twitter:image" content={image || '../src/assets/og-image.png'} />
 
       {/* Facebook Card */}
       <meta property="og:title" content={`${title} | ${siteTitle}`} />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://www.shrote.com" /> 
-      <meta property="og:image" content={image || '../assets/og-image.png'} />
+      <meta property="og:image" content={image || '../src/assets/og-image.png'} />
       <meta property="og:description" content={description || siteDescription} />
       <meta property="og:site_name" content={siteTitle} /> 
     </Helmet>
