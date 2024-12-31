@@ -18,7 +18,7 @@ import ContactPage from "./Components/Contact";
 import ScheduleCallDialog from "./Components/ScheduleCallDialog";
 import About from "./Components/About";
 import AboutUs from "../Pages/AboutUs";
-import Dashboard from "../Admin/Dashboard/Dashboard";
+//import Dashboard from "../Admin/Dashboard/Dashboard";
 
 const Home = lazy(() => import("../Pages/Home"));
 const Careers = lazy(() => import("../Pages/Careers"));
@@ -43,7 +43,7 @@ function App() {
   return (
     <Router>
     <Routes>
-      <Route path="/admin" element={<Dashboard />} />
+      {/* <Route path="/admin" element={<Dashboard />} /> */}
       <Route
         path="*"
         element={
