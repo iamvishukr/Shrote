@@ -4,6 +4,8 @@ import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import { FiTarget, FiTrendingUp, FiUsers } from "react-icons/fi";
 import { Rocket, Shield, Zap } from "lucide-react";
+import SEO from '../src/Components/SEO';
+
 
 const AboutUs = () => {
   useEffect(() => {
@@ -15,6 +17,11 @@ const AboutUs = () => {
   }, []);
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+      <SEO
+        title="Career"
+        description="Shrote - Elevate your online presence with our expert team's innovative designs and seamless functionality."
+        keywords="web design, web development, SEO, digital marketing"
+      />
       <main
         className="container mx-auto px-4 py-16 sm:px-6 lg:px-8"
         style={{ marginTop: "80px", marginBottom: "100px" }}
