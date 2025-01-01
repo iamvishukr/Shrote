@@ -50,7 +50,7 @@ const SEO = ({ title, description, keywords, image }) => {
       <link rel="canonical" href={siteUrl} />
       
       {/* PWA */}
-      <link rel="icon" href="/favicon.ico" />
+      <link rel="icon" href="https://www.shrote.com/favicon.ico" />
       <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       <meta name="theme-color" content="#000000" />
     </Helmet>
