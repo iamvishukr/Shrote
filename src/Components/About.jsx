@@ -145,7 +145,7 @@ const handleStartProject = () => {
         </div> */}
 
         {/* Features Section */}
-        <div className="grid grid-cols-1 p-12 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg-p-12 lg:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
