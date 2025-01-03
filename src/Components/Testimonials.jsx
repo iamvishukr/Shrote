@@ -1,65 +1,86 @@
-'use client'
-
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect, useCallback } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const testimonials = [
   {
-    name: 'Tanmay Sahoo',
-    position: 'Founder',
-    company: 'Scrollpedia',
-    quote: "Working with Shrote was an absolute pleasure! They transformed our vision for Scrollpedia into a stunning and functional blog website. Their attention to detail, creativity, and seamless communication made the entire process effortless. Thanks to Shrote, our platform now stands out with a user-friendly design and exceptional performance. Highly recommended!"
+    name: "Anmol Gupta",
+    company: "Partyvines",
+    quote: "Shrote truly exceeded my expectations with their work on my event management website.I couldn't be happier with the outcome and would recommend Shrote to anyone looking for innovative and professional web solutions.",
   },
   {
-    name: 'Anmol Gupta',
-    position: 'CEO & Founder',
-    company: 'Partyvines',
-    quote: "I'm thrilled with the exceptional service provided by Shrote for my event management website. Their expertise, dedication, and creative approach resulted in a stunning and functional platform that exceeded my expectations. Shrote is a top-notch choice for anyone seeking professional and innovative web solutions."
+    name: "Tanmay Sahoo",
+    company: "Scroll Pedia",
+    quote: "Shrote did an amazing job with our blog, Scrollpedia. The design is sleek, user-friendly, and perfectly fits our brand. Their team was professional, responsive, and delivered beyond expectations. Highly recommend them.",
   },
-  
 ];
 
 const Testimonials = () => {
-  // Duplicate testimonials to create a seamless loop
-  const duplicatedTestimonials = [...testimonials, ...testimonials];
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const nextSlide = useCallback(() => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+  }, []);
+
+  const prevSlide = useCallback(() => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length);
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      nextSlide();
+    }, 8000);
+
+    return () => clearInterval(timer);
+  }, [nextSlide]);
 
   return (
     <section id="testimonials" className="bg-gray-800 py-20 overflow-hidden">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-8 text-white">What Our Clients Say</h2>
-        <motion.div 
-          className="flex"
-          animate={{
-            x: ['0%', '-50%']
-          }}
-          transition={{
-            x: {
-              repeat: Infinity,
-              repeatType: "loop",
-              duration: 10,
-              ease: "linear",
-            },
-          }}
-        >
-          {duplicatedTestimonials.map((testimonial, index) => (
-            <div key={index} className="flex-shrink-0 w-[80vw] md:w-[40vw] p-4">
-              <div className="bg-white p-6 rounded-lg shadow-md h-full">
-                <div className="flex items-center mb-4">
-                  {/* <div className="w-16 h-16 bg-gray-300 rounded-full mr-4"></div> */}
-                  <div>
-                    <h3 className="text-lg font-semibold">{testimonial.name}</h3>
-                    <p className="text-gray-600">{testimonial.position}, {testimonial.company}</p>
+        <div className="relative">
+          <div className="relative h-64 md:h-72 lg:h-80">
+            <AnimatePresence initial={false}>
+              <motion.div
+                key={currentIndex}
+                className="absolute inset-0 w-full md:w-3/4 lg:w-1/2 mx-auto"
+                initial={{ opacity: 0, x: 300 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -300 }}
+                transition={{ duration: 0.5 }}
+              >
+                <div className="bg-gray-100 p-6 rounded-lg shadow-md h-full flex flex-col justify-center">
+                  <div className="flex items-center mb-4">
+                    <div>
+                      <h3 className="text-lg font-semibold">{testimonials[currentIndex].name}</h3>
+                      <p className="text-gray-600">
+                        {testimonials[currentIndex].company}
+                      </p>
+                    </div>
                   </div>
+                  <p className="italic">{testimonials[currentIndex].quote}</p>
                 </div>
-                <p className="italic">{testimonial.quote}</p>
-              </div>
-            </div>
-          ))}
-        </motion.div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+          <button
+            onClick={prevSlide}
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md"
+            aria-label="Previous testimonial"
+          >
+            <ChevronLeft className="w-6 h-6 text-gray-800" />
+          </button>
+          <button
+            onClick={nextSlide}
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md"
+            aria-label="Next testimonial"
+          >
+            <ChevronRight className="w-6 h-6 text-gray-800" />
+          </button>
+        </div>
       </div>
     </section>
   );
 };
 
 export default Testimonials;
-
