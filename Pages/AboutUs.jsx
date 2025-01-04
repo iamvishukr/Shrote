@@ -6,6 +6,7 @@ import { FiTarget, FiTrendingUp, FiUsers } from "react-icons/fi";
 import { Rocket, Shield, Zap } from "lucide-react";
 import SEO from '../src/Components/SEO';
 import ogImage from '../src/assets/og-image.jpeg'
+import { Link } from "react-router-dom";
 
 
 const AboutUs = () => {
@@ -184,6 +185,7 @@ const AboutUs = () => {
             Join thousands of satisfied customers and take your business to the
             next level.
           </p>
+          <Link to='/contact'>
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -191,6 +193,7 @@ const AboutUs = () => {
           >
             Contact Us Today
           </motion.button>
+          </Link>
         </motion.section>
       </main>
     </div>

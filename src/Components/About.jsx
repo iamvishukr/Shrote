@@ -7,8 +7,8 @@ import { Link, useNavigate } from "react-router-dom";
 import ERP from "../assets/ERP.jpg";
 import ecommerce from "../assets/e-commerce.jpg";
 import digitalSpace from "../assets/digital-workplace.jpg";
-import virtual from '../assets/virtual.png'
-import hours from '../assets/hours.jpg'
+import virtual from "../assets/virtual.png";
+import hours from "../assets/hours.jpg";
 
 const features = [
   "Custom Web Development",
@@ -43,9 +43,9 @@ const portfolioImages = [
 const About = () => {
   const navigate = useNavigate();
 
-const handleStartProject = () => {
-  navigate("/contact");
-};
+  const handleStartProject = () => {
+    navigate("/contact");
+  };
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
@@ -167,13 +167,13 @@ const handleStartProject = () => {
                 </div>
               ))}
             </div>
-            <button
-              size="lg"
-              className="bg-blue-600 p-6 rounded-2xl hover:bg-blue-700 text-white"
-              onClick={handleStartProject}
-            >
-              Start Your Project
-            </button>
+              <button
+                size="lg"
+                className="bg-blue-600 p-6 rounded-2xl hover:bg-blue-700 text-white"
+                onClick={handleStartProject}
+              >
+                Start Your Project
+              </button>
           </motion.div>
 
           <motion.div
