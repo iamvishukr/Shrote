@@ -19,6 +19,7 @@ import ScheduleCallDialog from "./Components/ScheduleCallDialog";
 import About from "./Components/About";
 import AboutUs from "../Pages/AboutUs";
 import ErrorPage from "../Pages/Error";
+import ScrollUp from "./Components/ScrollUp";
 //import Dashboard from "../Admin/Dashboard/Dashboard";
 
 const Home = lazy(() => import("../Pages/Home"));
@@ -43,6 +44,7 @@ function App() {
 
   return (
     <Router>
+      <ScrollUp />
       <Routes>
         {/* NotFound route */}
         <Route path="*" element={<ErrorPage />} />
