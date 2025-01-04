@@ -43,7 +43,7 @@ const Testimonials = () => {
             <AnimatePresence initial={false}>
               <motion.div
                 key={currentIndex}
-                className="absolute inset-0 w-full md:w-3/4 lg:w-1/2 mx-auto"
+                className="absolute inset-0 md:w-3/4 lg:min-w-64 mx-auto"
                 initial={{ opacity: 0, x: 300 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -300 }}
@@ -65,14 +65,14 @@ const Testimonials = () => {
           </div>
           <button
             onClick={prevSlide}
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md"
+            className="absolute -left-4 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md"
             aria-label="Previous testimonial"
           >
             <ChevronLeft className="w-6 h-6 text-gray-800" />
           </button>
           <button
             onClick={nextSlide}
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md"
+            className="absolute -right-4 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md"
             aria-label="Next testimonial"
           >
             <ChevronRight className="w-6 h-6 text-gray-800" />
