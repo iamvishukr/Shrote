@@ -66,8 +66,15 @@ const About = () => {
               className="mx-auto mb-8"
             /> */}
             <div className="logo">
-              <Link to="/" className="text-8xl font-bold mx-auto mb-8">
-                <span className="text-blue-500">S</span>hrote
+              <Link to="/" className="text-8xl">
+                <span className="text-blue-500 mr-1">S</span>
+                <span id="logo">
+                  <span className="mr-1">h</span>
+                  <span className="mr-1">r</span>
+                  <span className="mr-1">o</span>
+                  <span className="mr-1">t</span>
+                  <span className="mr-1">e</span>
+                </span>
               </Link>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
@@ -167,13 +174,13 @@ const About = () => {
                 </div>
               ))}
             </div>
-              <button
-                size="lg"
-                className="bg-blue-600 p-6 rounded-2xl hover:bg-blue-700 text-white"
-                onClick={handleStartProject}
-              >
-                Start Your Project
-              </button>
+            <button
+              size="lg"
+              className="bg-blue-600 p-6 rounded-2xl hover:bg-blue-700 text-white"
+              onClick={handleStartProject}
+            >
+              Start Your Project
+            </button>
           </motion.div>
 
           <motion.div
