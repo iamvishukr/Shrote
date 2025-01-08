@@ -22,6 +22,8 @@ import { FaXTwitter } from "react-icons/fa6";
 
 export default function ContactPage() {
 
+  
+
   const db = getFirestore(app); // Initialize Firestore
   const [formData, setFormData] = useState({
     name: "",

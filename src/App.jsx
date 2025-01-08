@@ -4,6 +4,7 @@ import {
   Route,
   Routes,
   Navigate,
+  useLocation,
 } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import Header from "./Components/Header";
@@ -12,15 +13,12 @@ import ScrollToTop from "./Components/ScrollToTop";
 import "../src/index.css";
 import "../styles/globals.css";
 import Preloader from "./Utils/Preloader";
-// import ExitPreloader from './Utils/ExitPreloader';
-// import PageTransition from './Utils/PageTransition';
 import ContactPage from "./Components/Contact";
 import ScheduleCallDialog from "./Components/ScheduleCallDialog";
-import About from "./Components/About";
 import AboutUs from "../Pages/AboutUs";
 import ErrorPage from "../Pages/Error";
 import ScrollUp from "./Components/ScrollUp";
-//import Dashboard from "../Admin/Dashboard/Dashboard";
+import AdminDashboard from "../Pages/Dashboard";
 
 const Home = lazy(() => import("../Pages/Home"));
 const Careers = lazy(() => import("../Pages/Careers"));
@@ -29,58 +27,61 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Show the preloader for 5 seconds
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 1000);
 
-    return () => clearTimeout(timer); // Cleanup the timer on unmount
+    return () => clearTimeout(timer);
   }, []);
 
   if (isLoading) {
-    // Render only the Preloader while loading
     return <Preloader />;
   }
 
   return (
     <Router>
       <ScrollUp />
-      <Routes>
-        {/* NotFound route */}
-        <Route path="*" element={<ErrorPage />} />
+      <div className="flex flex-col min-h-screen bg-gray-50 text-gray-900">
+        <Layout>
+          <AnimatePresence mode="wait">
+            <Suspense fallback={<div className="loader"></div>}>
+              <Routes>
+                {/* Redirect /home to / */}
+                <Route path="/home" element={<Navigate to="/" />} />
 
-        {/* Routes with common layout */}
-        <Route
-          path="/"
-          element={
-            <div className="flex flex-col min-h-screen bg-gray-50 text-gray-900">
-              <Header />
-              <main className="flex-grow">
-                <AnimatePresence mode="wait">
-                  <Suspense fallback={<div className="loader"></div>}>
-                    <Routes>
-                      <Route path="/home" element={<Navigate to='/' />} />
-                      <Route path="/" element={<Home />} />
-                      <Route path="/about" element={<AboutUs />} />
-                      <Route path="/career" element={<Careers />} />
-                      <Route path="/contact" element={<ContactPage />} />
-                    </Routes>
-                  </Suspense>
-                </AnimatePresence>
-              </main>
-              <Footer />
-              <ScrollToTop />
-            </div>
-          }
-        >
-          <Route index element={<Home />} />
-          <Route path="home" element={<Navigate to='/' />} />
-          <Route path="about" element={<AboutUs />} />
-          <Route path="career" element={<Careers />} />
-          <Route path="contact" element={<ContactPage />} />
-        </Route>
-      </Routes>
+                {/* Public Routes */}
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<AboutUs />} />
+                <Route path="/career" element={<Careers />} />
+                <Route path="/contact" element={<ContactPage />} />
+
+                {/* Admin Route */}
+                <Route path="/admin" element={<AdminDashboard />} />
+
+                {/* Fallback Route */}
+                <Route path="*" element={<ErrorPage />} />
+              </Routes>
+            </Suspense>
+          </AnimatePresence>
+        </Layout>
+      </div>
     </Router>
+  );
+}
+
+function Layout({ children }) {
+  const location = useLocation();
+
+  // Exclude Header and Footer for "/admin" route
+  const isDashboard = location.pathname.startsWith("/admin");
+
+  return (
+    <>
+      {!isDashboard && <Header />}
+      <main className="flex-grow">{children}</main>
+      {!isDashboard && <Footer />}
+      <ScrollToTop />
+    </>
   );
 }
 
