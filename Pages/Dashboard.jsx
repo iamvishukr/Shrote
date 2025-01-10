@@ -241,7 +241,9 @@ const db = getFirestore(app);
 const auth = getAuth(app);
 
 export default function AdminDashboard() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(() =>
+    JSON.parse(localStorage.getItem('isLogin') || 'false')
+  );
   const [activeTab, setActiveTab] = useState("overview");
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [contacts, setContacts] = useState([]);
@@ -330,6 +332,7 @@ export default function AdminDashboard() {
     try {
       await signInWithEmailAndPassword(auth, userId, password);
       setIsLoggedIn(true);
+      localStorage.setItem('isLogin', true);
       toast.success("Login successful!");
     } catch (error) {
       console.error("Login error: ", error);
@@ -340,6 +343,7 @@ export default function AdminDashboard() {
   const handleLogout = async () => {
     try {
       await signOut(auth);
+      localStorage.setItem('isLogin', false);
       setIsLoggedIn(false);
       setUserId("");
       setPassword("");
