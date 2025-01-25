@@ -45,12 +45,12 @@ export default function ScheduleCallDialog({ isOpen, onClose }) {
   const phoneRegex = /^[6-9]\d{9}$/; // Regex for valid Indian phone numbers
 
   if (!email.trim()) {
-    // alert("Please enter a valid email address.");
-    toast.error("Please enter a valid email: ");
+    alert("Please enter a valid email address.");
+    // toast.error("Please enter a valid email: ");
     return;
   }
   if (!phone.trim() || !phoneRegex.test(phone)) {
-    toast.error("Please enter a valid 10-digit Number");
+    alert("Please enter a valid 10-digit Number");
     return;
   }
 
@@ -64,10 +64,10 @@ export default function ScheduleCallDialog({ isOpen, onClose }) {
 
   try {
     const docRef = await addDoc(collection(db, "schedules"), scheduleData);
-    toast.success("Meeting Scheduled Successfully");
+    alert("Meeting Scheduled Successfully");
     onClose();
   } catch (error) {
-    toast.error("An error occurred. Please try again.");
+    alert("An error occurred. Please try again.");
   }
 };
 
