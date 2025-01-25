@@ -629,6 +629,9 @@ export default function AdminDashboard() {
                     <p style={{color: '#4b5563', marginBottom: '1rem'}}>
                       <strong>Email:</strong> {schedule.email}
                     </p>
+                     <p style={{color: '#4b5563', marginBottom: '1rem'}}>
+                      <strong>Phone:</strong> {schedule.phone}
+                    </p>
                     <button
                       onClick={() => handleDeleteSchedule(schedule.id)}
                       style={{...styles.button, ...styles.deleteButton, width: '100%', ...(isSmallScreen ? responsiveStyles.button : {})}}
@@ -765,6 +768,7 @@ export default function AdminDashboard() {
                   style={{...styles.input, ...(isSmallScreen ? responsiveStyles.input : {})}}
                 />
               </div>
+              
               <div style={styles.buttonGroup}>
                 <button
                   type="submit"
