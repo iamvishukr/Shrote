@@ -42,31 +42,33 @@ export default function ScheduleCallDialog({ isOpen, onClose }) {
   };
 
   const handleBooking = async () => {
-    if (!email.trim()) {
-      alert("Please enter a valid email address.");
-      return;
-    }
-    if (!phone.trim() || !/^\d{10}$/.test(phone)) {
-      alert("Please enter a valid 10-digit phone number.");
-      return;
-    }
+  const phoneRegex = /^[6-9]\d{9}$/; // Regex for valid Indian phone numbers
 
-    const scheduleData = {
-      email,
-      phone,
-      date: format(selectedDate, 'yyyy-MM-dd'),
-      time: selectedTime,
-      timestamp: new Date().toISOString(),
-    };
+  if (!email.trim()) {
+    alert("Please enter a valid email address.");
+    return;
+  }
+  if (!phone.trim() || !phoneRegex.test(phone)) {
+    alert("Please enter a valid 10-digit phone number starting with 6, 7, 8, or 9.");
+    return;
+  }
 
-    try {
-      const docRef = await addDoc(collection(db, "schedules"), scheduleData);
-      alert("Meeting Scheduled Successfully");
-      onClose();
-    } catch (error) {
-      alert("An error occurred. Please try again.");
-    }
+  const scheduleData = {
+    email,
+    phone,
+    date: format(selectedDate, 'yyyy-MM-dd'),
+    time: selectedTime,
+    timestamp: new Date().toISOString(),
   };
+
+  try {
+    const docRef = await addDoc(collection(db, "schedules"), scheduleData);
+    alert("Meeting Scheduled Successfully");
+    onClose();
+  } catch (error) {
+    alert("An error occurred. Please try again.");
+  }
+};
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
@@ -159,15 +161,18 @@ export default function ScheduleCallDialog({ isOpen, onClose }) {
           />
 
           {/* Phone input */}
-          <input
-            type="text"
-            name="phone"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            placeholder="Phone Number"
-            className="w-full p-3 border text-black border-gray-400 bg-gray-100 rounded focus:outline-none"
-            required
-          />
+         <input
+  type="tel"
+  name="phone"
+  value={phone}
+  onChange={(e) => setPhone(e.target.value)}
+  placeholder="Phone Number"
+  className="w-full p-3 border text-black border-gray-400 bg-gray-100 rounded focus:outline-none"
+  pattern="[6-9][0-9]{9}" // Restricts the input format
+  title="Phone number must start with 6, 7, 8, or 9 and be 10 digits long."
+  required
+/>
+
 
           {/* Submit button */}
           <button
