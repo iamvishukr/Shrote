@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import scrollpedia from '../assets/scrollpedia.png'
 import partyvines from "../assets/partyvines.jpg"
+import espace from "../assets/eSpace.jpg"
 
 
 const Portfolio = forwardRef((_, ref) => {
@@ -23,6 +24,8 @@ const Portfolio = forwardRef((_, ref) => {
       title: "eSpace",
       category: " Real Estate",
       link: "https://www.espace.ae/",
+      image: espace,
+      
     },
   ];
 
