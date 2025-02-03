@@ -13,6 +13,11 @@ const testimonials = [
     company: "Scroll Pedia",
     quote: "Shrote did an amazing job with our blog, Scrollpedia. The design is sleek, user-friendly, and perfectly fits our brand. Their team was professional, responsive, and delivered beyond expectations. Highly recommend them.",
   },
+  {
+    name: "John Lyons ~ Managing Director",
+    company: "eSpace",
+    quote: "A huge thank you to Shrote.com for providing amazing service in designing and developing the website for my business! The team there is fantastic to work with, reliable, and always goes overboard. They completed the tasks amidst deadlines, were reachable, and put plenty of effort into developing a stunningly appealing and high-converting site. I am very happy with the end result, and I will hire them for future works. Highly recommended! .",
+  },
 ];
 
 const Testimonials = () => {
