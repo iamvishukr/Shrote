@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import scrollpedia from '../assets/scrollpedia.png'
 import partyvines from "../assets/partyvines.jpg"
 
+
 const Portfolio = forwardRef((_, ref) => {
   const portfolioItems = [
     {
@@ -18,11 +19,11 @@ const Portfolio = forwardRef((_, ref) => {
       link: "https://gourav-gk.github.io/partyvines/",
       image: partyvines,
     },
-    // {
-    //   title: "Shree Collection",
-    //   category: "E-commerce Store",
-    //   link: "https://demo6.crazymarketer.online",
-    // },
+    {
+      title: "eSpace",
+      category: " Real Estate",
+      link: "https://www.espace.ae/",
+    },
   ];
 
   return (
