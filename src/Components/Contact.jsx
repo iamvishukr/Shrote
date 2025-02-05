@@ -1,203 +1,155 @@
-import { Link } from "react-router-dom";
-// import FlowerAnimation from "../Utils/FlowerAnimation";
-// import BlackholeAnimation from "../Utils/BlackholeAnimation";
-import Typewriter from 'typewriter-effect';
-import { getFirestore, collection, addDoc } from "firebase/firestore";
-import app from "../../firebaseConfig";
-import { useState } from "react";
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X, Home, Briefcase, ChevronDown } from "lucide-react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import ScheduleCallDialog from "./ScheduleCallDialog";
 
+const Header = () => {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
-import {
-  FaLinkedin,
-  FaFacebook,
-  FaTwitter,
-  FaArrowRight,
-  FaInstagram,
-  FaWhatsapp,
-} from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
-// import { BiLeftArrowAlt, BiRightArrow, BiRightArrowAlt } from "react-icons/bi";
+  // Check if the current page is "/contact"
+  const isContactPage = location.pathname === "/contact";
 
-export default function ContactPage() {
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
 
-  
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-  const db = getFirestore(app); // Initialize Firestore
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    contactNo: "",
-    projectBrief: "",
-  });
-
-  // Handle form field changes
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  // Handle form submission
-  const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent default form behavior
-    try {
-      await addDoc(collection(db, "contacts"), formData); // Save data to Firestore
-      toast.success("Thanks for Contacting. We will reach you Soon")
-      setFormData({ name: "", email: "", contactNo: "", projectBrief: "" }); // Reset form
-    } catch (error) {
-      toast.error("Something went wrong we are working on this issue!")
-    }
+  const navigate = useNavigate();
+  const handleRequestQuote = () => {
+    navigate("/contact");
   };
 
   return (
-    <div className="relative min-h-screen bg-black text-white pt-24 pb-6">
-      <div className="absolute inset-0 z-0">
-        {/* <FlowerAnimation /> */}
-        {/* < BlackholeAnimation />  */}
-      </div>
+    <motion.header
+      className={`fixed w-full z-50 transition-all duration-300 ${
+        isScrolled ? "bg-white/90 backdrop-blur-md shadow-lg" : "bg-transparent"
+      }`}
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ type: "spring", stiffness: 100, damping: 20 }}
+    >
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-16 md:h-20">
+          {/* Logo */}
+          <motion.div
+            className="flex items-center"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <div className="logo">
+              <Link to="/" className="text-4xl">
+                <span className="text-blue-500 mr-1">S</span>
+                <span
+                  id="logo"
+                  className={`${
+                    isContactPage || isScrolled ? "text-black" : "text-white"
+                  }`}
+                >
+                  <span className="mr-1">h</span>
+                  <span className="mr-1">r</span>
+                  <span className="mr-1">o</span>
+                  <span className="mr-1">t</span>
+                  <span className="mr-1">e</span>
+                </span>
+              </Link>
+            </div>
+          </motion.div>
 
-      <h1 className="text-3xl text-center font-bold">
-        Let’s create something amazing together –
-        <span className="text-yellow-500">
-          <Typewriter
-            options={{
-              strings: ["we’re just a message away !!! 👀"],
-              autoStart: true,
-              loop: true,
-            }}
-          />
-        </span>
-      </h1>
-
-      <div className="relative  z-10 flex flex-col md:flex-row mx-6 md:mx-12 lg:mx-24 xl:mx-48 py-12">
-        <div className="w-full border border-gray-800 md:w-1/2 bg-black/80 backdrop-blur-sm p-6 md:p-8 lg:p-12">
-          <h1 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-end">
-            Get In <span className="text-blue-600"> Touch</span>
-            <div className="h-0.5 bg-white mt-2"></div>
-          </h1>
-
-          <div className="space-y-4">
-            <Link
-              to="https://wa.me/7667983607?text=Hello!%20I%20need%20a%20website%20for%20my%20business"
-              target="_blank"
-              className="flex items-center justify-between text-white border border-white/30 rounded p-3 md:p-4 hover:bg-white/10 transition-colors"
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-8">
+            {["Home", "About", "Contact", "Career"].map((item) => (
+              <NavItem
+                key={item}
+                label={item}
+                isScrolled={isScrolled}
+                isContactPage={isContactPage}
+              />
+            ))}
+            <motion.button
+              onClick={openDialog}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-6 py-2 bg-gradient-to-r from-purple-600 to-blue-500 text-white rounded-full font-medium hover:shadow-lg transition-shadow duration-300"
             >
-              <div className="flex items-center gap-3 md:gap-4">
-                <FaWhatsapp className="text-xl md:text-2xl text-green-500" />
-                <span className="text-lg md:text-xl">WhatsApp</span>
-              </div>
-              <FaArrowRight />
-            </Link>
-            <Link
-              to="https://www.linkedin.com/company/shrote-consultancy-services/"
-              target="_blank"
-              className="flex items-center justify-between text-white border border-white/30 rounded p-3 md:p-4 hover:bg-white/10 transition-colors"
-            >
-              <div className="flex items-center gap-3 md:gap-4">
-                <FaLinkedin className="text-xl text-blue-500 md:text-2xl" />
-                <span className="text-lg md:text-xl ">LinkedIn</span>
-              </div>
-              <FaArrowRight />
-            </Link>
+              Schedule A Call
+            </motion.button>
+          </nav>
 
-            <Link
-              to="https://www.instagram.com/shroteconsultancy?igsh=MTVhdTFjaWN0cjVncw=="
-              target="_blank"
-              className="flex items-center justify-between text-white border border-white/30 rounded p-3 md:p-4 hover:bg-white/10 transition-colors"
-            >
-              <div className="flex items-center gap-3 md:gap-4">
-                <FaInstagram className="text-xl md:text-2xl text-pink-500" />
-                <span className="text-lg md:text-xl">Instagram</span>
-              </div>
-              <FaArrowRight />
-            </Link>
-
-            <Link
-              to="https://www.facebook.com/profile.php?id=61569121190721"
-              target="_blank"
-              className="flex items-center justify-between text-white border border-white/30 rounded p-3 md:p-4 hover:bg-white/10 transition-colors"
-            >
-              <div className="flex items-center gap-3 md:gap-4">
-                <FaFacebook className="text-xl md:text-2xl text-blue-500" />
-                <span className="text-lg md:text-xl">Facebook</span>
-              </div>
-              <FaArrowRight />
-            </Link>
-
-            <Link
-              to="https://x.com/Shrote_services?t=RlqvR_syDwl03FuUpCTK9w&s=09"
-              target="_blank"
-              className="flex items-center justify-between text-white border border-white/30 rounded p-3 md:p-4 hover:bg-white/10 transition-colors"
-            >
-              <div className="flex items-center gap-3 md:gap-4">
-                <FaXTwitter className="text-xl md:text-2xl text-blue-500" />
-                <span className="text-lg md:text-xl">X</span>
-              </div>
-              <FaArrowRight />
-            </Link>
-          </div>
+          {/* Mobile Menu Button */}
+          <motion.button
+            className="md:hidden p-2"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            whileTap={{ scale: 0.9 }}
+          >
+            {isMenuOpen ? (
+              <X className={isScrolled ? "text-gray-800" : "text-white"} />
+            ) : (
+              <Menu className={isScrolled ? "text-gray-800" : "text-white"} />
+            )}
+          </motion.button>
         </div>
 
-        <div className="w-full md:w-1/2 p-6 md:p-8 lg:p-12 bg-white/95 backdrop-blur-sm text-black">
-          <h1 className="text-[#1a2b3b] text-3xl md:text-4xl lg:text-5xl font-bold mb-8">
-            <span className="text-blue-600"> Connect</span> With Us
-            <div className="h-0.5 bg-red-500 mt-2"></div>
-          </h1>
-
-          <form className="space-y-4" onSubmit={handleSubmit}>
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              placeholder="Name"
-              className="w-full p-3 md:p-4 border border-gray-400 bg-gray-100 rounded focus:outline-none"
-              required
-            />
-
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="Email"
-              className="w-full p-3 md:p-4 border border-gray-400 bg-gray-100 rounded focus:outline-none"
-              required
-            />
-
-            <input
-              type="tel"
-              name="contactNo"
-              value={formData.contactNo}
-              onChange={handleChange}
-              placeholder="Contact No."
-              className="w-full p-3 md:p-4 border border-gray-400 bg-gray-100 rounded focus:outline-none"
-              required
-            />
-
-            <textarea
-              name="projectBrief"
-              value={formData.projectBrief}
-              onChange={handleChange}
-              placeholder="Project Brief"
-              rows="4"
-              className="w-full p-3 md:p-4 border border-gray-400 bg-gray-100 rounded resize-none focus:outline-none"
-              required
-            ></textarea>
-
-            <button
-              type="submit"
-              className="w-full bg-[#1a2b3b] text-white py-3 md:py-4 rounded hover:bg-[#2a3b4b] transition-colors"
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              className="md:hidden bg-white shadow-lg rounded-b-2xl overflow-hidden"
             >
-              Submit
-            </button>
-          </form>
-
-          
-        </div>
+              <nav className="flex flex-col py-4">
+                {["Home", "About", "Contact", "Career"].map((item) => (
+                  <motion.a
+                    key={item}
+                    href={`/${item.toLowerCase()}`}
+                    className="px-6 py-3 text-gray-700 hover:bg-gray-50 flex items-center space-x-2"
+                    whileHover={{ x: 10 }}
+                  >
+                    <span>{item}</span>
+                  </motion.a>
+                ))}
+                <motion.button
+                  onClick={openDialog}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="mx-6 mt-4 px-6 py-2 bg-gradient-to-r from-purple-600 to-blue-500 text-white rounded-full font-medium"
+                >
+                  Schedule A Call
+                </motion.button>
+              </nav>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
-      <ToastContainer />
-    </div>
+      <ScheduleCallDialog isOpen={isDialogOpen} onClose={() => setIsDialogOpen(false)} />
+    </motion.header>
   );
-}
+};
+
+const NavItem = ({ label, isScrolled, isContactPage }) => {
+  return (
+    <motion.a
+      href={`/${label.toLowerCase()}`}
+      className={`relative font-medium transition-colors duration-300 ${
+        isContactPage || isScrolled
+          ? "text-gray-700 hover:text-purple-600"
+          : "text-white hover:text-purple-200"
+      }`}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+    >
+      {label}
+    </motion.a>
+  );
+};
+
+export default Header;
