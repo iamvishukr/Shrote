@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Typewriter from 'typewriter-effect';
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 import app from "../../firebaseConfig";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -22,7 +22,13 @@ import { FaXTwitter } from "react-icons/fa6";
 
 export default function ContactPage() {
 
-  
+  useEffect(() => {
+    document.getElementById("logo").style.color = "black";
+    const anchors = document.querySelectorAll("a");
+    anchors.forEach((anchor) => {
+      anchor.style.color = "black";
+    });
+  }, []);
 
   const db = getFirestore(app); // Initialize Firestore
   const [formData, setFormData] = useState({
@@ -51,13 +57,13 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="relative min-h-screen bg-black text-white pt-24 pb-6">
+    <div className="relative min-h-screen text-white pt-24 pb-6 ">
       <div className="absolute inset-0 z-0">
         {/* <FlowerAnimation /> */}
         {/* < BlackholeAnimation />  */}
       </div>
 
-      <h1 className="text-3xl text-center font-bold">
+      <h1 className="text-3xl text-center text-black font-bold">
         Let’s create something amazing together –
         <span className="text-yellow-500">
           <Typewriter
