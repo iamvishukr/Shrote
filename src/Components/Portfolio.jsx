@@ -27,6 +27,12 @@ const Portfolio = forwardRef((_, ref) => {
       image: espace,
       
     },
+    {
+      title: "eSpace",
+      category: " Real Estate",
+      link: "https://www.espace.ae/",
+      image: espace,
+    }
   ];
 
   return (

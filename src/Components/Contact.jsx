@@ -91,9 +91,9 @@ export default function ContactPage() {
             >
               <div className="flex items-center gap-3 md:gap-4">
                 <FaWhatsapp className="text-xl md:text-2xl text-green-500" />
-                <span className="text-lg md:text-xl">WhatsApp</span>
+                <span className="text-lg md:text-xl text-white">WhatsApp</span>
               </div>
-              <FaArrowRight />
+              <FaArrowRight className="text-white" />
             </Link>
             <Link
               to="https://www.linkedin.com/company/shrote-consultancy-services/"
@@ -102,9 +102,9 @@ export default function ContactPage() {
             >
               <div className="flex items-center gap-3 md:gap-4">
                 <FaLinkedin className="text-xl text-blue-500 md:text-2xl" />
-                <span className="text-lg md:text-xl ">LinkedIn</span>
+                <span className="text-lg md:text-xl text-white">LinkedIn</span>
               </div>
-              <FaArrowRight />
+              <FaArrowRight className="text-white" />
             </Link>
 
             <Link
@@ -114,9 +114,9 @@ export default function ContactPage() {
             >
               <div className="flex items-center gap-3 md:gap-4">
                 <FaInstagram className="text-xl md:text-2xl text-pink-500" />
-                <span className="text-lg md:text-xl">Instagram</span>
+                <span className="text-lg md:text-xl text-white">Instagram</span>
               </div>
-              <FaArrowRight />
+              <FaArrowRight className="text-white" />
             </Link>
 
             <Link
@@ -126,9 +126,9 @@ export default function ContactPage() {
             >
               <div className="flex items-center gap-3 md:gap-4">
                 <FaFacebook className="text-xl md:text-2xl text-blue-500" />
-                <span className="text-lg md:text-xl">Facebook</span>
+                <span className="text-lg md:text-xl text-white">Facebook</span>
               </div>
-              <FaArrowRight />
+              <FaArrowRight className="text-white" />
             </Link>
 
             <Link
@@ -138,9 +138,9 @@ export default function ContactPage() {
             >
               <div className="flex items-center gap-3 md:gap-4">
                 <FaXTwitter className="text-xl md:text-2xl text-blue-500" />
-                <span className="text-lg md:text-xl">X</span>
+                <span className="text-lg md:text-xl text-white">X</span>
               </div>
-              <FaArrowRight />
+              <FaArrowRight className="text-white"/>
             </Link>
           </div>
         </div>
