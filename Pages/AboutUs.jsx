@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import { FiTarget, FiTrendingUp, FiUsers } from "react-icons/fi";
@@ -7,7 +5,6 @@ import { Rocket, Shield, Zap } from "lucide-react";
 import SEO from '../src/Components/SEO';
 import ogImage from '../src/assets/og-image.jpeg'
 import { Link } from "react-router-dom";
-
 
 const AboutUs = () => {
   useEffect(() => {
@@ -35,10 +32,35 @@ const AboutUs = () => {
           transition={{ duration: 0.8 }}
           className="text-center mt-28"
         >
-          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
+          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-8">
             About <span className="text-blue-600">Us</span>
           </h1>
-          <h1 className="text-2xl text-gray-800 font-bold max-w-3xl mb-2 mx-auto ">
+
+          {/* Profile Card */}
+          {/* <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="max-w-md mx-auto bg-white rounded-xl shadow-lg overflow-hidden mb-12"
+          >
+            <div className="relative">
+              <img 
+                src="./profilepic1.png" 
+                alt="Vishal Kumar"
+                className="w-full h-[20px] object-cover object-center"
+                style={{ objectPosition: "50% 20%" }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            </div>
+            <div className="p-8">
+              <h2 className="text-2xl font-bold text-gray-900 mb-1">Vishal Kumar</h2>
+              <p className="text-blue-600 font-medium mb-4">Co-founder & Developer</p>
+              <div className="w-16 h-1 bg-blue-600 mx-auto mb-4"></div>
+              <p className="text-gray-600">Passionate about creating innovative solutions and driving technological advancement in the SaaS industry.</p>
+            </div>
+          </motion.div> */}
+
+          <h1 className="text-2xl text-gray-800 font-bold max-w-3xl mb-2 mx-auto">
             "Empowering businesses with innovative digital solutions"
           </h1>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-12">
@@ -88,43 +110,6 @@ const AboutUs = () => {
             </motion.div>
           ))}
         </motion.section>
-
-        {/* <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="mb-16"
-        >
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Our Journey</h2>
-          <div className="relative">
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-blue-200"></div>
-            {[
-              { year: '2018', title: 'Founded', description: 'Our company was born from a vision to transform the SaaS landscape.' },
-              { year: '2020', title: 'Rapid Growth', description: 'We expanded our team and client base, serving businesses worldwide.' },
-              { year: '2022', title: 'Innovation Milestone', description: 'Launched our flagship product, revolutionizing the industry.' },
-              { year: '2024', title: 'Global Expansion', description: 'Opened new offices across continents to better serve our global clientele.' },
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 + index * 0.2 }}
-                className={`flex items-center mb-8 ${index % 2 === 0 ? 'flex-row-reverse' : ''}`}
-              >
-                <div className={`w-5/12 ${index % 2 === 0 ? 'text-right' : ''}`}>
-                  <h3 className="text-xl font-semibold text-gray-900">{item.title}</h3>
-                  <p className="text-gray-600">{item.description}</p>
-                </div>
-                <div className="w-2/12 flex justify-center">
-                  <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
-                    <span className="text-white font-bold">{item.year.slice(-2)}</span>
-                  </div>
-                </div>
-                <div className="w-5/12"></div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.section> */}
 
         <motion.section
           initial={{ opacity: 0, y: 20 }}
@@ -186,13 +171,13 @@ const AboutUs = () => {
             next level.
           </p>
           <Link to='/contact'>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-blue-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-blue-700 transition duration-300"
-          >
-            Contact Us Today
-          </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-blue-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-blue-700 transition duration-300"
+            >
+              Contact Us Today
+            </motion.button>
           </Link>
         </motion.section>
       </main>

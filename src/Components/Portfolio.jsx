@@ -20,13 +20,13 @@ const Portfolio = forwardRef((_, ref) => {
       link: "https://gourav-gk.github.io/partyvines/",
       image: partyvines,
     },
-    {
-      title: "eSpace",
-      category: " Real Estate",
-      link: "https://www.espace.ae/",
-      image: espace,
+    // {
+    //   title: "eSpace",
+    //   category: " Real Estate",
+    //   link: "https://www.espace.ae/",
+    //   image: espace,
       
-    },
+    // },
     {
       title: "eSpace",
       category: " Real Estate",
