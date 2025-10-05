@@ -12,7 +12,7 @@ export default function WhatsAppButton() {
   );
 
   const handleSend = () => {
-    const phone = "91767983607";
+    const phone = "917667983607";
     const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank");
   };
