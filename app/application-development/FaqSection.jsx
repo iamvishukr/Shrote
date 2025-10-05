@@ -124,7 +124,7 @@ export default function FAQSection() {
              w-full sm:w-auto md:w-64 lg:w-80 whitespace-nowrap"
 >
   <PhoneCall className="w-5 h-5" />
-  +91 8088230479
+  +91 7667983607
 </button>
 
       </div>
