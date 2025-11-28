@@ -370,7 +370,7 @@ export default function Header() {
           <div className="px-6 py-4 border-t border-gray-700">
             <div className="flex justify-center space-x-4">
               <Link
-                href="https://x.com/shrote_services"
+                href="https://x.com/Shrote_services"
                 className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-blue-400 hover:bg-blue-400 hover:text-black transition-all duration-300"
                 aria-label="Twitter"
               >
@@ -389,7 +389,7 @@ export default function Header() {
                 </svg>
               </Link>
               <Link
-                href="https://www.facebook.com/profile.php?id=61569121190721"
+                href="https://www.facebook.com/people/Shrote/61569121190721/"
                 className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-blue-400 hover:bg-blue-400 hover:text-black transition-all duration-300"
                 aria-label="Facebook"
               >
@@ -510,7 +510,7 @@ export default function Header() {
                 </h3>
                 <div className="flex justify-center space-x-3 md:space-x-4">
                   <Link
-                    href="https://x.com/Shrote"
+                    href="https://x.com/Shrote_services"
                     className="w-9 h-9 md:w-10 md:h-10 bg-gray-800 rounded-full flex items-center justify-center text-blue-400 hover:bg-blue-400 hover:text-black transition-all duration-300"
                     aria-label="Twitter"
                   >
@@ -529,7 +529,7 @@ export default function Header() {
                     </svg>
                   </Link>
                   <Link
-                    href="https://www.facebook.com/Shrote/"
+                    href="https://www.facebook.com/people/Shrote/61569121190721/"
                     className="w-9 h-9 md:w-10 md:h-10 bg-gray-800 rounded-full flex items-center justify-center text-blue-400 hover:bg-blue-400 hover:text-black transition-all duration-300"
                     aria-label="Facebook"
                   >

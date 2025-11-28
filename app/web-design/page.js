@@ -29,7 +29,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Web Design Company in Bangalore | Website Development",
     description: "Shrote Technology is a Professional Web Design Company in Bangalore. We have expert web designers, developers, and an SEO team with 13+ years of experience who can help to achieve your business goals with a perfect website.",
-    site: "@Shrote",
+    site: "@Shrote_services",
     images: ["https://www.marswebsolution.com/images/mars_logo.png"],
     creator: "@Shrote",
   },

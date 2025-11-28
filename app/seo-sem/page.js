@@ -28,7 +28,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "SEO Company in Bangalore - Digital Marketing Agency",
     description: "SEO company, website promotion, digital marketing company, SEO agency",
-    site: "@Shrote",
+    site: "@Shrote_services",
     images: ["https://www.marswebsolution.com/images/mars_logo.png"],
     creator: "@Shrote",
   },

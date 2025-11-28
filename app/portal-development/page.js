@@ -28,7 +28,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Web Portal Development Company in Bangalore - Portal Design",
     description: "Shrote is the best web portal development company in Bangalore. We provide web portal development for real estate, educational institute, B2B, B2C.",
-    site: "@Shrote",
+    site: "@Shrote_services",
     images: ["https://www.marswebsolution.com/images/mars_logo.png"],
     creator: "@Shrote",
   },

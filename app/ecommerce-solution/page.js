@@ -29,7 +29,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Ecommerce Development Company Bangalore - Ecommerce Solution",
     description: "Shrpte is the best Ecommerce website development company in Bangalore. We provide Ecommerce web design & build online store with payment gateway setup.",
-    site: "@Shrote",
+    site: "@Shrote_services",
     images: ["https://www.marswebsolution.com/images/mars_logo.png"],
     creator: "@Shrote",
   },

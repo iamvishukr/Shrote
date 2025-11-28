@@ -32,7 +32,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "About Shrote Technology - Web Design Company in Bangalore",
     description: "Discover our passion and expertise at Shrote Technology.",
-    site: "@shrote",
+    site: "@Shrote_services",
     // images: ["https://www.marswebsolution.com/images/mars_logo.png"],
     creator: "@shrote",
   },

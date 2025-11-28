@@ -28,7 +28,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Shrote Technology | Contact Us",
     description: "You can contact us at our Bangalore Office in India.",
-    site: "@Shrote",
+    site: "@Shrote_services",
     images: ["https://www.marswebsolution.com/images/mars_logo.png"],
     creator: "@Shrote",
   },

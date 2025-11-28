@@ -28,7 +28,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Portfolio | Web Design and Development Projects done at Shrote Technology",
     description: "Portfolio | Web Design and Development Projects done at Shrote Technology",
-    site: "@Shrote",
+    site: "@Shrote_services",
     images: ["https://www.marswebsolution.com/images/mars_logo.png"],
     creator: "@Shrote",
   },

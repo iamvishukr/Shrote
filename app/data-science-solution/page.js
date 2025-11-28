@@ -27,7 +27,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Data Science Solutions | Shrote Technology",
     description: "Unleash the power of data with Shrote Technology's data science services.",
-    site: "@Shrote",
+    site: "@Shrote_services",
     images: ["https://www.marswebsolution.com/images/mars_logo.png"],
     creator: "@Shrote",
   },

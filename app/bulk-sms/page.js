@@ -33,7 +33,7 @@ export const metadata = {
     title: "Bulk SMS Service Provider in Bangalore-SMS Marketing",
     description:
       "Shrote Technology is the leading bulk SMS service provider in Bangalore. We offer bulk SMS gateway and promotional SMS marketing services at affordable cost.",
-    site: "@Shrote",
+    site: "@Shrote_services",
     images: ["https://www.marswebsolution.com/images/mars_logo.png"],
     creator: "@Shrote",
   },

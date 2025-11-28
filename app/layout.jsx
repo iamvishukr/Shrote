@@ -118,11 +118,11 @@ export default function RootLayout({ children }) {
                 },
               ],
               sameAs: [
-                "https://www.facebook.com/shrote/",
+                "https://www.facebook.com/people/Shrote/61569121190721/",
                 "https://www.instagram.com/shrote/",
                 "https://www.linkedin.com/company/shrote/",
-                "https://twitter.com/Shrote/",
-                "https://in.pinterest.com/shrote/",
+                "https://x.com/Shrote_services",
+            
                 "https://www.youtube.com/user/shrote/",
               ],
               logo: {
@@ -174,11 +174,11 @@ export default function RootLayout({ children }) {
                 },
               ],
               sameAs: [
-                "https://www.facebook.com/shrote/",
+                "https://www.facebook.com/people/Shrote/61569121190721/",
                 "https://www.instagram.com/shrote/",
                 "https://www.linkedin.com/company/shrote/",
-                "https://twitter.com/Shrote/",
-                "https://in.pinterest.com/shrote/",
+                "https://x.com/Shrote_services",
+            
                 "https://www.youtube.com/user/ShroteConsultancyServices/",
               ],
               logo: {

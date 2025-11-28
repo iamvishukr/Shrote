@@ -28,7 +28,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Software Development Company Bangalore - Software Developers",
     description: "Shrote is the leading software development company in Bangalore. Hire best software developers for custom software and billing software development.",
-    site: "@Shrote",
+    site: "@Shrote_services",
     images: ["https://www.marswebsolution.com/images/mars_logo.png"],
     creator: "@Shrote",
   },

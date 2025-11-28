@@ -24,7 +24,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Best Web Design Company Bangalore-Website Designers",
     description: "Shrote is a leading web design company in Bangalore. We provide best website design for web development, responsive website, E Commerce web solution.",
-    site: "@Shrote",
+    site: "@Shrote_services",
     creator: "@Shrote",
     images: ["https://www.marswebsolution.com/images/mars_logo.png"],
   },

@@ -27,7 +27,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Web Application Development Company Bangalore-App Developers",
     description: "Web Application Development Company Bangalore-App Developers",
-    site: "@shrote",
+    site: "@Shrote_services",
     images: ["https://www.marswebsolution.com/images/mars_logo.png"],
     creator: "@shrote",
   },

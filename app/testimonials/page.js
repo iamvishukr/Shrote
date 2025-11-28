@@ -28,7 +28,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Testimonials- Shrote Technology",
     description: "Shrote is a leading web design company in Bangalore. We provide best website design for web development, responsive website, E Commerce web solution.",
-    site: "@Shrote",
+    site: "@Shrote_services",
     images: ["https://www.marswebsolution.com/images/mars_logo.png"],
     creator: "@Shrote",
   },

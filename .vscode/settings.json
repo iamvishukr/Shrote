@@ -1,0 +1,6 @@
+{
+    "powerquery.client.additionalSymbolsDirectories": [
+        "c:/Users/aloka/Downloads/Shrote/.vscode/excel-pq-symbols"
+    ],
+    "debug.enableStatusBarColor": false
+}
