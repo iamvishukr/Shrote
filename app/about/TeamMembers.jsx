@@ -11,7 +11,7 @@ const teamMembers = [
       "https://demo.awaikenthemes.com/artistics/wp-content/uploads/2024/11/team-1.jpg", // replace with real image
     socials: {
       facebook: "https://www.facebook.com/people/Shrote/61569121190721/",
-      instagram: "#",
+      instagram: "",
      
     },
   },

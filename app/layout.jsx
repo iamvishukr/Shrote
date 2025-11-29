@@ -119,7 +119,7 @@ export default function RootLayout({ children }) {
               ],
               sameAs: [
                 "https://www.facebook.com/people/Shrote/61569121190721/",
-                "https://www.instagram.com/shrote/",
+                "https://www.instagram.com/shrotetechnology/",
                 "https://www.linkedin.com/company/shrote/",
                 "https://x.com/Shrote_services",
             
@@ -175,7 +175,7 @@ export default function RootLayout({ children }) {
               ],
               sameAs: [
                 "https://www.facebook.com/people/Shrote/61569121190721/",
-                "https://www.instagram.com/shrote/",
+                "https://www.instagram.com/shrotetechnology/",
                 "https://www.linkedin.com/company/shrote/",
                 "https://x.com/Shrote_services",
             

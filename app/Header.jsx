@@ -232,7 +232,7 @@ export default function Header() {
                   </svg>
                 </Link>
                 <Link
-                  href="instagram.com/marswebsolution/"
+                  href="https://www.instagram.com/shrotetechnology/"
                   className={`w-8 h-8 md:w-10 md:h-10 flex items-center justify-center text-blue-400 hover:text-blue-300 transition-all duration-300 ${
                     isScrolled ? "scale-90" : "scale-100"
                   }`}
@@ -408,7 +408,7 @@ export default function Header() {
                 </svg>
               </Link>
               <Link
-                href="instagram.com/shrotetechnology/"
+                href="https://www.instagram.com/shrotetechnology/"
                 className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-blue-400 hover:bg-blue-400 hover:text-black transition-all duration-300"
                 aria-label="Instagram"
               >
@@ -548,7 +548,7 @@ export default function Header() {
                     </svg>
                   </Link>
                   <Link
-                    href="instagram.com/Shrote/"
+                    href="https://www.instagram.com/shrotetechnology/"
                     className="w-9 h-9 md:w-10 md:h-10 bg-gray-800 rounded-full flex items-center justify-center text-blue-400 hover:bg-blue-400 hover:text-black transition-all duration-300"
                     aria-label="Instagram"
                   >
