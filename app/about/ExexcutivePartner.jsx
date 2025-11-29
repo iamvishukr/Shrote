@@ -4,32 +4,32 @@ const partners = [
   {
     id: 1,
     name: "Logoipsum",
-    logo: "https://demo.awaikenthemes.com/artistics/wp-content/uploads/2024/11/company-logo-1.svg",
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgmd_MyqrZdx9Yw9t2ta5PKzn4irpFF1oozw&s",
   },
   {
     id: 2,
     name: "Logoipsum",
-    logo: "https://demo.awaikenthemes.com/artistics/wp-content/uploads/2024/11/company-logo-2.svg",
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEKH34QzANnuM7ttZvuIvH2It3Ooelngl6Uw&s",
   },
   {
     id: 3,
     name: "Logoipsum",
-    logo: "https://demo.awaikenthemes.com/artistics/wp-content/uploads/2024/11/company-logo-3.svg",
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXP6eyVRn39Xc1W7nVyQ3U-oJEfAd5Wi1rQg&s",
   },
   {
     id: 4,
     name: "Logoipsum",
-    logo: "https://demo.awaikenthemes.com/artistics/wp-content/uploads/2024/11/company-logo-3.svg",
+    logo: "https://cdn.mos.cms.futurecdn.net/qAekZADcsVkzrAfTehB7T3.jpg",
   },
   {
     id: 5,
     name: "Logoipsum",
-    logo: "https://demo.awaikenthemes.com/artistics/wp-content/uploads/2024/11/company-logo-5.svg",
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtEb4lhHwx0d_CLRB2qMukPlsJKMWFP24w9Q&s",
   },
   {
     id: 6,
     name: "Logoipsum",
-    logo: "https://demo.awaikenthemes.com/artistics/wp-content/uploads/2024/11/company-logo-1.svg",
+    logo: "https://hystax.com/wp-content/uploads/2024/01/Advantages-and-limitations-of-embracing-AWS-as-a-cloud-infrastructure.webp",
   },
 ];
 
