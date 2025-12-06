@@ -11,6 +11,8 @@ import Sidebar1 from "./Sidebar";
 import PageHeader from "./PageHeader";
 import { ChartContainer } from "@/components/ui/chart";
 import Footer from "./Footer";
+// import AccountsPage from "./accounts"
+import CustomersPage from "../dashboard/customers"
 
 export default function Dashboard() {
   const [active, setActive] = useState("Dashboards");
@@ -40,6 +42,12 @@ export default function Dashboard() {
             <Dashboard1 />
           </ChartContainer>
         );
+      case  "customers":
+        return (
+          <ChartContainer>
+            <CustomersPage />
+          </ChartContainer>
+        );
       case "Contact Us":
         return <ContactUs />;
       case "Join Our Team":
@@ -48,6 +56,8 @@ export default function Dashboard() {
         return <SideEnq />;
       case "Users":
         return <Users />;
+
+      
       default:
         return <Dashboard1 />;
     }
