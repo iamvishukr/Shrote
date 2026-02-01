@@ -12,6 +12,7 @@ export default function Footer() {
               <img
                 src="/shrote_logo.png"
                 alt="Shrote Logo"
+                style={{ borderRadius: "33px", height:"100px" }}
               />
             </Link>
 

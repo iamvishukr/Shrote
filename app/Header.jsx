@@ -106,14 +106,18 @@ export default function Header() {
           >
             <div className="flex bg-black items-center">
               <Link href="/" className="flex items-center">
-                <img
-                  src="/shrote_logo.png"
-                  alt="Shrote Logo"
-                  className={`transition-all duration-300 ${
-                    isScrolled ? "h-12 w-auto" : "h-16 w-auto sm:h-20 md:h-16"
-                  }`}
-                />
-              </Link>
+  <img
+    src="/shrote_logo.png"
+    alt="Shrote Logo"
+    className={`transition-all duration-300 ${
+      isScrolled
+        ? "h-12 w-[100px]"
+        : "h-16 w-[100px] sm:h-20 md:h-16"
+    }`}
+    style={{ borderRadius: "33px" }}
+  />
+</Link>
+
             </div>
 
             <nav className="hidden md:flex items-center  ml-10">
