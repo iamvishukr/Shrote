@@ -270,11 +270,7 @@ export default function ProcessSteps() {
           </div>
 
           <div className="absolute bottom-0 right-0 translate-x-[10%] translate-y-[25%] md:translate-x-1/4 md:translate-y-1/4 lg:translate-x-1/3 lg:translate-y-1/3 w-32 md:w-72 lg:w-88 opacity-60 pointer-events-none z-0 max-w-full overflow-hidden">
-            <img
-              src="/how-work-bg-shape.png"
-              alt="Rotating Shape"
-              className="animate-spin-slow max-w-full h-auto transition-opacity duration-1000 hover:opacity-80"
-            />
+            <div className="w-[300px] h-[300px] bg-blue-500/20 rounded-full blur-[80px] pointer-events-none transition-opacity duration-1000 hover:opacity-80"></div>
           </div>
         </div>
       </div>

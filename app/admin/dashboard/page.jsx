@@ -12,7 +12,7 @@ import PageHeader from "./PageHeader";
 import { ChartContainer } from "@/components/ui/chart";
 import Footer from "./Footer";
 // import AccountsPage from "./accounts"
-import CustomersPage from "../dashboard/customers"
+import CustomersPage from "./customers/page";
 
 export default function Dashboard() {
   const [active, setActive] = useState("Dashboards");

@@ -49,11 +49,7 @@ function AboutU() {
       
       <div className="relative z-0 flex justify-end items-center -mt-[190px] mb-[-40px] overflow-hidden">
         <div className="relative w-[300px] h-[300px] overflow-hidden">
-          <img
-            src="/features-bg-shape.png"
-            alt="Rotating Shape"
-            className="absolute top-1/2 -translate-y-1/2 right-[-40%] w-[330px] object-contain spin-clockwise"
-          />
+          <div className="absolute top-1/2 -translate-y-1/2 right-[-20%] w-[250px] h-[250px] bg-blue-500/10 rounded-full blur-[80px] pointer-events-none"></div>
         </div>
       </div>
       

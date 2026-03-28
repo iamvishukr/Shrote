@@ -1,0 +1,332 @@
+
+> my-v0-project@0.1.0 build
+> next build
+
+ ⚠ Invalid next.config.js options detected: 
+ ⚠     Unrecognized key(s) in object: 'appDir' at "experimental"
+ ⚠ See more info here: https://nextjs.org/docs/messages/invalid-next-config
+   ▲ Next.js 15.2.4
+   - Environments: .env
+
+   Creating an optimized production build ...
+ ⚠ Compiled with warnings
+
+./app/admin/dashboard/accounts-setup/page.jsx
+Attempted import error: 'getAccounts' is not exported from '@/lib/firebase' (imported as 'getAccounts').
+
+Import trace for requested module:
+./app/admin/dashboard/accounts-setup/page.jsx
+
+./app/admin/dashboard/accounts-setup/page.jsx
+Attempted import error: 'updateAccount' is not exported from '@/lib/firebase' (imported as 'updateAccount').
+
+Import trace for requested module:
+./app/admin/dashboard/accounts-setup/page.jsx
+
+./app/admin/dashboard/accounts-setup/page.jsx
+Attempted import error: 'addAccount' is not exported from '@/lib/firebase' (imported as 'addAccount').
+
+Import trace for requested module:
+./app/admin/dashboard/accounts-setup/page.jsx
+
+./app/admin/dashboard/accounts-setup/page.jsx
+Attempted import error: 'deleteAccount' is not exported from '@/lib/firebase' (imported as 'deleteAccount').
+
+Import trace for requested module:
+./app/admin/dashboard/accounts-setup/page.jsx
+
+./app/admin/dashboard/customers/page.jsx
+Attempted import error: 'getCustomers' is not exported from '@/lib/firebase' (imported as 'getCustomers').
+
+Import trace for requested module:
+./app/admin/dashboard/customers/page.jsx
+
+./app/admin/dashboard/customers/page.jsx
+Attempted import error: 'updateCustomer' is not exported from '@/lib/firebase' (imported as 'updateCustomer').
+
+Import trace for requested module:
+./app/admin/dashboard/customers/page.jsx
+
+./app/admin/dashboard/customers/page.jsx
+Attempted import error: 'addCustomer' is not exported from '@/lib/firebase' (imported as 'addCustomer').
+
+Import trace for requested module:
+./app/admin/dashboard/customers/page.jsx
+
+./app/admin/dashboard/customers/page.jsx
+Attempted import error: 'deleteCustomer' is not exported from '@/lib/firebase' (imported as 'deleteCustomer').
+
+Import trace for requested module:
+./app/admin/dashboard/customers/page.jsx
+
+./app/admin/dashboard/legal-documents/page.jsx
+Attempted import error: 'getLegalDocuments' is not exported from '@/lib/firebase' (imported as 'getLegalDocuments').
+
+Import trace for requested module:
+./app/admin/dashboard/legal-documents/page.jsx
+
+./app/admin/dashboard/legal-documents/page.jsx
+Attempted import error: 'updateLegalDocument' is not exported from '@/lib/firebase' (imported as 'updateLegalDocument').
+
+Import trace for requested module:
+./app/admin/dashboard/legal-documents/page.jsx
+
+./app/admin/dashboard/legal-documents/page.jsx
+Attempted import error: 'addLegalDocument' is not exported from '@/lib/firebase' (imported as 'addLegalDocument').
+
+Import trace for requested module:
+./app/admin/dashboard/legal-documents/page.jsx
+
+./app/admin/dashboard/legal-documents/page.jsx
+Attempted import error: 'deleteLegalDocument' is not exported from '@/lib/firebase' (imported as 'deleteLegalDocument').
+
+Import trace for requested module:
+./app/admin/dashboard/legal-documents/page.jsx
+
+./components/AddTransactionModel.js
+Attempted import error: 'getCustomers' is not exported from '@/lib/firebase' (imported as 'getCustomers').
+
+Import trace for requested module:
+./components/AddTransactionModel.js
+./app/admin/dashboard/accounts/page.jsx
+
+./components/AddTransactionModel.js
+Attempted import error: 'getAccounts' is not exported from '@/lib/firebase' (imported as 'getAccounts').
+
+Import trace for requested module:
+./components/AddTransactionModel.js
+./app/admin/dashboard/accounts/page.jsx
+
+./components/AddTransactionModel.js
+Attempted import error: 'addTransaction' is not exported from '@/lib/firebase' (imported as 'addTransaction').
+
+Import trace for requested module:
+./components/AddTransactionModel.js
+./app/admin/dashboard/accounts/page.jsx
+
+./components/BillPrintModel.js
+Attempted import error: 'getCompanyInfo' is not exported from '@/lib/firebase' (imported as 'getCompanyInfo').
+
+Import trace for requested module:
+./components/BillPrintModel.js
+./app/admin/dashboard/accounts/page.jsx
+
+./components/CompanySettings.jsx
+Attempted import error: 'getCompanyInfo' is not exported from '@/lib/firebase' (imported as 'getCompanyInfo').
+
+Import trace for requested module:
+./components/CompanySettings.jsx
+./app/admin/dashboard/accounts/page.jsx
+
+./components/CompanySettings.jsx
+Attempted import error: 'saveCompanyInfo' is not exported from '@/lib/firebase' (imported as 'saveCompanyInfo').
+
+Import trace for requested module:
+./components/CompanySettings.jsx
+./app/admin/dashboard/accounts/page.jsx
+
+./components/TransationsList.js
+Attempted import error: 'getTransactions' is not exported from '@/lib/firebase' (imported as 'getTransactions').
+
+Import trace for requested module:
+./components/TransationsList.js
+./app/admin/dashboard/accounts/page.jsx
+
+./components/TransationsList.js
+Attempted import error: 'deleteTransaction' is not exported from '@/lib/firebase' (imported as 'deleteTransaction').
+
+Import trace for requested module:
+./components/TransationsList.js
+./app/admin/dashboard/accounts/page.jsx
+
+./app/admin/dashboard/accounts-setup/page.jsx
+Attempted import error: 'getAccounts' is not exported from '@/lib/firebase' (imported as 'getAccounts').
+
+Import trace for requested module:
+./app/admin/dashboard/accounts-setup/page.jsx
+
+./app/admin/dashboard/accounts-setup/page.jsx
+Attempted import error: 'updateAccount' is not exported from '@/lib/firebase' (imported as 'updateAccount').
+
+Import trace for requested module:
+./app/admin/dashboard/accounts-setup/page.jsx
+
+./app/admin/dashboard/accounts-setup/page.jsx
+Attempted import error: 'addAccount' is not exported from '@/lib/firebase' (imported as 'addAccount').
+
+Import trace for requested module:
+./app/admin/dashboard/accounts-setup/page.jsx
+
+./app/admin/dashboard/accounts-setup/page.jsx
+Attempted import error: 'deleteAccount' is not exported from '@/lib/firebase' (imported as 'deleteAccount').
+
+Import trace for requested module:
+./app/admin/dashboard/accounts-setup/page.jsx
+
+./app/admin/dashboard/customers/page.jsx
+Attempted import error: 'getCustomers' is not exported from '@/lib/firebase' (imported as 'getCustomers').
+
+Import trace for requested module:
+./app/admin/dashboard/customers/page.jsx
+
+./app/admin/dashboard/customers/page.jsx
+Attempted import error: 'updateCustomer' is not exported from '@/lib/firebase' (imported as 'updateCustomer').
+
+Import trace for requested module:
+./app/admin/dashboard/customers/page.jsx
+
+./app/admin/dashboard/customers/page.jsx
+Attempted import error: 'addCustomer' is not exported from '@/lib/firebase' (imported as 'addCustomer').
+
+Import trace for requested module:
+./app/admin/dashboard/customers/page.jsx
+
+./app/admin/dashboard/customers/page.jsx
+Attempted import error: 'deleteCustomer' is not exported from '@/lib/firebase' (imported as 'deleteCustomer').
+
+Import trace for requested module:
+./app/admin/dashboard/customers/page.jsx
+
+./app/admin/dashboard/legal-documents/page.jsx
+Attempted import error: 'getLegalDocuments' is not exported from '@/lib/firebase' (imported as 'getLegalDocuments').
+
+Import trace for requested module:
+./app/admin/dashboard/legal-documents/page.jsx
+
+./app/admin/dashboard/legal-documents/page.jsx
+Attempted import error: 'updateLegalDocument' is not exported from '@/lib/firebase' (imported as 'updateLegalDocument').
+
+Import trace for requested module:
+./app/admin/dashboard/legal-documents/page.jsx
+
+./app/admin/dashboard/legal-documents/page.jsx
+Attempted import error: 'addLegalDocument' is not exported from '@/lib/firebase' (imported as 'addLegalDocument').
+
+Import trace for requested module:
+./app/admin/dashboard/legal-documents/page.jsx
+
+./app/admin/dashboard/legal-documents/page.jsx
+Attempted import error: 'deleteLegalDocument' is not exported from '@/lib/firebase' (imported as 'deleteLegalDocument').
+
+Import trace for requested module:
+./app/admin/dashboard/legal-documents/page.jsx
+
+./components/AddTransactionModel.js
+Attempted import error: 'getCustomers' is not exported from '@/lib/firebase' (imported as 'getCustomers').
+
+Import trace for requested module:
+./components/AddTransactionModel.js
+./app/admin/dashboard/accounts/page.jsx
+
+./components/AddTransactionModel.js
+Attempted import error: 'getAccounts' is not exported from '@/lib/firebase' (imported as 'getAccounts').
+
+Import trace for requested module:
+./components/AddTransactionModel.js
+./app/admin/dashboard/accounts/page.jsx
+
+./components/AddTransactionModel.js
+Attempted import error: 'addTransaction' is not exported from '@/lib/firebase' (imported as 'addTransaction').
+
+Import trace for requested module:
+./components/AddTransactionModel.js
+./app/admin/dashboard/accounts/page.jsx
+
+./components/BillPrintModel.js
+Attempted import error: 'getCompanyInfo' is not exported from '@/lib/firebase' (imported as 'getCompanyInfo').
+
+Import trace for requested module:
+./components/BillPrintModel.js
+./app/admin/dashboard/accounts/page.jsx
+
+./components/CompanySettings.jsx
+Attempted import error: 'getCompanyInfo' is not exported from '@/lib/firebase' (imported as 'getCompanyInfo').
+
+Import trace for requested module:
+./components/CompanySettings.jsx
+./app/admin/dashboard/accounts/page.jsx
+
+./components/CompanySettings.jsx
+Attempted import error: 'saveCompanyInfo' is not exported from '@/lib/firebase' (imported as 'saveCompanyInfo').
+
+Import trace for requested module:
+./components/CompanySettings.jsx
+./app/admin/dashboard/accounts/page.jsx
+
+./components/TransationsList.js
+Attempted import error: 'getTransactions' is not exported from '@/lib/firebase' (imported as 'getTransactions').
+
+Import trace for requested module:
+./components/TransationsList.js
+./app/admin/dashboard/accounts/page.jsx
+
+./components/TransationsList.js
+Attempted import error: 'deleteTransaction' is not exported from '@/lib/firebase' (imported as 'deleteTransaction').
+
+Import trace for requested module:
+./components/TransationsList.js
+./app/admin/dashboard/accounts/page.jsx
+
+   Skipping validation of types
+   Skipping linting
+   Collecting page data ...
+   Generating static pages (0/55) ...
+   Generating static pages (13/55) 
+   Generating static pages (27/55) 
+   Generating static pages (41/55) 
+ ✓ Generating static pages (55/55)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                 Size  First Load JS
+┌ ○ /                                      27 kB         507 kB
+├ ○ /_not-found                          2.41 kB         202 kB
+├ ○ /about                                 16 kB         492 kB
+├ ○ /admin/dashboard                       14 kB         980 kB
+├ ○ /admin/dashboard/accounts              14 kB         460 kB
+├ ○ /admin/dashboard/accounts-setup      8.63 kB         455 kB
+├ ○ /admin/dashboard/customers           1.71 kB         457 kB
+├ ○ /admin/dashboard/legal-documents     5.81 kB         441 kB
+├ ○ /admin/dashboard/profile-setting     9.22 kB         752 kB
+├ ○ /admin/login                         6.34 kB         446 kB
+├ ○ /admin1/dashboard                    13.9 kB         972 kB
+├ ○ /admin1/dashboard/profile-setting    9.13 kB         752 kB
+├ ○ /admin1/login                        6.33 kB         446 kB
+├ ƒ /api/uploadResume                     1.1 kB         201 kB
+├ ○ /application-development             2.11 kB         466 kB
+├ ○ /bulk-sms                             2.1 kB         466 kB
+├ ○ /contact                             8.29 kB         465 kB
+├ ○ /current-opening                     14.7 kB         469 kB
+├ ○ /data-science-solution               2.12 kB         466 kB
+├ ○ /ecommerce-solution                  2.08 kB         466 kB
+├ ○ /internship                          13.7 kB         468 kB
+├ ○ /join-our-team                       10.7 kB         454 kB
+├ ○ /portal-development                  2.08 kB         466 kB
+├ ○ /portfolio                           10.2 kB         545 kB
+├ ○ /portfolio/view-portfolio            14.3 kB         468 kB
+├ ● /products/[slug]                     5.58 kB         220 kB
+├   ├ /products/hrms-suite
+├   ├ /products/erp-suite
+├   ├ /products/e-commerce-application
+├   └ [+13 more paths]
+├ ○ /seo-sem                             2.11 kB         466 kB
+├ ○ /services                             4.4 kB         475 kB
+├ ● /services/[slug]                     5.62 kB         220 kB
+├   ├ /services/web-development
+├   ├ /services/ai-agent-development
+├   ├ /services/mobile-app-development
+├   └ [+3 more paths]
+├ ○ /software-development                2.11 kB         466 kB
+├ ○ /testimonials                         7.5 kB         543 kB
+├ ○ /web-design                          2.11 kB         466 kB
+└ ○ /web-development                     2.36 kB         466 kB
++ First Load JS shared by all             200 kB
+  ├ chunks/1684-1b8de234e55c87b4.js      98.5 kB
+  ├ chunks/4bd1b696-6107c075c16dff99.js  96.3 kB
+  └ other shared chunks (total)          5.21 kB
+
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+ƒ  (Dynamic)  server-rendered on demand
+

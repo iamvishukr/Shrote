@@ -148,14 +148,7 @@ export default function HowItWork() {
         
         <div className="relative">
          
-          <div className="absolute left-0 -top-16 mt-24 h-[90%] w-[40%] -translate-x-1/4 z-0 overflow-hidden">
-            <Image
-              src="/how-work-bg-shape.png"
-              alt="Background shape"
-              fill
-              className="absolute left-[-100px] animate-slow-spin top-1/2 -translate-y-1/2 w-[300px] opacity-40 rotate-[25deg] pointer-events-none z-0"
-            />
-          </div>
+          <div className="absolute left-[-100px] top-1/4 w-[300px] h-[300px] bg-blue-500/10 rounded-full blur-[80px] z-0 pointer-events-none"></div>
 
           
           <div className="grid md:grid-cols-3 gap-8 relative z-10">

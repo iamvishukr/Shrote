@@ -35,9 +35,6 @@ export default function RootLayout({ children }) {
         {/* <link rel="icon" href="https://www.shrote.com/favicon.ico" type="image/ico" /> */}
         <link rel="shortcut icon" href="/shrote-logo.png" />
 
-        
-        <link rel="preload" href="/artistic.mp4" as="video" type="video/mp4" />
-        <link rel="preload" href="/features-bg-shape.png" as="image" />
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
         <link rel="dns-prefetch" href="//cdnjs.cloudflare.com" />
         <link
@@ -46,7 +43,7 @@ export default function RootLayout({ children }) {
         />
       </head>
 
-      <body className={`${inter.className} cursor-none`} suppressHydrationWarning>
+      <body className={`${inter.className} overflow-x-hidden cursor-none`} suppressHydrationWarning>
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-WBQCS9V"
@@ -88,18 +85,18 @@ export default function RootLayout({ children }) {
               "@type": "ProfessionalService",
               name: "Shrote Technology",
               description:
-                "Shrote is a leading web design company in Bangalore. We provide best website design, E-commerce solutions, UI/UX design, and SEO services.",
-              pricerange: "Discuss with us: +91767983607 | Mail us: info@shrote.com",
+                "Shrote Technology is a leading enterprise software company in Bangalore delivering HRMS, ERP, AI Chatbots, E-Commerce, Payroll, Accounting, Inventory, School Management, and 16+ software products.",
+              pricerange: "Discuss with us: +91-7667983607 | Mail us: info@shrote.com",
               address: {
                 "@type": "PostalAddress",
                 streetAddress: "25th Main Rd, Putlanpalya, Jayanagara 9th Block, Jayanagar",
                 addressLocality: "Bangalore",
-                postalCode: "560069",
+                postalCode: "560041",
                 addressRegion: "Karnataka",
                 addressCountry: "IN",
               },
               url: "https://www.shrote.com/",
-              telephone: "91767983607",
+              telephone: "+917667983607",
               aggregateRating: {
                 "@type": "AggregateRating",
                 ratingValue: "4.2",
@@ -144,18 +141,18 @@ export default function RootLayout({ children }) {
               "@type": "LocalBusiness",
               name: "Shrote Technology",
               description:
-                "Shrote is a leading web design company in Bangalore. We provide best website design, E-commerce solutions, UI/UX design, and SEO services.",
-              pricerange: "Discuss with us: +91767983607 | Mail us: info@shrote.com",
+                "Shrote Technology is an enterprise software company in Bangalore providing HRMS, ERP, AI Chatbots, E-Commerce platforms, Payroll, Accounting, Inventory Management, School Management Software and more.",
+              pricerange: "Discuss with us: +91-7667983607 | Mail us: info@shrote.com",
               address: {
                 "@type": "PostalAddress",
-                streetAddress: "25th Main Rd, Putlanpalya, Jayanagara 9th Block, JayaNagar ",
+                streetAddress: "25th Main Rd, Putlanpalya, Jayanagara 9th Block, Jayanagar",
                 addressLocality: "Bangalore",
-                postalCode: "560069",
+                postalCode: "560041",
                 addressRegion: "Karnataka",
                 addressCountry: "IN",
               },
               url: "https://www.shrote.com/",
-              telephone: "91767983607",
+              telephone: "+917667983607",
               aggregateRating: {
                 "@type": "AggregateRating",
                 ratingValue: "4.2",

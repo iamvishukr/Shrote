@@ -40,19 +40,33 @@ export default function Header() {
     },
     { name: "About Us", href: "/about" },
     {
-      name: "Services",
-      href: "/services",
+      name: "Products",
+      href: "/#products",
       hasDropdown: true,
       dropdownItems: [
-        { name: "Web Design", href: "/web-design" },
-        { name: "Web Development", href: "/web-development" },
-        { name: "Portal Development", href: "/portal-development" },
-        { name: "E-commerce Solution", href: "/ecommerce-solution" },
-        { name: "Software Development", href: "/software-development" },
-        { name: "Data Science Solution", href: "/data-science-solution" },
-        { name: "Application Development", href: "/application-development" },
-        { name: "SEO & SEM", href: "/seo-sem" },
-        { name: "Bulk SMS", href: "/bulk-sms" },
+        { name: "HRMS Suite", href: "/#products" },
+        { name: "ERP Suite", href: "/#products" },
+        { name: "E-Commerce App", href: "/#products" },
+        { name: "Accounting Software", href: "/#products" },
+        { name: "Payroll Software", href: "/#products" },
+        { name: "AI Agents", href: "/#products" },
+        { name: "AI Chatbot", href: "/#products" },
+        { name: "Health Monitoring AI", href: "/#products" },
+        { name: "Inventory Management", href: "/#products" },
+        { name: "School Management", href: "/#products" },
+      ],
+    },
+    {
+      name: "Services",
+      href: "/#services",
+      hasDropdown: true,
+      dropdownItems: [
+        { name: "Web Development", href: "/services/web-development" },
+        { name: "AI Agent Development", href: "/services/ai-agent-development" },
+        { name: "Mobile App Development", href: "/services/mobile-app-development" },
+        { name: "iOS App Development", href: "/services/ios-app-development" },
+        { name: "IoT Software Development", href: "/services/iot-software-development" },
+        { name: "Digital Marketing", href: "/services/digital-marketing" },
       ],
     },
     { name: "Portfolio", href: "/portfolio" },
@@ -107,8 +121,8 @@ export default function Header() {
             <div className="flex bg-black items-center">
               <Link href="/" className="flex items-center">
   <img
-    src="/shrote_logo.png"
-    alt="Shrote Logo"
+    src="https://jjw4ayukjlg0hfp4.public.blob.vercel-storage.com/IMG-20251220-WA0009.jpg"
+    alt="Shrote Technology Logo"
     className={`transition-all duration-300 ${
       isScrolled
         ? "h-12 w-[100px]"
@@ -303,8 +317,8 @@ export default function Header() {
           <div className=" bg-black px-6 py-4 flex items-center justify-between">
             <Link href="/" className="flex items-center">
               <img
-                src="/shrote_logo.png"
-                alt="Logo"
+                src="https://jjw4ayukjlg0hfp4.public.blob.vercel-storage.com/IMG-20251220-WA0009.jpg"
+                alt="Shrote Technology Logo"
                 className="h-10 w-auto"
               />
             </Link>
@@ -468,10 +482,10 @@ export default function Header() {
                   Phone
                 </h3>
                 <Link
-                  href="tel:+91 7679 83607"
+                  href="tel:+917667983607"
                   className="text-gray-300 hover:text-blue-400 transition-colors duration-300 text-sm md:text-base"
                 >
-                  +91 7679 83607
+                  +91-7667983607
                 </Link>
               </div>
 

@@ -83,13 +83,7 @@ export default function WhyChoose() {
                   />
                 </div>
 
-                <div className="absolute bottom-0 -right-10 w-[300px] h-[300px] md:w-[400px] md:h-[400px] z-0 pointer-events-none">
-                  <img
-                    src="/why-choose-bg-shape.png"
-                    alt="Decorative shape"
-                    className="w-full h-full object-contain opacity-20 animate-spin-slow"
-                  />
-                </div>
+                <div className="absolute bottom-[-50px] -right-10 w-[300px] h-[300px] md:w-[400px] md:h-[400px] bg-blue-500/20 rounded-full blur-[80px] z-0 pointer-events-none"></div>
               </div>
             </div>
           </div>

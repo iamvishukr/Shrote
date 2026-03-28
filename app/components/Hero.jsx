@@ -1,180 +1,175 @@
 "use client";
 
-import { Play } from "lucide-react";
 import { useState, useEffect } from "react";
-import VideoModal from "./VideoModal";
+import Link from "next/link";
+
+const stats = [
+  { value: "500+", label: "Enterprise Clients" },
+  { value: "16+", label: "Software Products" },
+  { value: "98%", label: "Client Retention" },
+  { value: "10+", label: "Years Experience" },
+];
+
+const dynamicTexts = [
+  "HRMS & ERP Suite",
+  "AI Chatbot & Agents",
+  "E-Commerce Platform",
+  "Payroll & Accounting",
+  "Health Monitoring AI",
+];
 
 export default function Hero() {
-  const [isVideoOpen, setIsVideoOpen] = useState(false);
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
-
-  const dynamicTexts = ["Social Marketing", "Art & Design", "Digital World"];
+  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentTextIndex((prevIndex) => (prevIndex + 1) % dynamicTexts.length);
-    }, 2500);
-
+      setVisible(false);
+      setTimeout(() => {
+        setCurrentTextIndex((prev) => (prev + 1) % dynamicTexts.length);
+        setVisible(true);
+      }, 400);
+    }, 3000);
     return () => clearInterval(interval);
   }, []);
 
   return (
     <>
-      <section className="relative overflow-hidden hero-bg-video pb-16 pt-12">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover z-0 scale-[1.4]"
-        >
-          <source src="/artistic.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+      <section className="relative overflow-hidden min-h-[100vh] flex flex-col justify-center">
+        {/* Background video removed, using CSS particles and gradient instead */}
 
-        <div className="absolute z-10 d-none">
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            {[...Array(12)].map((_, i) => (
+        {/* Dark overlay */}
+        <div className="absolute inset-0 z-[1]" style={{
+          background: "linear-gradient(135deg, rgba(0,0,0,0.88) 0%, rgba(0,5,20,0.78) 50%, rgba(0,0,0,0.88) 100%)"
+        }}></div>
+
+        {/* Animated floating particles */}
+        <div className="absolute inset-0 z-[2] overflow-hidden">
+          <div className="hero-particle" style={{ left: "10%", top: "20%", animationDelay: "0s" }}></div>
+          <div className="hero-particle" style={{ left: "25%", top: "70%", animationDelay: "2s" }}></div>
+          <div className="hero-particle" style={{ left: "50%", top: "30%", animationDelay: "4s" }}></div>
+          <div className="hero-particle" style={{ left: "70%", top: "60%", animationDelay: "1s" }}></div>
+          <div className="hero-particle" style={{ left: "85%", top: "15%", animationDelay: "3s" }}></div>
+          <div className="hero-particle" style={{ left: "40%", top: "80%", animationDelay: "5s" }}></div>
+          <div className="hero-particle" style={{ left: "60%", top: "45%", animationDelay: "2.5s" }}></div>
+          <div className="hero-particle" style={{ left: "15%", top: "50%", animationDelay: "3.5s" }}></div>
+        </div>
+
+        {/* Animated gradient orbs */}
+        <div className="absolute top-[20%] left-[5%] w-[250px] h-[250px] md:w-[400px] md:h-[400px] bg-blue-600/10 rounded-full blur-[80px] md:blur-[120px] z-[2] hero-orb-1"></div>
+        <div className="absolute bottom-[10%] right-[5%] w-[200px] h-[200px] md:w-[350px] md:h-[350px] bg-cyan-500/8 rounded-full blur-[60px] md:blur-[100px] z-[2] hero-orb-2"></div>
+        <div className="absolute top-[60%] left-[50%] w-[180px] h-[180px] md:w-[300px] md:h-[300px] bg-purple-600/6 rounded-full blur-[70px] md:blur-[110px] z-[2] hero-orb-3"></div>
+
+        {/* Grid dots */}
+        <div className="absolute inset-0 z-[2] opacity-[0.04]" style={{
+          backgroundImage: "radial-gradient(circle at 1px 1px, rgba(59,130,246,0.5) 1px, transparent 0)",
+          backgroundSize: "40px 40px",
+        }}></div>
+
+        <div className="relative z-[10] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16 md:pb-20">
+          {/* Main heading — mobile-first responsive */}
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold text-white leading-[1.1] tracking-tight mb-1 sm:mb-2">
+            Powering Enterprises
+          </h1>
+          <p className="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-light text-gray-300/90 leading-[1.2] mb-3 sm:mb-4">
+            with Intelligent
+          </p>
+
+          {/* Dynamic rotating text */}
+          <div className="mb-6 sm:mb-8" style={{ minHeight: "45px" }}>
+            <span
+              className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold inline-block"
+              style={{
+                background: "linear-gradient(135deg, #60a5fa 0%, #22d3ee 50%, #3b82f6 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+                opacity: visible ? 1 : 0,
+                transform: visible ? "translateY(0)" : "translateY(15px)",
+                transition: "opacity 0.35s ease, transform 0.35s ease",
+              }}
+            >
+              {dynamicTexts[currentTextIndex]}
+            </span>
+          </div>
+
+          <p className="text-gray-300/80 text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl leading-relaxed mb-8 sm:mb-10">
+            Shrote Technology delivers <strong className="text-white font-semibold">16+ enterprise-grade software products</strong> — from HRMS and ERP to AI Agents, E-Commerce, and Health Monitoring — designed to transform how businesses operate at scale.
+          </p>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-10 sm:mb-16">
+            <Link
+              href="#products"
+              className="group relative inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 overflow-hidden rounded-full font-bold text-white text-sm sm:text-base"
+            >
+              <span className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-500 transition-all duration-300 group-hover:opacity-90"></span>
+              <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{
+                boxShadow: "0 0 30px rgba(59,130,246,0.5), 0 0 60px rgba(34,211,238,0.2)"
+              }}></span>
+              <span className="relative z-10 flex items-center gap-2">
+                Explore Products
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </span>
+            </Link>
+            <Link
+              href="/contact"
+              className="group inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-white/[0.08] backdrop-blur-md border border-white/[0.15] text-white font-semibold rounded-full hover:bg-white/[0.15] hover:border-white/[0.25] transition-all duration-300 text-sm sm:text-base"
+            >
+              Talk to Our Team
+              <svg className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+              </svg>
+            </Link>
+          </div>
+
+          {/* Stats */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+            {stats.map((stat, i) => (
               <div
                 key={i}
-                className="absolute border border-gray-700/20 rounded-full"
-                style={{
-                  width: `${Math.max(150, 200 + i * 90)}px`,
-                  height: `${Math.max(150, 200 + i * 90)}px`,
-                  top: `${Math.max(-75, -100 - i * 45)}px`,
-                  left: `${Math.max(-75, -100 - i * 45)}px`,
-                }}
-              />
+                className="bg-white/[0.04] backdrop-blur-sm border border-white/[0.08] rounded-xl sm:rounded-2xl p-3 sm:p-5 text-center hover:bg-white/[0.08] hover:border-white/[0.15] transition-all duration-300 group"
+              >
+                <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-0.5 sm:mb-1 group-hover:scale-105 transition-transform">
+                  {stat.value}
+                </div>
+                <div className="text-gray-400 text-[10px] sm:text-xs md:text-sm font-medium tracking-wide">{stat.label}</div>
+              </div>
             ))}
           </div>
         </div>
 
-        <div className="min-h-[40vh] sm:min-h-[50vh] md:min-h-[55vh] flex items-center justify-center relative z-20">
-          <div className="px-4 sm:px-6 md:px-8">
-            <h1 className="text-[36px] mt-16 md:mt-16 fd36 sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-[8rem] leading-tight text-center md:text-left">
-              Innovative solutions for
-            </h1>
-
-            <div
-              className="text-[40px] sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl 2xl:text-[9rem] leading-tight text-center md:text-left w-full whitespace-nowrap overflow-hidden"
-              style={{ minHeight: "1em" }}
-            >
-              <span className="text-blue-400 dynamic-text-fancy inline-block w-full">
-                {dynamicTexts[currentTextIndex]}
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div className="container relative z-20 pb-8 sm:pb-10 md:pb-12 lg:pb-14">
-          <div className="grid md:grid-cols-[40%_60%] gap-6 sm:gap-8 items-center max-w-6xl mx-auto">
-            <div className="flex items-center justify-center">
-              <div className="relative flex items-center">
-                <button
-                  onClick={() => setIsVideoOpen(true)}
-                  className="w-24 h-24 rounded-full bg-blue-400 flex items-center justify-center z-10 shadow-lg hover:scale-105 transition-transform duration-300"
-                >
-                  <Play className="text-black w-7 h-7" fill="currentColor" />
-                </button>
-
-                <div className="relative w-28 h-28">
-                  <div className="absolute inset-0 animate-spin-slow">
-                    <svg className="w-full h-full" viewBox="0 0 176 176">
-                      <path
-                        id="learn-more-circle"
-                        d="M 88,88 m -75,0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0"
-                        fill="none"
-                        stroke="none"
-                      />
-                      <text className="text-[15px] fill-white uppercase tracking-[1.5px] font-medium">
-                        <textPath href="#learn-more-circle" startOffset="0%">
-                          LEARN MORE ✱ LEARN MORE ✱ LEARN MORE ✱ LEARN MORE
-                        </textPath>
-                      </text>
-                    </svg>
-
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="white"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <path d="M12 5v14" />
-                        <path d="M5 12l7 7 7-7" />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="text-left space-y-6">
-              <p
-                className="text-sm md:text-md leading-relaxed max-w-3xl line-clamp-3"
-                style={{ color: "#F5F5F4" }}
-              >
-                At our Creative Digital Agency, we bring your ideas to life by
-                crafting engaging, impactful digital experiences that captivate
-                audiences and drive results. From innovative web design to
-                compelling content and cutting-edge digital strategies.
-              </p>
-
-              <div className="relative inline-flex items-center group">
-                <button className="flex items-center gap-3 px-5 py-3 bg-gray-800 text-white rounded-full hover:bg-gray-700 transition-all duration-300">
-                  Get In Touch
-                </button>
-
-                <div className="absolute left-full ml-1 top-1/2 -translate-y-1/2 w-14 h-14 bg-blue-400 rounded-full flex items-center justify-center">
-                  <svg
-                    className="w-7 h-7 text-black arrow-hover-animate"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M7 17l9.2-9.2M17 17V7H7"
-                    />
-                  </svg>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        {/* Bottom fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#050508] to-transparent z-[5]"></div>
       </section>
 
-      <div className="relative overflow-hidden bg-blue-600 py-6">
+      {/* Scrolling product ribbon */}
+      <div className="relative overflow-hidden bg-gradient-to-r from-blue-700 via-blue-600 to-cyan-600 py-3 sm:py-4">
         <div className="ribbon-scroll-rtl">
           <div className="ribbon-content-rtl">
-            <span className="ribbon-text">Strategy Consulting</span>
+            <span className="ribbon-text">HRMS Suite</span>
             <span className="ribbon-separator">✱</span>
-            <span className="ribbon-text">Custom Branding</span>
+            <span className="ribbon-text">ERP Platform</span>
             <span className="ribbon-separator">✱</span>
-            <span className="ribbon-text">Website Design</span>
+            <span className="ribbon-text">AI Chatbot</span>
             <span className="ribbon-separator">✱</span>
-            <span className="ribbon-text">Digital Marketing</span>
+            <span className="ribbon-text">E-Commerce</span>
             <span className="ribbon-separator">✱</span>
-            <span className="ribbon-text">Analytics & Reporting</span>
+            <span className="ribbon-text">Payroll Software</span>
             <span className="ribbon-separator">✱</span>
-            <span className="ribbon-text">Content Creation</span>
+            <span className="ribbon-text">Health Monitoring AI</span>
+            <span className="ribbon-separator">✱</span>
+            <span className="ribbon-text">AI Agents</span>
+            <span className="ribbon-separator">✱</span>
+            <span className="ribbon-text">Inventory Management</span>
+            <span className="ribbon-separator">✱</span>
+            <span className="ribbon-text">School Management</span>
             <span className="ribbon-separator">✱</span>
           </div>
         </div>
       </div>
-
-      <VideoModal
-        isOpen={isVideoOpen}
-        onClose={() => setIsVideoOpen(false)}
-        videoId="Y-x0efG1seA"
-      />
     </>
   );
 }

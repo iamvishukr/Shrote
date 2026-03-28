@@ -32,19 +32,19 @@ export default function Contact() {
     {
       icon: Mail,
       title: "Email Us",
-      info: "hello@artistic.com",
+      info: "info@shrote.com",
       description: "Send us an email anytime",
     },
     {
       icon: Phone,
       title: "Call Us",
-      info: "+1 (555) 123-4567",
-      description: "Mon-Fri from 8am to 5pm",
+      info: "+91-7667983607",
+      description: "Mon-Sat from 10am to 8pm IST",
     },
     {
       icon: MapPin,
       title: "Visit Us",
-      info: "123 Creative Street, Design City",
+      info: "25th Main Rd, Jayanagara, Bengaluru, Karnataka 560041",
       description: "Come say hello at our office",
     },
   ]

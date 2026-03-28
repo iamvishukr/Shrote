@@ -6,7 +6,7 @@ import { FaPhone } from "react-icons/fa";
 export default function CallButton() {
   return (
     <Link
-      href="Call:+91767983607" 
+      href="tel:+917667983607"
       target="_blank"
       rel="noopener noreferrer"
       

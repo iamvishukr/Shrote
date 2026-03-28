@@ -243,11 +243,9 @@ export default function About() {
       id="about"
       className="section-padding relative mb-8 sm:mb-12 md:mb-16 bg-transparent"
     >
-      <img
-        src="/about-agency-bg.png"
-        alt="Background"
-        className="absolute left-[-50px] sm:left-[-75px] md:left-[-100px] animate-slow-spin top-1/2 -translate-y-1/2 w-[200px] sm:w-[300px] md:w-[400px] opacity-40 rotate-[25deg] pointer-events-none z-0"
-      />
+      {/* Replaced missing background image with custom CSS glowing orbs */}
+      <div className="absolute left-[-50px] sm:left-[-75px] md:left-[-100px] top-1/2 -translate-y-1/2 w-[200px] sm:w-[300px] md:w-[400px] h-[200px] sm:h-[300px] md:h-[400px] bg-blue-500/20 rounded-full blur-[80px] pointer-events-none z-0"></div>
+      <div className="absolute right-[-50px] top-1/4 w-[250px] h-[250px] bg-purple-500/10 rounded-full blur-[100px] pointer-events-none z-0"></div>
 
       <div className="mr-2 ml-2 sm:ml-3 md:ml-5 relative z-10" ref={sectionRef}>
         <div className="grid md:grid-cols-2  items-start">

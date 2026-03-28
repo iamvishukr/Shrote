@@ -9,14 +9,8 @@ export default function Component() {
     {/* Background SVG */}
   </div>
 
-  {/* Shape Image */}
-  <div className="hidden sm:block absolute top-[4rem] left-0 w-[150px] sm:w-[200px] h-[60%] sm:h-[80%] -translate-x-[20%] animate-moveRotate pointer-events-none z-0">
-    <img
-      src="/work-together-bg-shape.png"
-      alt="Work Together Shape"
-      className="w-full h-full object-contain opacity-30 sm:opacity-50"
-    />
-  </div>
+  {/* Shape Image Replaced with CSS Glow */}
+  <div className="hidden sm:block absolute top-[4rem] left-[-50px] w-[200px] h-[200px] bg-blue-500/20 rounded-full blur-[80px] pointer-events-none z-0"></div>
 
   {/* Content */}
   <div className="relative z-10 flex flex-col items-center justify-center mt-6 sm:mt-12 px-4 sm:px-6 lg:px-8">

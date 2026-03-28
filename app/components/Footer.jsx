@@ -6,13 +6,13 @@ export default function Footer() {
     <footer className="bg-black text-white py-12 px-6">
       <div className="border-t border-gray-800 w-full mb-16"></div>
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 items-start gap-8 mb-8">
-          <div className="space-y-6">
-            <Link href="#" className="flex items-center">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 items-start gap-6 sm:gap-8 mb-8">
+          <div className="col-span-2 sm:col-span-2 md:col-span-3 lg:col-span-1 space-y-6">
+            <Link href="/" className="flex items-center">
               <img
-                src="/shrote_logo.png"
-                alt="Shrote Logo"
-                style={{ borderRadius: "33px", height:"100px" }}
+                src="https://jjw4ayukjlg0hfp4.public.blob.vercel-storage.com/IMG-20251220-WA0009.jpg"
+                alt="Shrote Technology Logo"
+                style={{ borderRadius: "33px", height: "80px" }}
               />
             </Link>
 
@@ -21,7 +21,7 @@ export default function Footer() {
                 <div className="w-10 h-10 border border-blue-400 rounded-full flex items-center justify-center">
                   <Phone className="w-4 h-4 text-blue-400" />
                 </div>
-                <span className="text-lg"> +91 7679 83607</span>
+                <span className="text-lg">+91-7667983607</span>
               </div>
 
               <div className="flex items-center space-x-3">
@@ -35,86 +35,57 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="col-span-2 flex flex-row md:ml-28 justify-center gap-6 md:gap-46">
-            <div className=" md:w-1/2">
-              <h3 className="text-xl sm:text-xl font-semibold mb-4 sm:mb-6">
-                Quick Link
-              </h3>
-              <ul className="space-y-1 sm:space-y-2 ">
-                <li>
-                  <Link
-                    href="/"
-                    className="text-gray-300 hover:text-blue-400 transition-colors text-sm sm:text-base"
-                  >
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/about-us"
-                    className="text-gray-300 hover:text-blue-400 transition-colors text-sm sm:text-base"
-                  >
-                    About Us
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/services"
-                    className="text-gray-300 hover:text-blue-400 transition-colors text-sm sm:text-base"
-                  >
-                    Services
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="#"
-                    className="text-gray-300 hover:text-blue-400 transition-colors text-sm sm:text-base"
-                  >
-                    Blog
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div className="w-1/2">
-              <h3 className="text-xl sm:text-xl font-semibold mb-4 sm:mb-6">
-                Support
+          <div className="flex flex-col">
+              <h3 className="text-base sm:text-xl font-semibold mb-3 sm:mb-6">
+                Quick Links
               </h3>
               <ul className="space-y-1 sm:space-y-2">
                 <li>
-                  <Link
-                    href="#"
-                    className="text-gray-300 hover:text-blue-400 transition-colors text-sm sm:text-base"
-                  >
-                    Contact us
-                  </Link>
+                  <Link href="/" className="text-gray-300 hover:text-blue-400 transition-colors text-sm sm:text-base">Home</Link>
                 </li>
                 <li>
-                  <Link
-                    href="#"
-                    className="text-gray-300 hover:text-blue-400 transition-colors text-sm sm:text-base"
-                  >
-                    Terms & Conditions
-                  </Link>
+                  <Link href="/about" className="text-gray-300 hover:text-blue-400 transition-colors text-sm sm:text-base">About Us</Link>
                 </li>
                 <li>
-                  <Link
-                    href="#"
-                    className="text-gray-300 hover:text-blue-400 transition-colors text-sm sm:text-base"
-                  >
-                    Career
-                  </Link>
+                  <Link href="/#products" className="text-gray-300 hover:text-blue-400 transition-colors text-sm sm:text-base">Our Products</Link>
                 </li>
                 <li>
-                  <Link
-                    href="#"
-                    className="text-gray-300 hover:text-blue-400 transition-colors text-sm sm:text-base"
-                  >
-                    Help
-                  </Link>
+                  <Link href="/contact" className="text-gray-300 hover:text-blue-400 transition-colors text-sm sm:text-base">Contact Us</Link>
+                </li>
+                <li>
+                  <Link href="/portfolio" className="text-gray-300 hover:text-blue-400 transition-colors text-sm sm:text-base">Portfolio</Link>
                 </li>
               </ul>
-            </div>
+          </div>
+
+          <div className="flex flex-col">
+              <h3 className="text-base sm:text-xl font-semibold mb-3 sm:mb-6">
+                Products
+              </h3>
+              <ul className="space-y-1 sm:space-y-2">
+                <li><Link href="/products/hrms-suite" className="text-gray-300 hover:text-blue-400 transition-colors text-sm sm:text-base">HRMS Suite</Link></li>
+                <li><Link href="/products/erp-suite" className="text-gray-300 hover:text-blue-400 transition-colors text-sm sm:text-base">ERP Suite</Link></li>
+                <li><Link href="/products/ai-chatbot" className="text-gray-300 hover:text-blue-400 transition-colors text-sm sm:text-base">AI Chatbot</Link></li>
+                <li><Link href="/products/ai-agents" className="text-gray-300 hover:text-blue-400 transition-colors text-sm sm:text-base">AI Agents</Link></li>
+                <li><Link href="/products/e-commerce-application" className="text-gray-300 hover:text-blue-400 transition-colors text-sm sm:text-base">E-Commerce App</Link></li>
+                <li><Link href="/products/payroll-software" className="text-gray-300 hover:text-blue-400 transition-colors text-sm sm:text-base">Payroll Software</Link></li>
+                <li><Link href="/products/school-management" className="text-gray-300 hover:text-blue-400 transition-colors text-sm sm:text-base">School Management</Link></li>
+              </ul>
+          </div>
+
+          {/* Services column */}
+          <div className="flex flex-col">
+            <h3 className="text-base sm:text-xl font-semibold mb-3 sm:mb-6">
+              Services
+            </h3>
+            <ul className="space-y-1 sm:space-y-2">
+              <li><Link href="/services/web-development" className="text-gray-300 hover:text-blue-400 transition-colors text-sm sm:text-base">Web Development</Link></li>
+              <li><Link href="/services/ai-agent-development" className="text-gray-300 hover:text-blue-400 transition-colors text-sm sm:text-base">AI Agent Dev</Link></li>
+              <li><Link href="/services/mobile-app-development" className="text-gray-300 hover:text-blue-400 transition-colors text-sm sm:text-base">Mobile App Dev</Link></li>
+              <li><Link href="/services/ios-app-development" className="text-gray-300 hover:text-blue-400 transition-colors text-sm sm:text-base">iOS App Dev</Link></li>
+              <li><Link href="/services/iot-software-development" className="text-gray-300 hover:text-blue-400 transition-colors text-sm sm:text-base">IoT Software</Link></li>
+              <li><Link href="/services/digital-marketing" className="text-gray-300 hover:text-blue-400 transition-colors text-sm sm:text-base">Digital Marketing</Link></li>
+            </ul>
           </div>
 
           <div>

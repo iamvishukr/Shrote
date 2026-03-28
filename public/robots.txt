@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /admin1
+Disallow: /api/
+
+Sitemap: https://www.shrote.com/sitemap.xml

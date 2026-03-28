@@ -241,13 +241,7 @@ export default function ProcessSteps() {
   return (
     <section className="section-padding relative">
       
-      <div className="absolute jidsmd z-0 hidden md:block">
-        <img
-          src="/how-work-bg-shape.png"
-          alt="Rotating Shape"
-          className="animate-spin-slow opacity-80"
-        />
-      </div>
+      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[100px] z-0 hidden md:block pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-start mb-16">
@@ -266,12 +260,8 @@ export default function ProcessSteps() {
 
           <div className="relative lg:pt-16">
             
-            <div className="relative z-0 block sad md:hidden mb-4">
-              <img
-                src="/how-work-bg-shape.png"
-                alt="Rotating Shape"
-                className="animate-spin-slow opacity-80 mx-auto"
-              />
+            <div className="relative z-0 block sad md:hidden mb-4 h-24">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-blue-500/20 rounded-full blur-[30px] opacity-80 pointer-events-none"></div>
             </div>
 
             
