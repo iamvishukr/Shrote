@@ -60,6 +60,27 @@ export default function FloatingIcons() {
         timestamp: new Date(),
       });
 
+      try {
+        await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            access_key: "41cea524-32f1-47ce-8c82-995b98110cbc",
+            name: formData.name,
+            email: formData.email,
+            mobile: formData.mobile,
+            message: formData.message,
+            subject: "New Floating Contact Inquiry",
+            from_name: "Shrote Website - Floating Sidebar Contact"
+          }),
+        });
+      } catch (err) {
+        console.error("Web3Forms submission failed:", err);
+      }
+
       setSuccess("Message sent successfully!");
       setFormData({ name: "", email: "", mobile: "", message: "" });
     } catch (error) {

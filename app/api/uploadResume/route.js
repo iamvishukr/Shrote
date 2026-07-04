@@ -38,12 +38,37 @@ export async function POST(req) {
 
           const resumePath = `/uploads/${finalFileName}`;
 
-          
           await addDoc(collection(db, 'joinOurTeam'), {
             ...fields,
             resume: resumePath,
             timestamp: new Date(),
           });
+
+          try {
+            await fetch("https://api.web3forms.com/submit", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+              },
+              body: JSON.stringify({
+                access_key: "41cea524-32f1-47ce-8c82-995b98110cbc",
+                subject: `New Job Application: ${fields.jobTitle || 'Career'}`,
+                from_name: "Shrote Website - Careers Form",
+                name: fields.name,
+                email: fields.email,
+                contact: fields.contact,
+                address: fields.address,
+                qualification: fields.qualification,
+                skills: fields.skills,
+                experience: `${fields.experienceYears || 0} years, ${fields.experienceMonths || 0} months`,
+                expected_ctc: fields.expectedCtc,
+                resume_link: `https://shrote.com${resumePath}`
+              }),
+            });
+          } catch (web3Err) {
+            console.error("Web3Forms Career submit error:", web3Err);
+          }
 
           resolve(NextResponse.json({ success: true, path: resumePath }));
         } catch (err) {

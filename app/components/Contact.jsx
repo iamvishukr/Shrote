@@ -4,6 +4,8 @@ import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef, useState } from "react"
 import { Mail, Phone, MapPin, Send } from "lucide-react"
+import { db } from "@/lib/firebase"
+import { addDoc, collection } from "firebase/firestore"
 
 export default function Contact() {
   const ref = useRef(null)
@@ -14,6 +16,8 @@ export default function Contact() {
     subject: "",
     message: "",
   })
+  const [result, setResult] = useState("")
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleChange = (e) => {
     setFormData({
@@ -22,10 +26,55 @@ export default function Contact() {
     })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-   
-    console.log("Form submitted:", formData)
+    setIsSubmitting(true)
+    setResult("Sending...")
+
+    try {
+      // 1. Save to DB
+      await addDoc(collection(db, "contactUs"), {
+        name: formData.name,
+        email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        timestamp: new Date(),
+      })
+
+      // 2. Send to Web3Forms
+      try {
+        await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            access_key: "41cea524-32f1-47ce-8c82-995b98110cbc",
+            name: formData.name,
+            email: formData.email,
+            subject: formData.subject,
+            message: formData.message,
+            from_name: "Shrote Website - Landing Page Contact"
+          }),
+        })
+      } catch (err) {
+        console.error("Web3Forms submission failed:", err)
+      }
+
+      setResult("Message sent successfully! ✅")
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      })
+    } catch (error) {
+      console.error("Error adding document: ", error)
+      setResult("Something went wrong ❌. Please try again!")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const contactInfo = [
@@ -181,7 +230,8 @@ export default function Contact() {
 
               <motion.button
                 type="submit"
-                className="w-full flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
+                disabled={isSubmitting}
+                className="w-full flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-300 disabled:opacity-50"
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 1.0 }}
@@ -189,8 +239,12 @@ export default function Contact() {
                 whileTap={{ scale: 0.98 }}
               >
                 <Send size={20} />
-                Send Message
+                {isSubmitting ? "Sending..." : "Send Message"}
               </motion.button>
+
+              {result && (
+                <p className="text-center mt-4 text-sm text-gray-300">{result}</p>
+              )}
             </form>
           </motion.div>
         </div>

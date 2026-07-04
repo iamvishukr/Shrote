@@ -35,7 +35,31 @@ function FormSection() {
       timestamp: new Date(),
     });
 
-   if (response) {
+    if (response) {
+      try {
+        await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            access_key: "41cea524-32f1-47ce-8c82-995b98110cbc",
+            name: formData.name,
+            email: formData.email,
+            mobile: formData.mobile,
+            message: formData.message,
+            address: formData.address,
+            service: formData.service,
+            city: formData.city,
+            subject: "New Contact Form Submission",
+            from_name: "Shrote Website - Contact Page"
+          }),
+        });
+      } catch (err) {
+        console.error("Web3Forms submit failed:", err);
+      }
+
       setResult("Message sent successfully! ✅");
       setFormData({
         name: "",
