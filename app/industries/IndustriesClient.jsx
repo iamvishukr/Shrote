@@ -114,7 +114,7 @@ export default function IndustriesClient() {
             <p className="text-[13px] text-[#7aa3c4] font-[500] mt-1">Industry Verticals</p>
           </div>
           <div>
-            <p className="text-3xl font-extrabold text-[#00A88F]">500+</p>
+            <p className="text-3xl font-extrabold text-[#00A88F]">200+</p>
             <p className="text-[13px] text-[#7aa3c4] font-[500] mt-1">Enterprise Deliveries</p>
           </div>
           <div>

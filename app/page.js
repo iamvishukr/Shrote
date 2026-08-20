@@ -1,9 +1,9 @@
 export const metadata = {
-  title: "Shrote Technology | Enterprise Software Products — HRMS, ERP, AI Chatbot, E-Commerce, Payroll",
+  title: "Shrote Technology | Enterprise Software Products — HRMS, ERP, AI Chatbot, E-Commerce, Mobile Apps",
   description:
-    "Shrote Technology delivers 16+ enterprise-grade software products including HRMS, ERP Suite, E-Commerce, Payroll, Accounting, AI Chatbot, AI Agents, Health Monitoring AI, Inventory Management, School Management, Restaurant Management, and more. We also offer custom web development, AI agent development, mobile app development, iOS app development, IoT software solutions, and digital marketing services. Trusted by 500+ businesses across India. Contact: +91-7667983607.",
+    "Shrote Technology delivers 16+ enterprise-grade software products including HRMS, ERP Suite, E-Commerce, Payroll, Accounting, AI Chatbot, AI Agents, Health Monitoring AI, Inventory Management, School Management, and Restaurant POS. We also engineer custom web development, mobile apps (iOS/Android), IoT software solutions, and digital marketing. Trusted by 200+ businesses across India. Contact: +91-7667983607.",
   keywords:
-    "HRMS software India, HRMS mobile app, ERP suite enterprise, ERP software Bangalore, AI chatbot software, AI chatbot for business, AI agents development, payroll software India, payroll management system, accounting software GST, e-commerce application development, e-commerce platform India, inventory management software, school management software, school ERP system, restaurant management software, restaurant POS software, health monitoring AI, fitness tracker app, studio management software, book shop management software, gift shop management software, auto booking app, cab booking app, web development company Bangalore, web development services India, mobile app development company, iOS app development India, IoT software development, IoT solutions Bangalore, custom software development, enterprise software company India, Shrote Technology, best software company Bangalore, AI development company India, SaaS products India, digital marketing company Bangalore, SEO services India, social media marketing, Google Ads management, content marketing agency",
+    "HRMS software India, HRMS mobile app, ERP suite enterprise, ERP software Bangalore, AI chatbot software, AI chatbot for business, AI agents development, LLM software solutions, payroll software India, payroll management system, accounting software GST, e-commerce application development, e-commerce platform India, inventory management software, school management software, school ERP system, restaurant management software, restaurant POS software, health monitoring AI, cab booking app, web development company Bangalore, mobile app development company, iOS app development India, IoT software development, custom software development, enterprise software company India, Shrote Technology, AI development company India, SaaS products India, SEO services India",
   robots: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
   alternates: {
     canonical: "https://www.shrote.com",
@@ -16,13 +16,13 @@ export const metadata = {
   openGraph: {
     title: "Shrote Technology — Enterprise Software Products | HRMS, ERP, AI, E-Commerce & More",
     description:
-      "Shrote Technology is India's leading enterprise software company offering 16+ products including HRMS, ERP, AI Chatbots, E-Commerce platforms, Payroll, Accounting, Health Monitoring AI, and custom software development services.",
+      "Shrote Technology is India's premier enterprise software and AI company offering 16+ products including HRMS, ERP, AI Chatbots, E-Commerce platforms, Payroll, and custom digital transformation services.",
     url: "https://www.shrote.com/",
     siteName: "Shrote Technology",
     type: "website",
     images: [
       {
-        url: "https://www.shrote.com/shrote_logo.png",
+        url: "https://www.shrote.com/images.png",
         width: 1200,
         height: 630,
         alt: "Shrote Technology - Enterprise Software Solutions",
@@ -34,10 +34,10 @@ export const metadata = {
     card: "summary_large_image",
     title: "Shrote Technology | Enterprise Software Products — HRMS, ERP, AI, E-Commerce",
     description:
-      "16+ enterprise software products: HRMS, ERP, AI Chatbots, E-Commerce, Payroll, Accounting, Health AI, Inventory Management. Custom web, mobile, AI agent & IoT development services.",
+      "16+ enterprise software products: HRMS, ERP, AI Chatbots, E-Commerce, Payroll, Accounting, Health AI, Inventory Management. Custom web, mobile & AI agent engineering.",
     site: "@Shrote_services",
     creator: "@Shrote",
-    images: ["https://www.shrote.com/shrote_logo.png"],
+    images: ["https://www.shrote.com/images.png"],
   },
   verification: {
     google: "YOUR_GOOGLE_SEARCH_CONSOLE_VERIFICATION_CODE",

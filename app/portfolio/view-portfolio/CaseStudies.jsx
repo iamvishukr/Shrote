@@ -6,6 +6,24 @@ import { ArrowRight, ArrowUpRight, ExternalLink } from "lucide-react";
 export default function CaseStudies() {
   const studies = [
     {
+      id: 110,
+      title: "HITM Academic & Student ERP: Digitizing Higher Education",
+      description: "How Shrote Technology engineered a centralized academic portal and student lifecycle ERP for HITM — automating online admissions, syllabus delivery, fee receipts, and examination grading.",
+      image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=800&auto=format&fit=crop",
+      category: "EdTech & Web Portal",
+      url: "/web-development",
+      metrics: "5,000+ Students Onboarded • 100% Paperless Admissions",
+    },
+    {
+      id: 111,
+      title: "Shrote Enterprise HRMS & Smart Attendance Suite",
+      description: "How our cloud-native HRMS with GPS geo-fenced biometric tracking eliminated manual timekeeping, automated monthly multi-tier payroll, and reduced compliance processing time by 85%.",
+      image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=800&auto=format&fit=crop",
+      category: "Enterprise Software & HRMS",
+      url: "/products",
+      metrics: "85% Faster Payroll • Zero Geo-Fencing Spoofing",
+    },
+    {
       id: 1,
       title: "NES Electrical Supplies: High-Velocity E-Commerce Engine",
       description: "How custom Next.js full-stack architecture powered automated billing, real-time inventory synchronization, and accelerated checkout conversions.",

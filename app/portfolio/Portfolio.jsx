@@ -8,6 +8,39 @@ const filters = ["All", "Mobile Apps", "Web Development", "E-Commerce", "SEO & M
 
 const projects = [
   {
+    id: 110,
+    title: "HITM Academic & Student Portal",
+    description: "Full-scale institutional web portal & academic ERP for HITM — featuring online student admissions, digital fee collection, course management, syllabus repository & exam results.",
+    image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=800&auto=format&fit=crop",
+    category: "Web Development",
+    tags: ["Next.js", "EdTech Portal", "Fee Gateway", "Student ERP"],
+    url: "https://www.shrote.com/web-development",
+    year: "2026",
+    isNew: true,
+  },
+  {
+    id: 111,
+    title: "Shrote Enterprise HRMS Suite",
+    description: "Cloud-native HR Management Software handling end-to-end employee lifecycle, payroll processing (PF/ESI/TDS), digital onboarding, performance appraisals & self-service employee portal.",
+    image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=800&auto=format&fit=crop",
+    category: "Software",
+    tags: ["HRMS", "Automated Payroll", "Compliance", "Cloud SaaS"],
+    url: "https://www.shrote.com/products",
+    year: "2026",
+    isNew: true,
+  },
+  {
+    id: 112,
+    title: "Smart Geo-Fenced Attendance System",
+    description: "Touchless biometric & GPS geo-fenced attendance tracking software with real-time shift scheduling, automated overtime calculation, facial recognition check-in & leave approvals.",
+    image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=800&auto=format&fit=crop",
+    category: "Software",
+    tags: ["Geo-Fencing", "Biometric Sync", "Mobile Check-In", "Shift Rota"],
+    url: "https://www.shrote.com/products",
+    year: "2026",
+    isNew: true,
+  },
+  {
     id: 0,
     title: "Shrote Technology Platform",
     description: "Complete enterprise website architecture with Next.js 14, Tailwind CSS, Framer Motion animations, Firebase Firestore & Web3Forms integration.",
@@ -286,7 +319,7 @@ export default function PortfolioGrid() {
             Featured Projects
           </h2>
           <p className="text-[15px] max-w-2xl mx-auto" style={{ color: "#6a8aaa" }}>
-            Explore our portfolio of 500+ successful projects — web apps, e-commerce platforms, mobile apps and enterprise software.
+            Explore our portfolio of 200+ successful projects — web apps, e-commerce platforms, mobile apps and enterprise software.
           </p>
         </div>
 

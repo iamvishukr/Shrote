@@ -7,7 +7,7 @@ export default function PortfolioBanner() {
     <PageBanner
       title="Our"
       highlight="Portfolio"
-      subtitle="Explore 500+ successful projects — web apps, e-commerce platforms, enterprise software & more."
+      subtitle="Explore 200+ successful projects — web apps, e-commerce platforms, enterprise software & more."
       breadcrumb={[{ label: "Portfolio" }]}
     />
   );

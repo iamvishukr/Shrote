@@ -37,7 +37,7 @@ const WhoWeAre = () => {
     if (!isVisible) return;
 
     const targets = {
-      customers: 500,
+      customers: 200,
       awards: 25,
       partners: 120,
       users: 50000,
@@ -68,7 +68,7 @@ const WhoWeAre = () => {
   const stats = [
     {
       icon: Users,
-      value: counters.customers > 0 ? `${counters.customers}+` : "500+",
+      value: counters.customers > 0 ? `${counters.customers}+` : "200+",
       label: "Enterprise Clients",
       sublabel: "Delivering software excellence pan-India & globally.",
     },
@@ -144,7 +144,7 @@ const WhoWeAre = () => {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0d2a4a]/75 via-transparent to-transparent" />
           <div className="absolute bottom-6 left-6 right-6 text-white">
-            <p className="text-xl font-bold">10+ Years of Tech Excellence</p>
+            <p className="text-xl font-bold">2+ Years of Tech Excellence</p>
             <p className="text-blue-200 text-sm mt-1">Driving measurable business outcomes through high-velocity engineering.</p>
           </div>
         </div>

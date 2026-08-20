@@ -1,58 +1,45 @@
 export const metadata = {
-  title: "Effective Bulk SMS Services | Shrote Technology",
-  description:
-    "Reach your audience instantly with Shrote Technology's efficient bulk SMS services. Connect, engage, and grow your business through effective communication. 📲",
-  keywords:
-    "bulk SMS, SMS marketing, mass messaging, Shrote Technology, SMS campaigns",
-  authors: [{ name: "Shrote Technologys" }],
-  creator: "Shrote Technologys",
-  publisher: "Shrote Technologys",
-  robots: "index, follow",
-
-  abstract:
-    "Web Development Company in Bangalore, Web Design Company in Bangalore, SEO Company in Bangalore, Digital Marketing Company in Bangalore, Advertising Agency in Bangalore, eCommerce Development Company Bangalore, Mobile Application Development Company Bangalore",
+  title: "Bulk SMS Gateway & WhatsApp API Services Bangalore | Shrote Technology",
+  description: "High-deliverability Promotional & Transactional Bulk SMS gateway, WhatsApp Business API, OTP delivery, and voice broadcasting with 99.9% uptime. Trusted by 200+ businesses.",
+  keywords: "bulk SMS service provider Bangalore, transactional SMS API India, WhatsApp Business API Bangalore, OTP SMS gateway, promotional SMS marketing India, Shrote Technology",
+  robots: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  alternates: {
+    canonical: "https://www.shrote.com/bulk-sms",
+  },
+  authors: [{ name: "Shrote Technology", url: "https://www.shrote.com" }],
+  creator: "Shrote Technology",
+  publisher: "Shrote Technology",
+  formatDetection: { telephone: true, email: true, address: true },
+  category: "Technology",
   openGraph: {
-    title: "Bulk SMS Service Provider in Bangalore-SMS Marketing",
-    description:
-      "Shrote Technology is the leading bulk SMS service provider in Bangalore. We offer bulk SMS gateway and promotional SMS marketing services at affordable cost.",
+    title: "Bulk SMS Gateway & WhatsApp API Services Bangalore | Shrote Technology",
+    description: "Instant OTP delivery, transactional SMS gateway, and automated WhatsApp communication.",
     url: "https://www.shrote.com/bulk-sms",
-    siteName: "Shrote Technologys",
+    siteName: "Shrote Technology",
+    type: "website",
     images: [
       {
-        url: "https://www.marswebsolution.com/images/bulk-sms2.jpg",
+        url: "https://www.shrote.com/images.png",
         width: 1200,
         height: 630,
         alt: "Bulk SMS Services - Shrote Technology",
       },
     ],
-    locale: "en_US",
-    type: "website",
+    locale: "en_IN",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bulk SMS Service Provider in Bangalore-SMS Marketing",
-    description:
-      "Shrote Technology is the leading bulk SMS service provider in Bangalore. We offer bulk SMS gateway and promotional SMS marketing services at affordable cost.",
+    title: "Bulk SMS Gateway & WhatsApp API Services | Shrote Technology",
+    description: "Enterprise bulk SMS and automated messaging infrastructure.",
     site: "@Shrote_services",
-    images: ["https://www.marswebsolution.com/images/mars_logo.png"],
     creator: "@Shrote",
+    images: ["https://www.shrote.com/images.png"],
   },
   other: {
-    copyright: "Shrote Technologys",
-    Distribution: "global",
-    Designer: "Shrote Technologys",
-    owner: "Shrote Technologys",
-    Rating: "General",
-    audience: "all",
-    expires: "never",
-    Language: "en",
-    GOOGLEBOT: "index,follow",
-    "msapplication-TileImage":
-      "https://www.marswebsolution.com/images/bulk-sms2.jpg",
     "geo.region": "IN-KA",
     "geo.placename": "Bangalore",
     "geo.position": "12.9186122,77.5913122",
-    ICBM: "12.9186122, 77.5913122",
+    "ICBM": "12.9186122, 77.5913122",
   },
 };
 

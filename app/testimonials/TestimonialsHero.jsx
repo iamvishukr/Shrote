@@ -7,7 +7,7 @@ export default function TestimonialsHero() {
     <PageBanner
       title="Client"
       highlight="Success & Reviews"
-      subtitle="Discover how 500+ global enterprises and high-growth startups scaled with Shrote Technology solutions."
+      subtitle="Discover how 200+ global enterprises and high-growth startups scaled with Shrote Technology solutions."
       breadcrumb={[
         { label: "Resources", href: "/portfolio" },
         { label: "Testimonials" },

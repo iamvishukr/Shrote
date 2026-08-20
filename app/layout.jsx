@@ -122,9 +122,9 @@ export default function RootLayout({ children }) {
                 "@type": "ImageObject",
                 "@id": "https://www.shrote.com/#logo",
                 inLanguage: "en-US",
-                url: "https://www.marswebsolutions.com/images/mars_logo.png",
-                width: 148,
-                height: 84,
+                url: "https://www.shrote.com/images.png",
+                width: 512,
+                height: 512,
                 caption: "Shrote Technology",
               },
               image: { "@id": "https://www.shrote.com/#logo" },
@@ -137,7 +137,7 @@ export default function RootLayout({ children }) {
               "@type": "LocalBusiness",
               name: "Shrote Technology",
               description:
-                "Shrote Technology is an enterprise software company in Bangalore providing HRMS, ERP, AI Chatbots, E-Commerce platforms, Payroll, Accounting, Inventory Management, School Management Software and more.",
+                "Shrote Technology is an enterprise software and AI engineering company in Bangalore delivering 16+ products including HRMS, ERP, AI Chatbots, Mobile Apps, E-Commerce platforms, and custom cloud architectures.",
               pricerange: "Discuss with us: +91-7667983607 | Mail us: info@shrote.com",
               address: {
                 "@type": "PostalAddress",
@@ -151,9 +151,9 @@ export default function RootLayout({ children }) {
               telephone: "+917667983607",
               aggregateRating: {
                 "@type": "AggregateRating",
-                ratingValue: "4.2",
-                reviewCount: 129,
-                ratingCount: 129,
+                ratingValue: "4.9",
+                reviewCount: 210,
+                ratingCount: 210,
                 bestRating: "5",
                 worstRating: "1",
               },
@@ -161,9 +161,9 @@ export default function RootLayout({ children }) {
               openingHoursSpecification: [
                 {
                   "@type": "OpeningHoursSpecification",
-                  dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-                  opens: "10:00",
-                  closes: "20:00",
+                  dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                  opens: "09:00",
+                  closes: "19:00",
                 },
               ],
               sameAs: [
@@ -171,16 +171,14 @@ export default function RootLayout({ children }) {
                 "https://www.instagram.com/shrotetechnology/",
                 "https://www.linkedin.com/company/shrote/",
                 "https://x.com/Shrote_services",
-            
-                "https://www.youtube.com/user/ShroteConsultancyServices/",
               ],
               logo: {
                 "@type": "ImageObject",
                 "@id": "https://www.shrote.com/#logo",
                 inLanguage: "en-US",
-                url: "https://www.marswebsolutions.com/images/mars_logo.png",
-                width: 148,
-                height: 84,
+                url: "https://www.shrote.com/images.png",
+                width: 512,
+                height: 512,
                 caption: "Shrote Technology",
               },
               image: { "@id": "https://www.shrote.com/#logo" },

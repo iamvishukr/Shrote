@@ -1,47 +1,41 @@
 export const metadata = {
-  title: "Data Science Solutions for Business | Shrote Technology",
-  description: "Unleash the power of data with Shrote Technology's data science services. Gain valuable insights and make informed decisions for your business's success. 📊",
-  keywords: "data science, data analysis, machine learning, Shrote Technology, data-driven insights",
-  authors: [{ name: "Shrote Technologys" }],
-  creator: "Shrote Technologys",
-  publisher: "Shrote Technologys",
-  robots: "index, follow",
-  
+  title: "AI, Machine Learning & Data Science Solutions | Shrote Technology",
+  description: "Accelerate your enterprise intelligence with custom Machine Learning models, Autonomous AI Agents, Predictive Data Analytics, LLM fine-tuning, and Neural Network architectures. Trusted by 200+ global brands.",
+  keywords: "data science company Bangalore, AI development company India, machine learning solutions, predictive analytics India, autonomous AI agents, LLM integration services, neural networks development, generative AI enterprise solutions, Shrote Technology",
+  robots: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  alternates: {
+    canonical: "https://www.shrote.com/data-science-solution",
+  },
+  authors: [{ name: "Shrote Technology", url: "https://www.shrote.com" }],
+  creator: "Shrote Technology",
+  publisher: "Shrote Technology",
+  formatDetection: { telephone: true, email: true, address: true },
+  category: "Technology",
   openGraph: {
-    title: "Data Science Solutions | Shrote Technology",
-    description: "Unleash the power of data with Shrote Technology's data science services. Gain valuable insights and make informed decisions for your business's success.",
-    url: "https://www.shrote.com/data-science",
-    siteName: "Shrote Technologys",
+    title: "AI, Machine Learning & Data Science Solutions | Shrote Technology",
+    description: "Harness enterprise data intelligence with custom Machine Learning, Autonomous AI Agents, and Predictive Analytics from Shrote Technology.",
+    url: "https://www.shrote.com/data-science-solution",
+    siteName: "Shrote Technology",
+    type: "website",
     images: [
       {
-        url: "https://www.marswebsolution.com/images/data-science.png", // You might want to create a data science specific image
+        url: "https://www.shrote.com/images.png",
         width: 1200,
         height: 630,
-        alt: "Data Science Services - Shrote Technology",
+        alt: "Data Science & AI Solutions - Shrote Technology",
       },
     ],
-    locale: "en_US",
-    type: "website",
+    locale: "en_IN",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Data Science Solutions | Shrote Technology",
-    description: "Unleash the power of data with Shrote Technology's data science services.",
+    title: "AI, Machine Learning & Data Science Solutions | Shrote Technology",
+    description: "Enterprise Machine Learning, Predictive Data Science & Autonomous AI Agent development.",
     site: "@Shrote_services",
-    images: ["https://www.marswebsolution.com/images/mars_logo.png"],
     creator: "@Shrote",
+    images: ["https://www.shrote.com/images.png"],
   },
   other: {
-    "copyright": "Shrote Technologys",
-    "Distribution": "global",
-    "Designer": "Shrote Technologys",
-    "owner": "Shrote Technologys",
-    "Rating": "General",
-    "audience": "all",
-    "expires": "never",
-    "Language": "en",
-    "GOOGLEBOT": "index,follow",
-    "msapplication-TileImage": "https://www.marswebsolution.com/images/mars_logo.png", // Using logo instead of e-commerce image
     "geo.region": "IN-KA",
     "geo.placename": "Bangalore",
     "geo.position": "12.9186122,77.5913122",
@@ -49,4 +43,4 @@ export const metadata = {
   },
 };
 
-export { default } from './DataScienceClient';
+export { default } from "./DataScienceClient";

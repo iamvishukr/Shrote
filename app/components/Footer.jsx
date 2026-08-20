@@ -148,7 +148,7 @@ export default function Footer() {
               Ready to Transform Your Business?
             </h2>
             <p className="text-green-100 text-sm md:text-base opacity-90">
-              Let's build something exceptional together. 500+ enterprises trust Shrote Technology.
+              Let's build something exceptional together. 200+ enterprises trust Shrote Technology.
             </p>
           </div>
           <div className="flex items-center gap-3 flex-shrink-0">
@@ -204,7 +204,7 @@ export default function Footer() {
               <Logo variant="light" />
             </Link>
             <p className="text-[13.5px] leading-relaxed mb-5 text-[#8eb0ce]">
-              India's leading enterprise software & digital engineering company. Delivering 16+ innovative cloud products & custom technology solutions since 2014.
+              India's leading enterprise software & digital engineering company. Delivering 16+ innovative cloud products & custom technology solutions with 2+ years of engineering excellence.
             </p>
             {/* Social Icons */}
             <div className="flex items-center gap-2.5">

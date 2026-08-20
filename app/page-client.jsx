@@ -22,7 +22,7 @@ function TrustedSection() {
     <section className="py-10 px-4 relative z-10" style={{ background: "rgba(255,255,255,0.9)", backdropFilter: "blur(12px)", borderBottom: "1px solid #e8f0f7" }}>
       <div className="max-w-7xl mx-auto">
         <p className="text-center text-[12px] font-[700] uppercase tracking-[2px] mb-6" style={{ color: "#00A88F" }}>
-          Trusted By 500+ High-Growth Enterprises & Global Brands
+          Trusted By 200+ High-Growth Enterprises & Global Brands
         </p>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 items-center justify-center">
           {clients.map((c) => (

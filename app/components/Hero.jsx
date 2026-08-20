@@ -13,9 +13,9 @@ const industryTags = [
 ];
 
 const stats = [
-  { value: "500+", label: "Enterprise Clients" },
+  { value: "200+", label: "Enterprise Clients" },
   { value: "16+", label: "Software Products" },
-  { value: "10+", label: "Years Experience" },
+  { value: "2+", label: "Years Experience" },
   { value: "99.9%", label: "Client Satisfaction" },
 ];
 
@@ -68,7 +68,7 @@ export default function Hero() {
               className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full border border-[#00A88F]/40 bg-[#00A88F]/10 text-[#00d4b4] text-sm font-medium"
             >
               <span className="w-2 h-2 rounded-full bg-[#00A88F] animate-pulse"></span>
-              Trusted by 500+ Businesses Across India
+              Trusted by 200+ Businesses Across India
             </motion.div>
 
             {/* Headline */}

@@ -11,6 +11,39 @@ export default function Portfolio() {
 
   const projects = [
     {
+      id: 110,
+      title: "HITM Academic & Student Portal",
+      category: "Web Development",
+      tags: ["Next.js", "EdTech Portal", "Fee Gateway", "Student ERP"],
+      image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=800&auto=format&fit=crop",
+      url: "/web-development",
+      year: "2026",
+      isNew: true,
+      description: "Comprehensive institutional web portal & student ERP for HITM with online admissions, course syllabi & fee collection.",
+    },
+    {
+      id: 111,
+      title: "Shrote Enterprise HRMS Suite",
+      category: "Software",
+      tags: ["HRMS", "Automated Payroll", "Compliance", "Cloud SaaS"],
+      image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=800&auto=format&fit=crop",
+      url: "/products",
+      year: "2026",
+      isNew: true,
+      description: "Cloud HR Management Software handling complete employee lifecycle, automated payroll processing & self-service employee portal.",
+    },
+    {
+      id: 112,
+      title: "Smart Geo-Fenced Attendance System",
+      category: "Software",
+      tags: ["Geo-Fencing", "Biometric Sync", "Mobile Check-In", "Shift Rota"],
+      image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=800&auto=format&fit=crop",
+      url: "/products",
+      year: "2026",
+      isNew: true,
+      description: "Touchless biometric & GPS geo-fenced attendance tracking software with real-time shift scheduling and overtime analytics.",
+    },
+    {
       id: 1,
       title: "Shrote Technology Platform",
       category: "Web Development",
@@ -123,7 +156,7 @@ export default function Portfolio() {
           href="/portfolio"
           className="inline-flex items-center gap-2 text-[14px] font-bold text-[#00A88F] hover:underline"
         >
-          View All 500+ Projects <ArrowRight size={16} />
+          View All 200+ Projects <ArrowRight size={16} />
         </Link>
       </div>
 
