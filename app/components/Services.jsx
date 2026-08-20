@@ -260,59 +260,59 @@ export default function Services() {
   const services = [
     {
       icon: <CustomLaptopIcon />,
-      title: "Web Development",
-      description: "A professional website scoped-out correctly translates measurable results.",
+      title: "Generative AI Integration",
+      description: "Infuse custom LLMs directly into your applications to automate complex workflows.",
     },
     {
       icon: <CustomRocketIcon />,
-      title: "Application Development",
-      description: "We have solution for most dynamic and complex application that runs business.",
+      title: "Autonomous Agents",
+      description: "Deploy intelligent agents that perform 24/7 analysis, task execution, and coordination.",
     },
     {
       icon: <CustomRavelryIcon />,
-      title: "Portal Development",
-      description: "We convert versatile shopping cart into an online super store for your business.",
+      title: "Cognitive Web Platforms",
+      description: "Next-gen web applications powered by predictive analytics and machine learning.",
     },
     {
       icon: <CustomServerIcon />,
-      title: "Software Development",
-      description: "Creative ideas addressing their expectations planned strategically",
+      title: "AI-Powered ERP Suites",
+      description: "Legacy software upgrades using cognitive pipelines for scalable operations.",
     },
     {
       icon: <CustomEcommerceIcon />,
-      title: "E-commerce Solution",
-      description: "Transforming your idea into an engaging shopping experience.",
+      title: "Predictive Commerce",
+      description: "Data-driven e-commerce engines that forecast trends and personalize shopping.",
     },
     {
       icon: <CustomSEOSearchIcon />,
-      title: "SEO & SEM",
-      description: "Leverage the SEO Insights to Engage with Right targeted Audience",
+      title: "Machine Learning SEM",
+      description: "Hyper-targeted digital marketing powered by behavioral forecasting models.",
     },
   ]
 
   return (
-    <section id="services" className="section-padding w-full">
+    <section id="services" className="section-padding w-full bg-[#FAFAF9]">
       <div className="w-full px-4 sm:px-6 md:px-8">
         <div className="grid md:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-start mb-8 sm:mb-12 md:mb-16">
           <div>
             <div className="section-tag">OUR SERVICES</div>
-            <h2 className="text-3xl cds sm:text-4xl md:text-5xl lg:text-6xl leading-tight">
-              Our <span className="text-blue-400 font-bold">digital services</span> to grow your brand
+            <h2 className="text-3xl text-stone-900 cds sm:text-4xl md:text-5xl lg:text-6xl leading-tight">
+              Our <span className="text-blue-500 font-bold">digital services</span> to grow your brand
             </h2>
           </div>
 
           <div className="md:pt-8 lg:pt-16">
-            <p className="text-base sm:text-lg md:text-xl text-white mb-6 sm:mb-8 leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-stone-600 mb-6 sm:mb-8 leading-relaxed">
               Join our creative community to collaborate, innovate, and thrive together. We welcome passionate
               individuals eager to make.
             </p>
             <div className="flex items-center gap-3 sm:gap-4">
-              <button className="px-6 sm:px-8 py-3 sm:py-4 bg-gray-800 text-white rounded-full hover:bg-gray-700 transition-colors duration-300 text-sm sm:text-base">
+              <button className="px-6 sm:px-8 py-3 sm:py-4 bg-stone-900 text-white rounded-full hover:bg-stone-800 transition-colors duration-300 text-sm sm:text-base">
                 All Services
               </button>
               <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-400 rounded-full flex items-center justify-center group cursor-pointer">
                 <svg
-                  className="w-6 h-6 text-black transform transition-transform duration-300 group-hover:animate-rotate-to-right"
+                  className="w-6 h-6 text-white transform transition-transform duration-300 group-hover:animate-rotate-to-right"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -324,11 +324,17 @@ export default function Services() {
           </div>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {services.map((service, index) => (
             <div
               key={index}
-              className="relative bg-gray-900 rounded-[20px] sm:rounded-[25px] md:rounded-[30px] p-6 sm:p-8 md:p-[40px] border border-solid border-gray-700 overflow-visible group"
+              className={`relative bg-white/80 rounded-[20px] sm:rounded-[25px] md:rounded-[30px] p-6 sm:p-8 md:p-[40px] border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] backdrop-blur-md overflow-visible group flex flex-col justify-between hover:bg-white transition-colors duration-300 ${
+                index === 0 ? "lg:col-span-2 lg:row-span-2 bg-gradient-to-br from-indigo-50 to-white/80" : 
+                index === 3 ? "lg:col-span-2 bg-gradient-to-bl from-purple-50 to-white/80" : 
+                index === 4 ? "lg:col-span-2 bg-gradient-to-tr from-cyan-50 to-white/80" : 
+                index === 5 ? "lg:col-span-2 bg-gradient-to-br from-pink-50 to-white/80" :
+                ""
+              }`}
               style={{
                 "--overlay-opacity": "0.4",
                 "--border-radius": "30px",
@@ -356,15 +362,15 @@ export default function Services() {
                   </div>
                 </div>
 
-                <h3 className="text-xl sm:text-2xl pt-8 md:pt-12 font-bold mb-3 sm:mb-4 text-white">{service.title}</h3>
-                <p className="edem sm:text-base leading-relaxed">{service.description}</p>
+                <h3 className={`font-bold mb-3 sm:mb-4 text-stone-900 ${index === 0 ? 'text-3xl sm:text-4xl pt-8 md:pt-16' : 'text-xl sm:text-2xl pt-8 md:pt-12'}`}>{service.title}</h3>
+                <p className={`edem leading-relaxed text-stone-500 ${index === 0 ? 'sm:text-lg max-w-md' : 'sm:text-base'}`}>{service.description}</p>
               </div>
             </div>
           ))}
         </div>
       </div>
       <div className="text-center mt-5">
-        <p>
+        <p className="text-stone-700">
           Let's make something great work together.{" "}
           <Link
             href="https://demo.awaikenthemes.com/artistics/contact-us/"

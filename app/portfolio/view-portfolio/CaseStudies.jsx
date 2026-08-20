@@ -1,75 +1,85 @@
 "use client";
 
-import Image from "next/image";
-import { ArrowRight } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, ArrowUpRight, ExternalLink } from "lucide-react";
 
 export default function CaseStudies() {
   const studies = [
     {
       id: 1,
-      title:
-        "Swing, Score, Scale: BlueTees Golf’s Mobile App Journey with Webskitters",
-      description:
-        "A Hole-in-One Digital Experience: Webskitters Swings Big with",
-      image:
-        "https://www.webskitters.com/wp-content/uploads/2025/06/about-blue-tees-golf-img.jpg",
-      logo: "https://www.webskitters.com/wp-content/uploads/2025/06/blue-tees-golf-logo.png",
-      button: "View Case Study",
+      title: "NES Electrical Supplies: High-Velocity E-Commerce Engine",
+      description: "How custom Next.js full-stack architecture powered automated billing, real-time inventory synchronization, and accelerated checkout conversions.",
+      image: "https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=800&auto=format&fit=crop",
+      category: "E-Commerce Architecture",
+      url: "https://www.neselectricalsupplies.com/",
+      metrics: "3.4x Faster Checkouts • 99.99% Uptime",
     },
     {
       id: 2,
-      title:
-        "Boosting Organic Growth for a Pet Brand with Smart SEO Strategies",
-      description: "How Comprehensive SEO Helped a Pet Brand Increase",
-      image:
-        "https://www.webskitters.com/wp-content/uploads/2025/06/dogistry-bnr-mobile.webp",
-      logo: "https://www.webskitters.com/wp-content/uploads/2025/06/dogistry-logo.png",
-      button: "View Case Study",
+      title: "Luxify Digital: Scaling Organic Search & Lead Inflow",
+      description: "How technical SEO architecture, structured schemas, and headless content hubs delivered top 3 Google SERP rankings in hyper-competitive niches.",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop",
+      category: "SEO & Digital Strategy",
+      url: "https://luxifydigital.com/",
+      metrics: "+280% Organic Traffic • 4.2x Lead Velocity",
     },
   ];
 
   return (
-    <section className="py-12 px-6 md:px-16">
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">
-        More <span className="italic text-green-800">Case Studies</span>
-      </h2>
+    <section className="py-12">
+      <div className="text-center max-w-2xl mx-auto mb-12">
+        <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0d2a4a] tracking-tight">
+          Featured <span style={{
+            background: "linear-gradient(90deg, #00A88F, #00d4b4)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+          }}>Case Studies</span>
+        </h2>
+        <p className="text-[#5a7a9a] text-[15px] mt-2">
+          Discover how Shrote Technology solves complex challenges for industry leaders.
+        </p>
+      </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {studies.map((study) => (
           <div
             key={study.id}
-            className="bg-slate-900 rounded-xl shadow-md overflow-hidden flex flex-col"
+            className="bg-white rounded-3xl overflow-hidden border border-[#e8f0f7] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
           >
-            <div className="relative w-full h-64">
-              <Image
+            <div className="relative w-full h-64 overflow-hidden">
+              <img
                 src={study.image}
                 alt={study.title}
-                fill
-                className="object-cover"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute bottom-4 left-4 bg-white px-4 py-2 rounded shadow">
-                <Image
-                  src={study.logo}
-                  alt="Case Study Logo"
-                  width={80}
-                  height={30}
-                />
+              <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[11.5px] font-bold text-[#00A88F] border border-white/60">
+                {study.category}
               </div>
             </div>
 
-            <div className="p-6 flex flex-col flex-grow">
-              <h3 className="text-lg font-semibold text-gray-300">
-                {study.title}
-              </h3>
-              <p className="mt-2 text-gray-400">{study.description}</p>
+            <div className="p-7 flex flex-col flex-1 justify-between">
+              <div>
+                <div className="text-[12px] font-bold text-[#00A88F] mb-2 uppercase tracking-wide">
+                  {study.metrics}
+                </div>
+                <h3 className="text-xl font-bold text-[#0d2a4a] mb-3 group-hover:text-[#00A88F] transition-colors leading-snug">
+                  {study.title}
+                </h3>
+                <p className="text-[#5a7a9a] text-[14px] leading-relaxed mb-6">
+                  {study.description}
+                </p>
+              </div>
 
-              <div className="mt-6 flex items-center gap-1  group">
-                <button className="bg-slate-600 hover:bg-slate-800 text-white font-semibold py-3 px-6 rounded-full shadow-md transition">
-                  {study.button}
-                </button>
-                <button className="bg-slate-600 hover:bg-slate-800 text-white p-3 rounded-full shadow-md transition-transform duration-300 transform group-hover:translate-x-2">
-                  <ArrowRight size={20} />
-                </button>
+              <div className="pt-4 border-t border-[#f0f5fa] flex items-center justify-between">
+                <a
+                  href={study.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-[13.5px] font-bold text-[#00A88F] hover:underline"
+                >
+                  <span>Explore Live Project</span>
+                  <ArrowUpRight size={15} />
+                </a>
               </div>
             </div>
           </div>

@@ -21,13 +21,23 @@
 
 /* You can add your project-wide styles below this line if needed */
 
+.brand-gradient {
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #d946ef 100%) !important;
+}
+.brand-text-gradient {
+  background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #f472b6 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+.brand-border-gradient {
+  border-image: linear-gradient(135deg, #3b82f6, #8b5cf6, #d946ef) 1 !important;
+}
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  cursor: none !important;
-
 }
 a, Link{
   /* no underline */
@@ -41,10 +51,9 @@ html {
 
 body {
   font-family: "Plus Jakarta Sans", "Poppins", sans-serif;
-  background-color: #000000;
-  color: #ffffff;
+  background-color: #FAFAF9;
+  color: #1C1917;
   line-height: 1.6;
-  cursor: none !important;
   overflow-x: hidden;
   
   scrollbar-width: none;
@@ -66,21 +75,11 @@ body::-webkit-scrollbar {
   -ms-overflow-style: none; 
 }
 
-
-*,
-*::before,
-*::after {
-  cursor: none !important;
-}
-
 a,
 button,
-input,
-textarea,
-select,
 [role="button"],
 .cursor-pointer {
-  cursor: none !important;
+  cursor: pointer;
 }
 
 .green-accent {
@@ -211,7 +210,7 @@ select,
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: none !important;
+  cursor: pointer;
   transition: all 0.3s ease;
   border: none;
   box-shadow: 0 0 40px rgba(163, 230, 53, 0.15);
@@ -1521,4 +1520,154 @@ div.dt-container div.dt-layout-table>div {
 
 .fdaa{
   width: 2px;
+}
+
+/* ═════════════════════════════════════════════════════════════
+   HARDWARE-ACCELERATED BACKGROUND ANIMATIONS (Ultra Lightweight)
+   ═════════════════════════════════════════════════════════════ */
+@keyframes bg-orb-float-1 {
+  0% { transform: translate3d(0px, 0px, 0px) scale(1); }
+  50% { transform: translate3d(60px, 40px, 0px) scale(1.12); }
+  100% { transform: translate3d(0px, 0px, 0px) scale(1); }
+}
+
+@keyframes bg-orb-float-2 {
+  0% { transform: translate3d(0px, 0px, 0px) scale(1.1); }
+  50% { transform: translate3d(-50px, -45px, 0px) scale(0.92); }
+  100% { transform: translate3d(0px, 0px, 0px) scale(1.1); }
+}
+
+@keyframes bg-orb-float-3 {
+  0% { transform: translate3d(0px, 0px, 0px) scale(1); }
+  50% { transform: translate3d(40px, -60px, 0px) scale(1.15); }
+  100% { transform: translate3d(0px, 0px, 0px) scale(1); }
+}
+
+@keyframes bg-grid-drift {
+  0% { background-position: 0 0; }
+  100% { background-position: 40px 40px; }
+}
+
+@keyframes bg-particle-pulse {
+  0%, 100% { opacity: 0.25; transform: translateY(0px) scale(1); }
+  50% { opacity: 0.75; transform: translateY(-15px) scale(1.2); }
+}
+
+@keyframes bg-circuit-glow {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.45; }
+}
+
+.animate-bg-orb-1 {
+  animation: bg-orb-float-1 16s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-bg-orb-2 {
+  animation: bg-orb-float-2 20s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-bg-orb-3 {
+  animation: bg-orb-float-3 18s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-bg-grid {
+  animation: bg-grid-drift 24s linear infinite;
+  will-change: background-position;
+}
+
+.animate-bg-particle {
+  animation: bg-particle-pulse 6s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.animate-bg-circuit {
+  animation: bg-circuit-glow 8s ease-in-out infinite;
+  will-change: opacity;
+}
+
+/* ═════════════════════════════════════════════════════════════
+   AI & MACHINE LEARNING NEURAL NETWORK ANIMATIONS
+   ═════════════════════════════════════════════════════════════ */
+@keyframes ai-synapse-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.35;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.95;
+    box-shadow: 0 0 16px rgba(0, 168, 143, 0.8), 0 0 30px rgba(0, 212, 180, 0.4);
+  }
+}
+
+@keyframes ai-synapse-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+@keyframes ai-data-flow {
+  0% {
+    stroke-dashoffset: 200;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes ai-tensor-float {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(20px, -25px, 0) rotate(6deg);
+  }
+}
+
+@keyframes ai-code-scan {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+.animate-ai-node {
+  animation: ai-synapse-pulse 3.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  will-change: transform, opacity;
+}
+
+.animate-ai-ring {
+  animation: ai-synapse-ring 3.5s cubic-bezier(0.1, 0.8, 0.3, 1) infinite;
+  will-change: transform, opacity;
+}
+
+.animate-ai-flow {
+  stroke-dasharray: 12, 16;
+  animation: ai-data-flow 12s linear infinite;
+  will-change: stroke-dashoffset;
+}
+
+.animate-ai-tensor {
+  animation: ai-tensor-float 14s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-ai-scan {
+  animation: ai-code-scan 7s ease-in-out infinite;
+  will-change: transform, opacity;
 }

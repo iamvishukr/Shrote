@@ -1,7 +1,5 @@
 "use client";
-import FloatingIcons from "../components/FloatingIcons";
 import Header from "../Header";
-import MouseCursor from "../components/MouseCursor";
 import React from "react";
 import BulkSmsHero from "./BulkSmsHero";
 import ServiceCard from "../application-development/ServiceCard";
@@ -13,16 +11,12 @@ import Footer from "../components/Footer";
 
 function BulkSmsPage() {
   return (
-    <div className="min-h-screen bg-black text-white">
-      <MouseCursor />
-      <FloatingIcons />
+    <div className="min-h-screen" style={{ background: "#f5f9fd" }}>
       <Header />
       <BulkSmsHero />
-      
       <ServiceCard />
       <DigitalMarketingFeatures />
       <ProcessSection />
-      
       <FAQSection />
       <Collaboration />
       <Footer />
@@ -30,4 +24,4 @@ function BulkSmsPage() {
   );
 }
 
-export default BulkSmsPage;
+export default BulkSmsPage;

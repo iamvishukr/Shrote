@@ -1,6 +1,4 @@
 "use client";
-import MouseCursor from "../components/MouseCursor"
-import FloatingIcons from "../components/FloatingIcons"
 import Header from "@/app/Header"
 import AboutHero from "./AboutHero"
 import Footer from "../components/Footer"
@@ -16,19 +14,20 @@ import Testimonials from "../components/Testimonials";
 import Featuress from "../components/KeyBenefits";
 import HaveAnyQuestions from "./HaveAnyQuestions";
 import Component from "../components/Collaboration";
-import { PriorityLoader, SkeletonLoader } from "../components/FastLoader";
+import { PriorityLoader } from "../components/FastLoader";
 import { RoutePrefetcher } from "../components/RoutePrefetcher";
+import AnimatedBackground from "../components/AnimatedBackground";
 
 function AboutU() {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen relative" style={{ background: "#f5f9fd" }}>
+      <AnimatedBackground variant="deep-learning" />
+      <div className="relative z-10">
       
       <RoutePrefetcher />
       
       
       <PriorityLoader priority="high">
-        <MouseCursor />
-        <FloatingIcons />
         <Header />
         <AboutHero name="About" />
       </PriorityLoader>
@@ -45,12 +44,6 @@ function AboutU() {
         <PriorityLoader priority="normal">
           <Features />
         </PriorityLoader>
-      </div>
-      
-      <div className="relative z-0 flex justify-end items-center -mt-[190px] mb-[-40px] overflow-hidden">
-        <div className="relative w-[300px] h-[300px] overflow-hidden">
-          <div className="absolute top-1/2 -translate-y-1/2 right-[-20%] w-[250px] h-[250px] bg-blue-500/10 rounded-full blur-[80px] pointer-events-none"></div>
-        </div>
       </div>
       
       <div className="relative z-10">
@@ -70,6 +63,7 @@ function AboutU() {
       </PriorityLoader>
 
       <Footer/>
+      </div>
     </div>
    )
  }

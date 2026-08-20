@@ -57,9 +57,9 @@ export default function ProcessSteps() {
           />
         </svg>
       ),
-      title: "Personalized Approach",
+      title: "Data Preparation",
       description:
-        "We customize strategies to fit your brand's specific needs, ensuring alignment.",
+        "We align datasets and APIs to ensure the AI systems are properly fine-tuned for your domain.",
     },
     {
       number: "02",
@@ -159,9 +159,9 @@ export default function ProcessSteps() {
           />
         </svg>
       ),
-      title: "Data-Driven Decisions",
+      title: "AI Inference & Logic",
       description:
-        "We utilize data insights to refine strategies, optimize and ensure impactful, measurable results.",
+        "We deploy generative AI inference models and agents that execute intelligent multi-step decisions.",
     },
     {
       number: "04",
@@ -232,27 +232,27 @@ export default function ProcessSteps() {
           />
         </svg>
       ),
-      title: "Ongoing Support",
+      title: "Continuous Learning",
       description:
-        "We provide continuous support and maintenance to keep your digital assets at their best.",
+        "We provide MLOps support to continuously train models on new data and keep accuracy high.",
     },
   ];
 
   return (
-    <section className="section-padding relative">
+    <section className="section-padding relative bg-[#F5F5F4]">
       
       <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[100px] z-0 hidden md:block pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-start mb-16">
           <div>
-            <p className="text-xs sm:text-sm uppercase text-white/60 tracking-wider mb-4 md:mb-6 font-medium">
-              <span className="text-blue-400 text-base md:text-lg mr-2">✱</span>
-              <span className="text-white/90">KEY BENEFITS</span>
+            <p className="text-xs sm:text-sm uppercase text-stone-500 tracking-wider mb-4 md:mb-6 font-medium">
+              <span className="text-blue-600 text-base md:text-lg mr-2">✱</span>
+              <span className="text-stone-900">KEY BENEFITS</span>
             </p>
-            <h2 className="px-4 text-[3.2rem]  leading-[1.1] md:px-0 md:text-5xl md:leading-tight">
+            <h2 className="px-4 text-[3.2rem] text-stone-900 leading-[1.1] md:px-0 md:text-5xl md:leading-tight">
               Discover the{" "}
-              <span className="text-blue2 font-bold">benefits</span> of
+              <span className="text-blue-600 font-bold">benefits</span> of
               <br />
               choosing us today
             </h2>
@@ -266,7 +266,7 @@ export default function ProcessSteps() {
 
             
             <div className="relative z-10 -mt-[200px] md:-mt-0 px-4 md:px-0">
-              <p className="text-lg text-white leading-relaxed">
+              <p className="text-lg text-stone-500 leading-relaxed">
                 Experience unparalleled creativity, data-driven strategies, and
                 dedicated support that drive real results for your brand.
               </p>
@@ -274,18 +274,18 @@ export default function ProcessSteps() {
           </div>
         </div>
 
-        <div className="absolute top-4 right-1/3 w-3 h-3 bg-blue-400 rounded-full"></div>
+        <div className="absolute top-4 right-1/3 w-3 h-3 bg-blue-600 rounded-full"></div>
 
         <div className="max-w-[90%] mx-auto md:max-w-none grid md:grid-cols-2 lg:grid-cols-4 gap-8">
   {steps.map((step, index) => (
     <div
       key={index}
-      className="bg-[#0e140e] rounded-3xl p-5 card-hover"
+      className="bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 rounded-3xl p-5 card-hover"
     >
-      <div className="text-3xl font-bold text-white mb-4 md:mb-8">{step.number}</div>
-      <div className="text-blue-400 mb-4 md:mb-8">{step.icon}</div>
-      <h3 className="text-2xl font-bold mb-2 md:mb-4">{step.title}</h3>
-      <p className="text-white ds56 md:mb-4 leading-relaxed">
+      <div className="text-3xl font-bold text-stone-900 mb-4 md:mb-8">{step.number}</div>
+      <div className="text-blue-600 mb-4 md:mb-8">{step.icon}</div>
+      <h3 className="text-2xl font-bold mb-2 md:mb-4 text-stone-900">{step.title}</h3>
+      <p className="text-stone-500 ds56 md:mb-4 leading-relaxed">
         {step.description}
       </p>
     </div>

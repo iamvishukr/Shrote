@@ -1,175 +1,241 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { ArrowRight, Brain, Cloud, Database, Globe, Shield, Smartphone } from "lucide-react";
+
+const industryTags = [
+  { label: "Web Development", href: "/web-development" },
+  { label: "Mobile Apps", href: "/application-development" },
+  { label: "AI & Chatbot", href: "/software-development" },
+  { label: "E-Commerce", href: "/ecommerce-solution" },
+  { label: "Digital Marketing", href: "/seo-sem" },
+];
 
 const stats = [
   { value: "500+", label: "Enterprise Clients" },
   { value: "16+", label: "Software Products" },
-  { value: "98%", label: "Client Retention" },
   { value: "10+", label: "Years Experience" },
-];
-
-const dynamicTexts = [
-  "HRMS & ERP Suite",
-  "AI Chatbot & Agents",
-  "E-Commerce Platform",
-  "Payroll & Accounting",
-  "Health Monitoring AI",
+  { value: "99.9%", label: "Client Satisfaction" },
 ];
 
 export default function Hero() {
-  const [currentTextIndex, setCurrentTextIndex] = useState(0);
-  const [visible, setVisible] = useState(true);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setVisible(false);
-      setTimeout(() => {
-        setCurrentTextIndex((prev) => (prev + 1) % dynamicTexts.length);
-        setVisible(true);
-      }, 400);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <>
-      <section className="relative overflow-hidden min-h-[100vh] flex flex-col justify-center">
-        {/* Background video removed, using CSS particles and gradient instead */}
+    <section
+      className="relative w-full overflow-hidden"
+      style={{
+        background: "linear-gradient(135deg, #0d2a4a 0%, #0d325a 40%, #113d6e 70%, #0e4a7e 100%)",
+        minHeight: "88vh",
+      }}
+    >
+      {/* Animated background curves */}
+      <div
+        className="absolute bottom-0 left-0 w-full pointer-events-none"
+        style={{ height: "120px", overflow: "hidden" }}
+      >
+        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "100%" }}>
+          <path d="M0,60 C360,120 1080,0 1440,80 L1440,120 L0,120 Z" fill="#00A88F" opacity="0.15" />
+          <path d="M0,80 C480,20 960,120 1440,60 L1440,120 L0,120 Z" fill="#f0f4f8" />
+        </svg>
+      </div>
 
-        {/* Dark overlay */}
-        <div className="absolute inset-0 z-[1]" style={{
-          background: "linear-gradient(135deg, rgba(0,0,0,0.88) 0%, rgba(0,5,20,0.78) 50%, rgba(0,0,0,0.88) 100%)"
-        }}></div>
+      {/* Grid pattern overlay */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.04]"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
+          backgroundSize: "60px 60px",
+        }}
+      />
 
-        {/* Animated floating particles */}
-        <div className="absolute inset-0 z-[2] overflow-hidden">
-          <div className="hero-particle" style={{ left: "10%", top: "20%", animationDelay: "0s" }}></div>
-          <div className="hero-particle" style={{ left: "25%", top: "70%", animationDelay: "2s" }}></div>
-          <div className="hero-particle" style={{ left: "50%", top: "30%", animationDelay: "4s" }}></div>
-          <div className="hero-particle" style={{ left: "70%", top: "60%", animationDelay: "1s" }}></div>
-          <div className="hero-particle" style={{ left: "85%", top: "15%", animationDelay: "3s" }}></div>
-          <div className="hero-particle" style={{ left: "40%", top: "80%", animationDelay: "5s" }}></div>
-          <div className="hero-particle" style={{ left: "60%", top: "45%", animationDelay: "2.5s" }}></div>
-          <div className="hero-particle" style={{ left: "15%", top: "50%", animationDelay: "3.5s" }}></div>
-        </div>
+      {/* Glowing orbs */}
+      <div className="absolute top-20 right-[5%] w-[500px] h-[500px] rounded-full pointer-events-none"
+        style={{ background: "radial-gradient(circle, rgba(0,168,143,0.12) 0%, transparent 70%)" }} />
+      <div className="absolute bottom-20 left-[10%] w-[350px] h-[350px] rounded-full pointer-events-none"
+        style={{ background: "radial-gradient(circle, rgba(0,120,200,0.1) 0%, transparent 70%)" }} />
 
-        {/* Animated gradient orbs */}
-        <div className="absolute top-[20%] left-[5%] w-[250px] h-[250px] md:w-[400px] md:h-[400px] bg-blue-600/10 rounded-full blur-[80px] md:blur-[120px] z-[2] hero-orb-1"></div>
-        <div className="absolute bottom-[10%] right-[5%] w-[200px] h-[200px] md:w-[350px] md:h-[350px] bg-cyan-500/8 rounded-full blur-[60px] md:blur-[100px] z-[2] hero-orb-2"></div>
-        <div className="absolute top-[60%] left-[50%] w-[180px] h-[180px] md:w-[300px] md:h-[300px] bg-purple-600/6 rounded-full blur-[70px] md:blur-[110px] z-[2] hero-orb-3"></div>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-12 items-center" style={{ paddingTop: "80px", paddingBottom: "100px" }}>
 
-        {/* Grid dots */}
-        <div className="absolute inset-0 z-[2] opacity-[0.04]" style={{
-          backgroundImage: "radial-gradient(circle at 1px 1px, rgba(59,130,246,0.5) 1px, transparent 0)",
-          backgroundSize: "40px 40px",
-        }}></div>
+          {/* Left Content */}
+          <div>
+            {/* Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full border border-[#00A88F]/40 bg-[#00A88F]/10 text-[#00d4b4] text-sm font-medium"
+            >
+              <span className="w-2 h-2 rounded-full bg-[#00A88F] animate-pulse"></span>
+              Trusted by 500+ Businesses Across India
+            </motion.div>
 
-        <div className="relative z-[10] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16 md:pb-20">
-          {/* Main heading — mobile-first responsive */}
-          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold text-white leading-[1.1] tracking-tight mb-1 sm:mb-2">
-            Powering Enterprises
-          </h1>
-          <p className="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-light text-gray-300/90 leading-[1.2] mb-3 sm:mb-4">
-            with Intelligent
-          </p>
+            {/* Headline */}
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+              className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6"
+            >
+              Transforming{" "}
+              <span
+                style={{
+                  background: "linear-gradient(90deg, #00A88F, #00d4b4)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                }}
+              >
+                Businesses
+              </span>{" "}
+              with Smart Technology
+            </motion.h1>
 
-          {/* Dynamic rotating text */}
-          <div className="mb-6 sm:mb-8" style={{ minHeight: "45px" }}>
-            <span
-              className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold inline-block"
+            {/* Subtitle */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="text-blue-200 text-lg leading-relaxed mb-8 max-w-xl"
+              style={{ opacity: 0.85 }}
+            >
+              Shrote Technology delivers 16+ enterprise-grade software products & custom solutions — HRMS, ERP, AI Chatbots, E-Commerce & more. Powering India's digital future.
+            </motion.p>
+
+            {/* Industry Tags / CTA Pills */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+              className="flex flex-wrap gap-3 mb-10"
+            >
+              {industryTags.map((tag) => (
+                <Link
+                  key={tag.label}
+                  href={tag.href}
+                  className="flex items-center gap-2 px-4 py-2 rounded-lg border border-white/20 text-white text-sm font-medium hover:border-[#00A88F] hover:bg-[#00A88F]/10 transition-all duration-200"
+                >
+                  {tag.label}
+                  <span
+                    className="w-6 h-6 rounded-md flex items-center justify-center text-white flex-shrink-0"
+                    style={{ background: "#00A88F" }}
+                  >
+                    <ArrowRight size={12} />
+                  </span>
+                </Link>
+              ))}
+            </motion.div>
+
+            {/* Action Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.4 }}
+              className="flex flex-col sm:flex-row gap-4"
+            >
+              <Link
+                href="/services"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full text-white font-semibold text-sm transition-all duration-200 hover:opacity-90 hover:shadow-lg"
+                style={{ background: "#00A88F" }}
+              >
+                Explore Our Services
+                <ArrowRight size={16} />
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full text-white font-semibold text-sm border border-white/30 hover:border-white/60 hover:bg-white/10 transition-all duration-200"
+              >
+                Book Free Consultation
+              </Link>
+            </motion.div>
+          </div>
+
+          {/* Right — Circular Image like Tudip */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="hidden lg:flex justify-center items-center"
+          >
+            <div
+              className="relative rounded-full overflow-hidden border-4 border-white/20 shadow-2xl"
               style={{
-                background: "linear-gradient(135deg, #60a5fa 0%, #22d3ee 50%, #3b82f6 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-                opacity: visible ? 1 : 0,
-                transform: visible ? "translateY(0)" : "translateY(15px)",
-                transition: "opacity 0.35s ease, transform 0.35s ease",
+                width: "420px",
+                height: "420px",
+                background: "linear-gradient(135deg, #0e3a65 0%, #1a4f8a 100%)",
               }}
             >
-              {dynamicTexts[currentTextIndex]}
-            </span>
-          </div>
+              {/* Decorative techy circles */}
+              <div className="absolute inset-0 rounded-full border-2 border-[#00A88F]/20"></div>
+              <div className="absolute inset-4 rounded-full border border-[#00A88F]/10"></div>
 
-          <p className="text-gray-300/80 text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl leading-relaxed mb-8 sm:mb-10">
-            Shrote Technology delivers <strong className="text-white font-semibold">16+ enterprise-grade software products</strong> — from HRMS and ERP to AI Agents, E-Commerce, and Health Monitoring — designed to transform how businesses operate at scale.
+              {/* Center Content */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
+                <div className="w-20 h-20 rounded-2xl flex items-center justify-center mb-4 shadow-lg"
+                  style={{ background: "linear-gradient(135deg, #00A88F, #007a68)" }}>
+                  <Brain className="w-10 h-10 text-white" />
+                </div>
+                <h3 className="text-white font-bold text-xl mb-2">AI-Powered Solutions</h3>
+                <p className="text-blue-200 text-sm leading-relaxed">
+                  From HRMS to AI Chatbots — intelligent software for modern enterprises
+                </p>
+
+                {/* Floating icon badges */}
+                <div className="mt-6 grid grid-cols-3 gap-3">
+                  {[
+                    { icon: <Globe size={18} />, label: "Web" },
+                    { icon: <Smartphone size={18} />, label: "Apps" },
+                    { icon: <Cloud size={18} />, label: "Cloud" },
+                    { icon: <Database size={18} />, label: "Data" },
+                    { icon: <Shield size={18} />, label: "Security" },
+                    { icon: <Brain size={18} />, label: "AI" },
+                  ].map((item) => (
+                    <div key={item.label}
+                      className="flex flex-col items-center gap-1 p-2 rounded-xl bg-white/10 border border-white/10">
+                      <div className="text-[#00A88F]">{item.icon}</div>
+                      <span className="text-white text-[10px] font-medium">{item.label}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Stats Row — "Trusted by Leading Global Enterprises" style */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="relative z-10 pb-16"
+        >
+          <p className="text-center text-white font-bold text-xl md:text-2xl mb-8 opacity-90">
+            Trusted by Leading Enterprises Across India
           </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-10 sm:mb-16">
-            <Link
-              href="#products"
-              className="group relative inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 overflow-hidden rounded-full font-bold text-white text-sm sm:text-base"
-            >
-              <span className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-500 transition-all duration-300 group-hover:opacity-90"></span>
-              <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{
-                boxShadow: "0 0 30px rgba(59,130,246,0.5), 0 0 60px rgba(34,211,238,0.2)"
-              }}></span>
-              <span className="relative z-10 flex items-center gap-2">
-                Explore Products
-                <svg className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </span>
-            </Link>
-            <Link
-              href="/contact"
-              className="group inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-white/[0.08] backdrop-blur-md border border-white/[0.15] text-white font-semibold rounded-full hover:bg-white/[0.15] hover:border-white/[0.25] transition-all duration-300 text-sm sm:text-base"
-            >
-              Talk to Our Team
-              <svg className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-              </svg>
-            </Link>
-          </div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {stats.map((stat, i) => (
               <div
                 key={i}
-                className="bg-white/[0.04] backdrop-blur-sm border border-white/[0.08] rounded-xl sm:rounded-2xl p-3 sm:p-5 text-center hover:bg-white/[0.08] hover:border-white/[0.15] transition-all duration-300 group"
+                className="text-center py-6 px-4 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm"
               >
-                <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-0.5 sm:mb-1 group-hover:scale-105 transition-transform">
+                <div
+                  className="text-3xl md:text-4xl font-extrabold mb-1"
+                  style={{
+                    background: "linear-gradient(90deg, #00A88F, #00d4b4)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                  }}
+                >
                   {stat.value}
                 </div>
-                <div className="text-gray-400 text-[10px] sm:text-xs md:text-sm font-medium tracking-wide">{stat.label}</div>
+                <div className="text-blue-200 text-sm font-medium">{stat.label}</div>
               </div>
             ))}
           </div>
-        </div>
-
-        {/* Bottom fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#050508] to-transparent z-[5]"></div>
-      </section>
-
-      {/* Scrolling product ribbon */}
-      <div className="relative overflow-hidden bg-gradient-to-r from-blue-700 via-blue-600 to-cyan-600 py-3 sm:py-4">
-        <div className="ribbon-scroll-rtl">
-          <div className="ribbon-content-rtl">
-            <span className="ribbon-text">HRMS Suite</span>
-            <span className="ribbon-separator">✱</span>
-            <span className="ribbon-text">ERP Platform</span>
-            <span className="ribbon-separator">✱</span>
-            <span className="ribbon-text">AI Chatbot</span>
-            <span className="ribbon-separator">✱</span>
-            <span className="ribbon-text">E-Commerce</span>
-            <span className="ribbon-separator">✱</span>
-            <span className="ribbon-text">Payroll Software</span>
-            <span className="ribbon-separator">✱</span>
-            <span className="ribbon-text">Health Monitoring AI</span>
-            <span className="ribbon-separator">✱</span>
-            <span className="ribbon-text">AI Agents</span>
-            <span className="ribbon-separator">✱</span>
-            <span className="ribbon-text">Inventory Management</span>
-            <span className="ribbon-separator">✱</span>
-            <span className="ribbon-text">School Management</span>
-            <span className="ribbon-separator">✱</span>
-          </div>
-        </div>
+        </motion.div>
       </div>
-    </>
+    </section>
   );
 }

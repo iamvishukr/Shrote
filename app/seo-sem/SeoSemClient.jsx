@@ -1,7 +1,5 @@
 "use client";
-import FloatingIcons from "../components/FloatingIcons";
 import Header from "../Header";
-import MouseCursor from "../components/MouseCursor";
 import React from "react";
 import SeoSemHero from "./SeoSemHero";
 import ServiceCard from "../application-development/ServiceCard";
@@ -13,9 +11,7 @@ import Footer from "../components/Footer";
 
 function SeoSemPage() {
   return (
-    <div className="min-h-screen bg-black text-white">
-      <MouseCursor />
-      <FloatingIcons />
+    <div className="min-h-screen" style={{ background: "#f5f9fd" }}>
       <Header />
       <SeoSemHero />
       <ServiceCard />
@@ -28,4 +24,4 @@ function SeoSemPage() {
   );
 }
 
-export default SeoSemPage;
+export default SeoSemPage;

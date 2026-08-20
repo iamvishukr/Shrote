@@ -31,7 +31,11 @@ export async function POST(req) {
 
       busboy.on('finish', async () => {
         try {
-          const username = (fields.username || 'user').replace(/\s+/g, '_');
+          if (!fileTempPath) {
+            return resolve(NextResponse.json({ success: false, error: "No resume file uploaded" }, { status: 400 }));
+          }
+
+          const username = (fields.username || fields.name || 'user').replace(/\s+/g, '_');
           const finalFileName = `${username}_${Date.now()}${fileExt}`;
           const finalPath = path.join(uploadDir, finalFileName);
           fs.renameSync(fileTempPath, finalPath);
@@ -73,7 +77,7 @@ export async function POST(req) {
           resolve(NextResponse.json({ success: true, path: resumePath }));
         } catch (err) {
           console.log(err);
-          reject(NextResponse.json({ success: false, error: err.message }, { status: 500 }));
+          resolve(NextResponse.json({ success: false, error: err.message }, { status: 500 }));
         }
       });
 
@@ -90,7 +94,7 @@ export async function POST(req) {
 
     } catch (err) {
       console.log(err);
-      reject(NextResponse.json({ success: false, error: err.message }, { status: 500 }));
+      resolve(NextResponse.json({ success: false, error: err.message }, { status: 500 }));
     }
   });
 }

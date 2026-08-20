@@ -1,34 +1,31 @@
 "use client";
-import FloatingIcons from "../components/FloatingIcons";
 import Header from "../Header";
-import MouseCursor from "../components/MouseCursor";
 import React from "react";
 import ApplicationDevelopmentHero from "./ApplicationDevelopmentHero";
-import ServicesCategory from "./ServicesCategory";
 import ServiceCard from "./ServiceCard";
 import DigitalMarketingFeatures from "./DigitalMarketingFeatures";
 import ProcessSection from "./ProcessSection";
 import FAQSection from "./FaqSection";
 import Collaboration from "../components/Collaboration";
 import Footer from "../components/Footer";
+import AnimatedBackground from "../components/AnimatedBackground";
 
 function ApplicationDevelopmentPage() {
   return (
-    <div className="min-h-screen bg-black text-white">
-      <MouseCursor />
-      <FloatingIcons />
-      <Header />
-      <ApplicationDevelopmentHero />
-      
-      <ServiceCard />
-      <DigitalMarketingFeatures />
-      <ProcessSection />
-      
-      <FAQSection />
-      <Collaboration />
-      <Footer />
+    <div className="min-h-screen relative" style={{ background: "#f5f9fd" }}>
+      <AnimatedBackground variant="circuit" />
+      <div className="relative z-10">
+        <Header />
+        <ApplicationDevelopmentHero />
+        <ServiceCard />
+        <DigitalMarketingFeatures />
+        <ProcessSection />
+        <FAQSection />
+        <Collaboration />
+        <Footer />
+      </div>
     </div>
   );
 }
 
-export default ApplicationDevelopmentPage;
+export default ApplicationDevelopmentPage;

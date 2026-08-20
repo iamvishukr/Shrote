@@ -1,597 +1,419 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { Menu, X, ChevronDown, Phone, Mail, MapPin } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
+import Logo from "./components/Logo";
+import { useState } from "react";
+import { Menu, X, ChevronDown, Globe, ArrowRight,
+  Globe2, ShoppingCart, GraduationCap, Landmark, Factory, Building2,
+  Code2, Smartphone, Box, ShoppingBag, SearchCheck, MessageSquare, Layout, Database,
+  BarChart3, Cpu, HeartPulse, Warehouse, School, UtensilsCrossed,
+  Briefcase, Users, BookOpen, FileText } from "lucide-react";
 
+/* ─────────────────────────────────────────────────────
+   MEGA MENU DATA — Tudip style: columns with icons
+───────────────────────────────────────────────────── */
+const megaMenus = {
+  Industries: {
+    columns: [
+      {
+        heading: "Key Industries",
+        items: [
+          { icon: HeartPulse,     label: "Healthcare & Pharma",   href: "/industries",         desc: "Smart health tech solutions" },
+          { icon: ShoppingCart,   label: "E-Commerce & Retail",   href: "/ecommerce-solution", desc: "Full-stack store platforms" },
+          { icon: GraduationCap,  label: "Education & EdTech",    href: "/products/school-management", desc: "Learning management systems" },
+          { icon: Landmark,       label: "BFSI & Fintech",        href: "/industries",         desc: "Secure banking software" },
+          { icon: Factory,        label: "Manufacturing",          href: "/products/erp-suite", desc: "ERP & production tools" },
+          { icon: Building2,      label: "Real Estate",           href: "/industries",         desc: "Property management apps" },
+        ],
+      },
+    ],
+    featured: {
+      label: "500+ Clients Served",
+      desc: "Across 10+ industries pan-India",
+      href: "/industries",
+    },
+  },
+  Services: {
+    columns: [
+      {
+        heading: "Development",
+        items: [
+          { icon: Code2,       label: "Web Development",      href: "/web-development",       desc: "Fast, scalable web apps" },
+          { icon: Smartphone,  label: "App Development",      href: "/application-development", desc: "iOS & Android apps" },
+          { icon: Box,         label: "Software Development",  href: "/software-development",  desc: "Custom enterprise software" },
+          { icon: Layout,      label: "Web Design",           href: "/web-design",            desc: "UI/UX & branding" },
+          { icon: Database,    label: "Portal Development",   href: "/portal-development",    desc: "B2B & B2C portals" },
+        ],
+      },
+      {
+        heading: "Marketing & More",
+        items: [
+          { icon: ShoppingBag,  label: "E-Commerce Solution",  href: "/ecommerce-solution",  desc: "Complete online stores" },
+          { icon: SearchCheck,  label: "SEO / SEM",            href: "/seo-sem",             desc: "Google rankings & ads" },
+          { icon: MessageSquare,label: "Bulk SMS",             href: "/bulk-sms",            desc: "Mass communication" },
+        ],
+      },
+    ],
+    featured: {
+      label: "Explore All Services",
+      desc: "View our complete service catalog",
+      href: "/services",
+    },
+  },
+  Products: {
+    columns: [
+      {
+        heading: "Enterprise Products",
+        items: [
+          { icon: Users,        label: "HRMS Software",         href: "/products/hrms-suite", desc: "HR & payroll management" },
+          { icon: BarChart3,    label: "ERP Suite",             href: "/products/erp-suite", desc: "Full business automation" },
+          { icon: Cpu,          label: "AI Chatbot",            href: "/products/ai-chatbot", desc: "Intelligent bot solutions" },
+          { icon: Briefcase,    label: "Payroll Management",    href: "/products/payroll-software", desc: "Salary & compliance" },
+          { icon: Warehouse,    label: "Inventory System",      href: "/products/inventory-management", desc: "Stock & supply tracking" },
+          { icon: School,       label: "School Management",     href: "/products/school-management", desc: "Academic ERP" },
+          { icon: UtensilsCrossed, label: "Restaurant POS",    href: "/products/restaurant-management", desc: "Billing & table management" },
+        ],
+      },
+    ],
+    featured: {
+      label: "16+ Software Products",
+      desc: "Ready-to-deploy enterprise solutions",
+      href: "/products",
+    },
+  },
+  Resources: {
+    columns: [
+      {
+        heading: "Resources",
+        items: [
+          { icon: Briefcase, label: "Portfolio",      href: "/portfolio",     desc: "Our recent projects" },
+          { icon: BookOpen,  label: "Testimonials",   href: "/testimonials",  desc: "Client success stories" },
+          { icon: FileText,  label: "Case Studies",   href: "/portfolio/view-portfolio", desc: "In-depth project reviews" },
+          { icon: Globe2,    label: "About Company",  href: "/about",         desc: "Mission & leadership" },
+        ],
+      },
+    ],
+    featured: {
+      label: "See Our Work",
+      desc: "Explore portfolio of 500+ successful projects",
+      href: "/portfolio",
+    },
+  },
+  Careers: {
+    columns: [
+      {
+        heading: "Join Shrote",
+        items: [
+          { icon: Briefcase, label: "Current Openings",    href: "/current-opening", desc: "Browse open positions" },
+          { icon: GraduationCap, label: "Internship Program", href: "/internship",  desc: "Learn & grow with us" },
+          { icon: Users,     label: "Join Our Team",       href: "/join-our-team",   desc: "Shape the future of tech" },
+        ],
+      },
+    ],
+    featured: {
+      label: "We're Hiring!",
+      desc: "Exciting roles in Bangalore & remote",
+      href: "/current-opening",
+    },
+  },
+};
+
+const topNavLinks = [
+  { label: "About Shrote", href: "/about", hasMega: false },
+  { label: "Industries",   href: "/industries", hasMega: true },
+  { label: "Services",     href: "/services", hasMega: true },
+  { label: "Products",     href: "/products", hasMega: true },
+  { label: "Resources",    href: "/portfolio", hasMega: true },
+  { label: "Careers",      href: "/join-our-team", hasMega: true },
+];
+
+/* ─────────────────────────────────────────────────────
+   MEGA MENU PANEL COMPONENT
+───────────────────────────────────────────────────── */
+function MegaPanel({ data }) {
+  return (
+    <div
+      className="absolute top-full left-0 w-full z-[999] pt-0"
+      style={{ filter: "drop-shadow(0 8px 24px rgba(0,0,0,0.12))" }}
+    >
+      {/* Thin teal top border line like Tudip */}
+      <div style={{ height: "3px", background: "#00A88F" }} />
+
+      <div className="w-full bg-white border-b border-gray-100">
+        <div className="max-w-[1400px] mx-auto px-6 py-8 flex gap-10">
+
+          {/* Columns */}
+          <div className="flex gap-10 flex-1">
+            {data.columns.map((col, ci) => {
+              const isMultiCol = col.items.length > 4;
+              return (
+                <div key={ci} className={isMultiCol ? "min-w-[460px]" : "min-w-[210px]"}>
+                  <p
+                    className="text-[11px] font-[700] uppercase tracking-[1.2px] mb-4 pb-2 border-b"
+                    style={{ color: "#00A88F", borderColor: "#e8f5f2" }}
+                  >
+                    {col.heading}
+                  </p>
+                  <ul className={isMultiCol ? "grid grid-cols-2 gap-x-4 gap-y-1.5" : "space-y-1"}>
+                    {col.items.map((item) => (
+                      <MegaItem key={item.label} item={item} />
+                    ))}
+                  </ul>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Featured CTA */}
+          <div
+            className="w-[220px] flex-shrink-0 rounded-xl p-5 flex flex-col justify-between"
+            style={{ background: "linear-gradient(135deg, #0d2a4a 0%, #0d4070 100%)" }}
+          >
+            <div>
+              <div
+                className="inline-block px-2.5 py-1 rounded-full text-[11px] font-[600] mb-3"
+                style={{ background: "rgba(0,168,143,0.2)", color: "#00d4b4" }}
+              >
+                ✦ Featured
+              </div>
+              <h4 className="text-white font-bold text-[15px] mb-2 leading-snug">
+                {data.featured.label}
+              </h4>
+              <p className="text-blue-300 text-[12.5px] leading-relaxed opacity-90">
+                {data.featured.desc}
+              </p>
+            </div>
+            <Link
+              href={data.featured.href}
+              className="mt-4 flex items-center gap-1.5 text-[12.5px] font-[600] transition-colors"
+              style={{ color: "#00A88F" }}
+              onMouseEnter={e => e.currentTarget.style.color = "#00d4b4"}
+              onMouseLeave={e => e.currentTarget.style.color = "#00A88F"}
+            >
+              Learn More <ArrowRight size={13} />
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function MegaItem({ item }) {
+  const [hovered, setHovered] = useState(false);
+  return (
+    <li>
+      <Link
+        href={item.href}
+        className="flex items-start gap-3 px-3 py-2 rounded-lg transition-all duration-150"
+        style={{ background: hovered ? "#f0faf8" : "transparent" }}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+      >
+        <div
+          className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 transition-all duration-150"
+          style={{ background: hovered ? "#00A88F" : "#eef7f5" }}
+        >
+          <item.icon size={14} style={{ color: hovered ? "#fff" : "#00A88F" }} />
+        </div>
+        <div>
+          <p
+            className="text-[13px] font-[500] leading-tight transition-colors duration-150"
+            style={{ color: hovered ? "#00A88F" : "#1a2e44" }}
+          >
+            {item.label}
+          </p>
+          <p className="text-[11.5px] mt-0.5" style={{ color: "#8aadca" }}>
+            {item.desc}
+          </p>
+        </div>
+      </Link>
+    </li>
+  );
+}
+
+/* ─────────────────────────────────────────────────────
+   MAIN HEADER
+───────────────────────────────────────────────────── */
 export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState(null);
-  const [mobileActiveMenu, setMobileActiveMenu] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [isAtTop, setIsAtTop] = useState(true);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [activeMenu, setActiveMenu] = useState(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileExpanded, setMobileExpanded] = useState(null);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      setScrolled(scrollPosition > 50);
-      setIsAtTop(scrollPosition < 10);
-      setIsScrolled(scrollPosition > 10);
-    };
-    window.addEventListener("scroll", handleScroll);
-
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1500);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      clearTimeout(timer);
-    };
-  }, []);
-
-  const navItems = [
-    {
-      name: "Home",
-      href: "/",
-    },
-    { name: "About Us", href: "/about" },
-    {
-      name: "Products",
-      href: "/#products",
-      hasDropdown: true,
-      dropdownItems: [
-        { name: "HRMS Suite", href: "/#products" },
-        { name: "ERP Suite", href: "/#products" },
-        { name: "E-Commerce App", href: "/#products" },
-        { name: "Accounting Software", href: "/#products" },
-        { name: "Payroll Software", href: "/#products" },
-        { name: "AI Agents", href: "/#products" },
-        { name: "AI Chatbot", href: "/#products" },
-        { name: "Health Monitoring AI", href: "/#products" },
-        { name: "Inventory Management", href: "/#products" },
-        { name: "School Management", href: "/#products" },
-      ],
-    },
-    {
-      name: "Services",
-      href: "/#services",
-      hasDropdown: true,
-      dropdownItems: [
-        { name: "Web Development", href: "/services/web-development" },
-        { name: "AI Agent Development", href: "/services/ai-agent-development" },
-        { name: "Mobile App Development", href: "/services/mobile-app-development" },
-        { name: "iOS App Development", href: "/services/ios-app-development" },
-        { name: "IoT Software Development", href: "/services/iot-software-development" },
-        { name: "Digital Marketing", href: "/services/digital-marketing" },
-      ],
-    },
-    { name: "Portfolio", href: "/portfolio" },
-    { name: "Testimonials", href: "/testimonials" },
-
-    {
-      name: "Career",
-      href: "#",
-      hasDropdown: true,
-      dropdownItems: [
-        { name: "Join Our Team", href: "/join-our-team" },
-        { name: "Current Openings", href: "/current-opening" },
-        { name: "Internships", href: "/internship" },
-      ],
-    },
-    { name: "Contact us", href: "/contact" },
+  const mobileLinks = [
+    { label: "About Shrote", href: "/about" },
+    { label: "Industries", href: "#", children: megaMenus.Industries.columns[0].items },
+    { label: "Services", href: "/services", children: [...megaMenus.Services.columns[0].items, ...megaMenus.Services.columns[1].items] },
+    { label: "Products", href: "/products", children: megaMenus.Products.columns[0].items },
+    { label: "Resources", href: "#", children: megaMenus.Resources.columns[0].items },
+    { label: "Careers", href: "/join-our-team", children: megaMenus.Careers.columns[0].items },
   ];
 
-  const toggleMobileMenu = (index) => {
-    if (mobileActiveMenu === index) {
-      setMobileActiveMenu(null);
-    } else {
-      setMobileActiveMenu(index);
-    }
-  };
-
-  const handleNavigation = (href) => {
-    window.location.href = href;
-    setIsMenuOpen(false);
-  };
-
   return (
-    <>
-      {isMenuOpen && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
-          onClick={() => setIsMenuOpen(false)}
-        />
-      )}
+    <div className="w-full">
 
-      <header
-        className={`fixed bg-black top-0 w-full  pb-[6px] z-40 pt-[12px] pb-[12px] transition-all duration-300 ${
-          isScrolled ? "h-16" : "h-20"
-        }`}
+      {/* ══ TOP BAR ══ */}
+      <div
+        className="hidden md:flex items-center justify-between w-full px-6 lg:px-10 py-[7px] text-[12px]"
+        style={{ background: "#eaf2fb", borderBottom: "1px solid #cddceb" }}
       >
-        <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 h-full">
-          <div
-            className={`flex items-center justify-between md:justify-start h-full ${
-              isScrolled ? "py-2" : "py-4 sm:py-6"
-            }`}
-          >
-            <div className="flex bg-black items-center">
-              <Link href="/" className="flex items-center">
-  <img
-    src="https://jjw4ayukjlg0hfp4.public.blob.vercel-storage.com/IMG-20251220-WA0009.jpg"
-    alt="Shrote Technology Logo"
-    className={`transition-all duration-300 ${
-      isScrolled
-        ? "h-12 w-[100px]"
-        : "h-16 w-[100px] sm:h-20 md:h-16"
-    }`}
-    style={{ borderRadius: "33px" }}
-  />
-</Link>
+        <div className="flex items-center gap-4">
+          <Link href="/contact" className="font-[600]" style={{ color: "#00A88F" }}>
+            🚀 Shrote Enterprise Solutions 2026
+          </Link>
+          <span style={{ color: "#aac4da" }}>|</span>
+          <Link href="/contact"
+            className="transition-colors"
+            style={{ color: "#2c4a6a" }}
+            onMouseEnter={e => e.currentTarget.style.color = "#00A88F"}
+            onMouseLeave={e => e.currentTarget.style.color = "#2c4a6a"}
+          >Contact</Link>
+          <span style={{ color: "#aac4da" }}>|</span>
+          <span style={{ color: "#2c4a6a" }} className="font-[500]">#DigitalIndia</span>
+        </div>
+        <div className="flex items-center gap-1 font-[500]" style={{ color: "#2c4a6a" }}>
+          <Globe size={13} /><span>EN</span>
+        </div>
+      </div>
 
+      {/* ══ MAIN NAVBAR ══ */}
+      <header
+        className="w-full sticky top-0 z-50 bg-white"
+        style={{ borderBottom: "1px solid #dde8f2", boxShadow: "0 2px 12px rgba(0,0,0,0.07)" }}
+        onMouseLeave={() => setActiveMenu(null)}
+      >
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
+          <div className="flex items-center justify-between h-[80px] gap-6">
+
+            {/* Logo */}
+            <Link href="/" className="flex-shrink-0 flex items-center" onClick={() => setActiveMenu(null)}>
+              <Logo variant="dark" />
+            </Link>
+
+            {/* Desktop Nav */}
+            <nav className="hidden lg:flex items-center gap-0 flex-1 justify-center">
+              {topNavLinks.map((link) => {
+                const isActive = activeMenu === link.label;
+                return (
+                  <div
+                    key={link.label}
+                    onMouseEnter={() => link.hasMega ? setActiveMenu(link.label) : setActiveMenu(null)}
+                    className="relative"
+                  >
+                    <Link
+                      href={link.href}
+                      className="flex items-center gap-[3px] px-3.5 py-[24px] text-[13.5px] font-[500] transition-colors duration-150 relative"
+                      style={{ color: isActive ? "#00A88F" : "#1a2e44" }}
+                    >
+                      {link.label}
+                      {link.hasMega && (
+                        <ChevronDown
+                          size={13}
+                          className={`mt-[1px] flex-shrink-0 transition-transform duration-200 ${isActive ? "rotate-180" : ""}`}
+                          style={{ opacity: 0.7 }}
+                        />
+                      )}
+                      {/* Bottom highlight */}
+                      <span
+                        className="absolute bottom-0 left-0 right-0 h-[3px] transition-all duration-200"
+                        style={{
+                          background: "#00A88F",
+                          transform: isActive ? "scaleX(1)" : "scaleX(0)",
+                          transformOrigin: "left",
+                        }}
+                      />
+                    </Link>
+                  </div>
+                );
+              })}
+            </nav>
+
+            {/* CTA */}
+            <div className="hidden lg:flex flex-shrink-0">
+              <Link
+                href="/contact"
+                className="flex items-center gap-2 px-5 py-2.5 rounded-full text-white text-[13.5px] font-[600] transition-all duration-200"
+                style={{ background: "#00A88F" }}
+                onMouseEnter={e => e.currentTarget.style.background = "#008f79"}
+                onMouseLeave={e => e.currentTarget.style.background = "#00A88F"}
+              >
+                Get Free Consultation
+                <svg width="13" height="13" viewBox="0 0 43 43" fill="none">
+                  <path d="M28.54 17.15L13.38 32.31L10.89 29.82L26.05 14.66H12.69V11.13H32.06V30.51H28.54V17.15Z" fill="currentColor" />
+                </svg>
+              </Link>
             </div>
 
-            <nav className="hidden md:flex items-center  ml-10">
-              {navItems.map((item, index) => (
-                <div
-                  key={item.name}
-                  className="relative group mr-3 md:mr-4 lg:mr-6 last:mr-0"
-                  onMouseEnter={() => setActiveDropdown(index)}
-                  onMouseLeave={() => setActiveDropdown(null)}
-                >
-                  <Link
-                    href={item.href}
-                    className={`relative flex items-center space-x-1 md:space-x-2 text-white 
-              rounded-[25px] px-2 md:px-5 py-2 
-              transition-colors duration-300 
-              ${isScrolled ? "py-1" : "py-2 md:py-3"} 
-              text-sm md:text-base group`}
-                  >
-                    <span
-                      className="relative after:content-[''] after:absolute after:left-0 after:bottom-0 
-                   after:h-[2px] after:w-0 after:bg-slate-400 
-                   after:transition-all after:duration-300 
-                   group-hover:after:w-full"
-                    >
-                      {item.name}
-                    </span>
+            {/* Mobile toggle */}
+            <button onClick={() => setMobileOpen(!mobileOpen)} className="lg:hidden p-2" style={{ color: "#1a2e44" }}>
+              {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+            </button>
+          </div>
+        </div>
 
-                    {item.hasDropdown && (
-                      <ChevronDown
-                        size={20}
-                        className={`transition-transform duration-300 ${
-                          activeDropdown === index ? "rotate-180" : ""
-                        }`}
-                      />
+        {/* ══ MEGA MENU PANEL ══ */}
+        {activeMenu && megaMenus[activeMenu] && (
+          <MegaPanel data={megaMenus[activeMenu]} />
+        )}
+
+        {/* ══ MOBILE MENU ══ */}
+        {mobileOpen && (
+          <div className="lg:hidden bg-white border-t" style={{ borderColor: "#dde8f2" }}>
+            <div className="px-4 py-3 max-h-[80vh] overflow-y-auto">
+              {mobileLinks.map((link) => (
+                <div key={link.label} className="border-b last:border-0" style={{ borderColor: "#f0f5fa" }}>
+                  <div className="flex items-center justify-between">
+                    <Link
+                      href={link.href}
+                      onClick={() => !link.children && setMobileOpen(false)}
+                      className="flex-1 block px-3 py-3 text-[13.5px] font-[500]"
+                      style={{ color: "#1a2e44" }}
+                    >
+                      {link.label}
+                    </Link>
+                    {link.children && (
+                      <button
+                        onClick={() => setMobileExpanded(mobileExpanded === link.label ? null : link.label)}
+                        className="p-3"
+                        style={{ color: "#00A88F" }}
+                      >
+                        <ChevronDown size={15} className={`transition-transform duration-200 ${mobileExpanded === link.label ? "rotate-180" : ""}`} />
+                      </button>
                     )}
-                  </Link>
-
-                  {item.hasDropdown && (
-                    <div
-                      className={`absolute top-full left-0 min-w-72 bg-black rounded-[25px] shadow-lg py-2 transition-all duration-300 ${
-                        activeDropdown === index
-                          ? "opacity-100 visible translate-y-0"
-                          : "opacity-0 invisible -translate-y-2"
-                      }`}
-                    >
-                      {item.dropdownItems?.map((dropdownItem) => (
-                        <div
-                          key={dropdownItem.name}
-                          className="relative group/sub"
+                  </div>
+                  {link.children && mobileExpanded === link.label && (
+                    <div className="ml-3 pl-3 pb-2 border-l-2 mb-1" style={{ borderColor: "#00A88F" }}>
+                      {link.children.map((child) => (
+                        <Link
+                          key={child.label}
+                          href={child.href}
+                          onClick={() => setMobileOpen(false)}
+                          className="flex items-center gap-2 px-3 py-2 text-[12.5px] rounded transition-colors"
+                          style={{ color: "#4a6a8a" }}
                         >
-                          <Link
-                            href={dropdownItem.href}
-                            className="relative flex items-center justify-between px-5 py-2.5 
-                     text-white font-semibold text-base transition-colors duration-200 
-                     group/sub"
-                          >
-                            <span
-                              className="relative after:content-[''] after:absolute after:left-0 after:bottom-0 
-                           after:h-[2px] after:w-0 after:bg-slate-400 
-                           after:transition-all after:duration-300 
-                           group-hover/sub:after:w-full"
-                            >
-                              {dropdownItem.name}
-                            </span>
-                          </Link>
-                        </div>
+                          {child.icon && <child.icon size={12} style={{ color: "#00A88F" }} />}
+                          {child.label}
+                        </Link>
                       ))}
                     </div>
                   )}
                 </div>
               ))}
-            </nav>
-
-            <div className="flex items-center md:ml-auto">
-              <div className="hidden md:flex items-center space-x-3 lg:space-x-6">
-                {/* <Link
-                  href="https://x.com/MARS_Web"
-                  className={`w-8 h-8 md:w-10 md:h-10 flex items-center justify-center text-blue-400 hover:text-blue-300 transition-all duration-300 ${
-                    isScrolled ? "scale-90" : "scale-100"
-                  }`}
-                  aria-label="Twitter"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
-                  </svg>
-                </Link>
+              <div className="pt-3 pb-2">
                 <Link
-                  href="https://www.facebook.com/MARSWebSolutions/"
-                  className={`w-8 h-8 md:w-10 md:h-10 flex items-center justify-center text-blue-400 hover:text-blue-300 transition-all duration-300 ${
-                    isScrolled ? "scale-90" : "scale-100"
-                  }`}
-                  aria-label="Facebook"
+                  href="/contact"
+                  onClick={() => setMobileOpen(false)}
+                  className="flex items-center justify-center gap-2 w-full py-3 rounded-full text-[13px] font-[600] text-white"
+                  style={{ background: "#00A88F" }}
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-                  </svg>
+                  Get Free Consultation ▶
                 </Link>
-                <Link
-                  href="https://www.instagram.com/shrotetechnology/"
-                  className={`w-8 h-8 md:w-10 md:h-10 flex items-center justify-center text-blue-400 hover:text-blue-300 transition-all duration-300 ${
-                    isScrolled ? "scale-90" : "scale-100"
-                  }`}
-                  aria-label="Instagram"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-                  </svg>
-                </Link> */}
-
-                <button
-                  onClick={() => setIsSidebarOpen(true)}
-                  className={`w-8 h-8 md:w-10 md:h-10 flex items-center justify-center text-white hover:text-blue-400 transition-all duration-300 ml-2 ${
-                    isScrolled ? "scale-90" : "scale-100"
-                  }`}
-                  aria-label="Open sidebar"
-                >
-                  <div className="grid grid-cols-3 grid-rows-3 gap-1.5 w-5 h-5">
-                    {[...Array(9)].map((_, i) => (
-                      <div
-                        key={i}
-                        className="w-1.5 h-1.5 bg-current rounded-full"
-                      ></div>
-                    ))}
-                  </div>
-                </button>
               </div>
-
-              <button
-                className="md:hidden text-blue-400 p-2 hover:bg-blue-500 rounded-lg transition-colors duration-200 ml-2"
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-                style={{ borderRadius: "5px" }}
-              >
-                {isMenuOpen ? (
-                  <X size={24} className="w-6 h-6 sm:w-7 sm:h-7" />
-                ) : (
-                  <Menu size={24} className="w-6 h-6 sm:w-7 sm:h-7" />
-                )}
-              </button>
             </div>
           </div>
-        </div>
+        )}
       </header>
-
-      <div
-        className={`fixed top-0 left-0 h-full w-full max-w-xs bg-gray-900 z-50 shadow-xl transform transition-transform duration-300 ease-in-out ${
-          isMenuOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
-      >
-        <div className="h-full  overflow-y-auto">
-          <div className=" bg-black px-6 py-4 flex items-center justify-between">
-            <Link href="/" className="flex items-center">
-              <img
-                src="https://jjw4ayukjlg0hfp4.public.blob.vercel-storage.com/IMG-20251220-WA0009.jpg"
-                alt="Shrote Technology Logo"
-                className="h-10 w-auto"
-              />
-            </Link>
-            <button
-              onClick={() => setIsMenuOpen(false)}
-              className="text-white hover:text-white transition-colors duration-200"
-            >
-              <X size={28} />
-            </button>
-          </div>
-
-          <nav className="px-4 py-6">
-            {navItems.map((item, index) => (
-              <div key={item.name} className="mb-2">
-                <div
-                  className={`flex items-center justify-between px-4 py-3 rounded-lg transition-colors duration-200 cursor-pointer ${
-                    mobileActiveMenu === index
-                      ? "bg-gray-800"
-                      : "hover:bg-gray-800"
-                  }`}
-                  onClick={() =>
-                    item.hasDropdown
-                      ? toggleMobileMenu(index)
-                      : handleNavigation(item.href)
-                  }
-                >
-                  <span className="flex-1 text-white font-medium text-lg">
-                    {item.name}
-                  </span>
-                  {item.hasDropdown && (
-                    <ChevronDown
-                      size={22}
-                      className={`transition-transform duration-300 text-blue-400 ${
-                        mobileActiveMenu === index ? "rotate-180" : ""
-                      }`}
-                    />
-                  )}
-                </div>
-
-                {item.hasDropdown && (
-                  <div
-                    className={`overflow-hidden transition-all duration-300 ${
-                      mobileActiveMenu === index ? "max-h-96" : "max-h-0"
-                    }`}
-                  >
-                    <div className="pl-4 mt-2 space-y-2 border-l-2 border-blue-400 ml-4">
-                      {item.dropdownItems?.map((dropdownItem) => (
-                        <Link
-                          key={dropdownItem.name}
-                          href={dropdownItem.href}
-                          className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-700 rounded-lg transition-colors duration-200 font-medium text-base"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            handleNavigation(dropdownItem.href);
-                          }}
-                        >
-                          {dropdownItem.name}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            ))}
-          </nav>
-
-          <div className="px-6 py-4 border-t border-gray-700">
-            <div className="flex justify-center space-x-4">
-              <Link
-                href="https://x.com/Shrote_services"
-                className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-blue-400 hover:bg-blue-400 hover:text-black transition-all duration-300"
-                aria-label="Twitter"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
-                </svg>
-              </Link>
-              <Link
-                href="https://www.facebook.com/people/Shrote/61569121190721/"
-                className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-blue-400 hover:bg-blue-400 hover:text-black transition-all duration-300"
-                aria-label="Facebook"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-                </svg>
-              </Link>
-              <Link
-                href="https://www.instagram.com/shrotetechnology/"
-                className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-blue-400 hover:bg-blue-400 hover:text-black transition-all duration-300"
-                aria-label="Instagram"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-                </svg>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {isSidebarOpen && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-50 transition-opacity duration-300"
-          onClick={() => setIsSidebarOpen(false)}
-        />
-      )}
-
-      <div
-        className={`fixed top-0 right-0 h-screen w-80 sm:w-96 bg-gray-900 z-50 transform transition-transform duration-300 ${
-          isSidebarOpen ? "translate-x-0" : "translate-x-full"
-        }`}
-      >
-        <div className="h-full flex flex-col">
-          <button
-            onClick={() => setIsSidebarOpen(false)}
-            className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center text-white hover:text-blue-400 transition-colors duration-300 z-10"
-            aria-label="Close sidebar"
-          >
-            <X size={24} />
-          </button>
-
-          <div className="flex-1 overflow-y-auto p-4 md:p-8 pt-16 pb-8">
-            <div className="space-y-6 md:space-y-8">
-              <div className="text-center">
-                <div className="w-14 h-14 md:w-16 md:h-16 bg-blue-400 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4">
-                  <Phone className="w-6 h-6 md:w-7 md:h-7 text-black" />
-                </div>
-                <h3 className="text-lg md:text-xl font-bold text-white mb-1 md:mb-2">
-                  Phone
-                </h3>
-                <Link
-                  href="tel:+917667983607"
-                  className="text-gray-300 hover:text-blue-400 transition-colors duration-300 text-sm md:text-base"
-                >
-                  +91-7667983607
-                </Link>
-              </div>
-
-              <div className="border-t border-gray-700"></div>
-
-              <div className="text-center">
-                <div className="w-14 h-14 md:w-16 md:h-16 bg-blue-400 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4">
-                  <Mail className="w-6 h-6 md:w-7 md:h-7 text-black" />
-                </div>
-                <h3 className="text-lg md:text-xl font-bold text-white mb-1 md:mb-2">
-                  Email
-                </h3>
-                <Link
-                  href="mailto:info@shrote.com"
-                  className="text-gray-300 hover:text-blue-400 transition-colors duration-300 text-sm md:text-base"
-                >
-                  info@shrote.com
-                </Link>
-              </div>
-
-              <div className="border-t border-gray-700"></div>
-
-              <div className="text-center">
-                <div className="w-14 h-14 md:w-16 md:h-16 bg-blue-400 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4">
-                  <MapPin className="w-6 h-6 md:w-7 md:h-7 text-black" />
-                </div>
-                <h3 className="text-lg md:text-xl font-bold text-white mb-1 md:mb-2">
-                  Address
-                </h3>
-                <p className="text-gray-300 text-sm md:text-base">
-                  25th Main Rd, Putlanpalya, Jayanagara 9th Block, Jayanagar, Bengaluru, Karnataka 560041, Karnataka, India
-                </p>
-              </div>
-
-              <div className="border-t border-gray-700"></div>
-
-              <div className="text-center">
-                <h3 className="text-lg md:text-xl font-bold text-white mb-3 md:mb-4">
-                  Stay Connected
-                </h3>
-                <div className="flex justify-center space-x-3 md:space-x-4">
-                  <Link
-                    href="https://x.com/Shrote_services"
-                    className="w-9 h-9 md:w-10 md:h-10 bg-gray-800 rounded-full flex items-center justify-center text-blue-400 hover:bg-blue-400 hover:text-black transition-all duration-300"
-                    aria-label="Twitter"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
-                    </svg>
-                  </Link>
-                  <Link
-                    href="https://www.facebook.com/people/Shrote/61569121190721/"
-                    className="w-9 h-9 md:w-10 md:h-10 bg-gray-800 rounded-full flex items-center justify-center text-blue-400 hover:bg-blue-400 hover:text-black transition-all duration-300"
-                    aria-label="Facebook"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-                    </svg>
-                  </Link>
-                  <Link
-                    href="https://www.instagram.com/shrotetechnology/"
-                    className="w-9 h-9 md:w-10 md:h-10 bg-gray-800 rounded-full flex items-center justify-center text-blue-400 hover:bg-blue-400 hover:text-black transition-all duration-300"
-                    aria-label="Instagram"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-                    </svg>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
+    </div>
   );
 }

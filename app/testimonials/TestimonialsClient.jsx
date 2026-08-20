@@ -1,24 +1,19 @@
 "use client";
-import React from 'react'
-
-import MouseCursor from '../components/MouseCursor'
-import FloatingIcons from '../components/FloatingIcons'
-import Header from '../Header'
-import TestimonialsHero from './TestimonialsHero'
-import Footer from '../components/Footer'
-import Testimoni from './Testimoni'
+import React from 'react';
+import Header from '../Header';
+import TestimonialsHero from './TestimonialsHero';
+import Footer from '../components/Footer';
+import Testimoni from './Testimoni';
 
 function TestimonialsPage() {
   return (
-    <div className="min-h-screen bg-black text-white">
-      <MouseCursor />
-      <FloatingIcons />
+    <div className="min-h-screen" style={{ background: "#f5f9fd" }}>
       <Header />
       <TestimonialsHero />
-      <Testimoni/>
+      <Testimoni />
       <Footer />
     </div>
-  )
+  );
 }
 
-export default TestimonialsPage;
+export default TestimonialsPage;

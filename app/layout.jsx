@@ -28,12 +28,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        
-        <style>{`* { cursor: none !important; }`}</style>
-
-        
-        {/* <link rel="icon" href="https://www.shrote.com/favicon.ico" type="image/ico" /> */}
-        <link rel="shortcut icon" href="/shrote-logo.png" />
+        <link rel="icon" href="/images.png" />
+        <link rel="shortcut icon" href="/images.png" />
 
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
         <link rel="dns-prefetch" href="//cdnjs.cloudflare.com" />
@@ -43,7 +39,7 @@ export default function RootLayout({ children }) {
         />
       </head>
 
-      <body className={`${inter.className} overflow-x-hidden cursor-none`} suppressHydrationWarning>
+      <body className={`${inter.className} overflow-x-hidden`} suppressHydrationWarning>
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-WBQCS9V"

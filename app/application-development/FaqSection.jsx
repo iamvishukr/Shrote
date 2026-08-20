@@ -1,29 +1,37 @@
+"use client";
+
 import { useState } from "react";
-import { Plus, Minus, PhoneCall, MessageCircle } from "lucide-react";
+import { Plus, Minus, PhoneCall, MessageCircle, HelpCircle, Mail } from "lucide-react";
+import Link from "next/link";
 
 export default function FAQSection() {
-  const [openIndex, setOpenIndex] = useState(1); // Default second item open
+  const [openIndex, setOpenIndex] = useState(0);
 
   const faqs = [
     {
-      question: "What services does your agency offer?",
+      question: "What enterprise services does Shrote Technology deliver?",
       answer:
-        "We provide a range of services including branding, digital marketing, content creation, e-commerce solutions, and UX/UI design.",
+        "We engineer end-to-end custom web applications, native iOS & Android mobile apps, cloud microservices, AI chatbots & agents, ERP & HRMS suites, e-commerce storefronts, and full-funnel digital marketing strategies.",
     },
     {
-      question: "How long does a typical project take?",
+      question: "What is your typical project delivery timeline?",
       answer:
-        "Project timelines vary based on complexity and scope. We provide a detailed timeline during the initial consultation.",
+        "Project delivery timelines range from 2 to 6 weeks for MVP deployments and 2 to 4 months for complex enterprise platforms, executed through transparent 2-week agile sprints with continuous staging access.",
     },
     {
-      question: "Do you work with small businesses?",
+      question: "Do you offer post-launch support and maintenance SLAs?",
       answer:
-        "Yes, we work with businesses of all sizes and customize our strategies to fit your goals and budget.",
+        "Yes! Every deployment includes comprehensive post-launch warranty, 24/7 server monitoring, performance optimization, automated backups, and dedicated SLA-backed support tiers.",
     },
     {
-      question: "Can you help with existing websites?",
+      question: "Can you modernize or optimize our existing legacy codebase?",
       answer:
-        "Absolutely! We can optimize, redesign, or enhance your current website to improve performance and user experience.",
+        "Absolutely. We specialize in legacy system migration, database optimization, cloud architecture restructuring (AWS/GCP/Azure), and UI/UX modernization with zero downtime.",
+    },
+    {
+      question: "How do you protect data security and intellectual property?",
+      answer:
+        "We sign mutual Non-Disclosure Agreements (NDAs) before discovery, transfer 100% IP ownership upon milestone completion, and adhere to bank-grade AES-256 encryption and global data compliance standards.",
     },
   ];
 
@@ -32,102 +40,104 @@ export default function FAQSection() {
   };
 
   return (
-    <div className="bg-black text-white px-8 py-16 grid md:grid-cols-3 gap-10 max-w-7xl mx-auto">
-      
-      <div className="md:col-span-2">
-        <h2 className=" text-[30px] leading-[1.1] md:text-[40px] lg:text-[60px] font-jakarta  mb-8">
-          Lets address your <span className="text-blue-400">questions</span>{" "}
-          today!
-        </h2>
-
-        <div className="space-y-4">
-          {faqs.map((faq, index) => (
+    <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div className="grid lg:grid-cols-3 gap-10 items-start">
+        {/* Left 2 Cols: FAQs Accordion */}
+        <div className="lg:col-span-2">
+          <div className="mb-8">
             <div
-              key={index}
-              className="bg-gradient-to-b from-gray-900 to-black rounded-xl p-5 cursor-pointer transition"
-              onClick={() => toggleFAQ(index)}
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-[12px] font-[700] uppercase tracking-[1.5px] mb-3"
+              style={{ background: "#eef7f5", color: "#00A88F" }}
             >
-             
-              <div className="flex justify-between items-center">
-                <h3
-                  className={`text-lg font-semibold ${
-                    openIndex === index ? "text-blue-400" : "text-white"
-                  }`}
-                >
-                  {faq.question}
-                </h3>
-                {openIndex === index ? (
-                  <Minus className="text-blue-400 w-6 h-6" />
-                ) : (
-                  <Plus className="text-blue-400 w-6 h-6" />
-                )}
-              </div>
-
-           
-              <div
-                className={`overflow-hidden transition-all duration-500 ${
-                  openIndex === index ? "max-h-40 mt-3" : "max-h-0"
-                }`}
-              >
-                <p className="text-[#F5F5F4] text-[16px] font-jakarta leading-relaxed ">
-                  {faq.answer}
-                </p>
-              </div>
+              <HelpCircle size={14} /> Clear Answers
             </div>
-          ))}
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0d2a4a] tracking-tight">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-[14.5px] text-[#6b8ba8] mt-2">
+              Everything you need to know about our engineering process, security, and engagement models.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {faqs.map((faq, index) => {
+              const isOpen = openIndex === index;
+              return (
+                <div
+                  key={index}
+                  className={`bg-white rounded-2xl p-6 transition-all duration-200 cursor-pointer border ${
+                    isOpen ? "border-[#00A88F]/40 shadow-md" : "border-[#e8f0f7] hover:border-gray-300"
+                  }`}
+                  onClick={() => toggleFAQ(index)}
+                >
+                  <div className="flex justify-between items-center gap-4">
+                    <h3 className={`text-[15.5px] font-bold ${isOpen ? "text-[#00A88F]" : "text-[#0d2a4a]"}`}>
+                      {faq.question}
+                    </h3>
+                    <div
+                      className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-200 ${
+                        isOpen ? "bg-[#00A88F] text-white rotate-180" : "bg-[#f0f5fa] text-[#4a6a8a]"
+                      }`}
+                    >
+                      {isOpen ? <Minus size={16} /> : <Plus size={16} />}
+                    </div>
+                  </div>
+
+                  {isOpen && (
+                    <div className="mt-3.5 pt-3.5 border-t border-gray-100">
+                      <p className="text-[14px] text-[#5a7a9a] leading-relaxed">
+                        {faq.answer}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Right 1 Col: Support Card */}
+        <div
+          className="rounded-3xl p-8 text-white flex flex-col justify-between shadow-lg"
+          style={{ background: "linear-gradient(135deg, #0d2a4a 0%, #0d3d6b 100%)" }}
+        >
+          <div>
+            <div
+              className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6"
+              style={{ background: "rgba(0,168,143,0.2)" }}
+            >
+              <MessageCircle size={28} style={{ color: "#00d4b4" }} />
+            </div>
+
+            <h3 className="text-2xl font-extrabold mb-3">
+              Have a Specific Requirement?
+            </h3>
+            <p className="text-blue-200 text-[14px] leading-relaxed mb-8">
+              Speak directly with our solutions architects to get a tailored estimate and free technical consultation within 24 hours.
+            </p>
+          </div>
+
+          <div className="space-y-3">
+            <a
+              href="tel:+917667983607"
+              className="flex items-center justify-center gap-2.5 w-full py-3.5 rounded-full text-[14px] font-[600] text-white transition-all shadow-md"
+              style={{ background: "#00A88F" }}
+              onMouseEnter={(e) => (e.currentTarget.style.background = "#008f79")}
+              onMouseLeave={(e) => (e.currentTarget.style.background = "#00A88F")}
+            >
+              <PhoneCall size={16} /> +91 7667983607
+            </a>
+
+            <Link
+              href="/contact"
+              className="flex items-center justify-center gap-2.5 w-full py-3 rounded-full text-[13.5px] font-[600] text-white border border-white/20 hover:bg-white/10 transition-all"
+            >
+              <Mail size={16} /> Contact Sales Team
+            </Link>
+          </div>
         </div>
       </div>
-
-      
-      <div className="bg-gradient-to-b from-gray-900 to-black rounded-2xl p-8 flex flex-col items-center justify-center text-center">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="61"
-          height="61"
-          className="mb-12 text-blue-400  "
-          viewBox="0 0 61 61"
-          fill="none"
-        >
-          <path
-            d="M19.7854 54.2444L2.64258 58.5301L6.92829 45.6729V7.10151C6.92829 5.96487 7.37982 4.87478 8.18355 4.07105C8.98728 3.26733 10.0774 2.8158 11.214 2.8158H54.0711C55.2078 2.8158 56.2979 3.26733 57.1016 4.07105C57.9053 4.87478 58.3569 5.96487 58.3569 7.10151V49.9587C58.3569 51.0953 57.9053 52.1854 57.1016 52.9891C56.2979 53.7928 55.2078 54.2444 54.0711 54.2444H19.7854Z"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          ></path>
-          <path
-            d="M32.6426 13.5301V26.3872"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          ></path>
-          <path
-            d="M32.6429 41.3872C33.8263 41.3872 34.7857 40.4278 34.7857 39.2444C34.7857 38.0609 33.8263 37.1015 32.6429 37.1015C31.4594 37.1015 30.5 38.0609 30.5 39.2444C30.5 40.4278 31.4594 41.3872 32.6429 41.3872Z"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          ></path>
-        </svg>
-
-        <h3 className="text-[20px] font-jakarta font-semibold text-blue-400 mb-6">
-          You have different questions?
-        </h3>
-        <p className="text-gray-300 mb-6">
-          Our team will answer all your questions. <br />
-          We ensure a quick response.
-        </p>
-        <button
-  className="flex items-center gap-2 mb-8 bg-blue-400 text-black font-bold 
-             px-4 md:px-6 py-3 rounded-xl hover:scale-105 transition 
-             w-full sm:w-auto md:w-64 lg:w-80 whitespace-nowrap"
->
-  <PhoneCall className="w-5 h-5" />
-  +91 7667983607
-</button>
-
-      </div>
-    </div>
+    </section>
   );
 }
+

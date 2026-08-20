@@ -155,157 +155,97 @@ export default function Intern() {
     setExpandedJobId(expandedJobId === id ? null : id);
   };
   return (
-    <div className="min-h-screen bg-black px-4 sm:px-6 lg:px-8 py-12">
-      <div className="max-w-screen-xl mx-auto">
+    <div className="min-h-screen py-14 px-4 sm:px-6 lg:px-8" style={{ background: "#f5f9fd" }}>
+      <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {jobOpenings.map((job) => {
             const isExpanded = expandedJobId === job.id;
 
             return (
-              <Card
+              <div
                 key={job.id}
-                className="rounded-2xl bg-slate-900/70 backdrop-blur-sm border border-slate-800 
-                         hover:ring-2 hover:ring-indigo-500/40 transition-all duration-300 flex flex-col shadow-xl"
+                className="rounded-3xl bg-white border border-[#e8f0f7] hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between overflow-hidden"
               >
-                <CardHeader className="bg-gradient-to-r  md:p-4 rounded-t-2xl">
-                  <CardTitle className="text-lg sm:text-xl font-semibold text-white flex items-center gap-2">
-                    <svg
-                      className="w-5 h-5 text-indigo-200"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M12 3L20 9L12 15L4 9L12 3Z" />
-                    </svg>
+                <div className="p-6 border-b border-[#f0f5fa] bg-[#fbfdfe]">
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold text-[#00A88F] bg-[#eef7f5] mb-2.5">
+                    {job.location} • {job.internshipDuration} • {job.jobType}
+                  </div>
+                  <h3 className="text-lg font-bold text-[#0d2a4a] leading-snug">
                     {job.role}
-                  </CardTitle>
-                </CardHeader>
+                  </h3>
+                </div>
 
-                <CardContent className="p-5 flex flex-col flex-1">
-                  <div className="space-y-3 -ml-8  md:ml-0 -mr-8 md:mr-0  mb-6 px-0 sm:px-4">
-                    <div className="grid grid-cols-2 gap-3">
-                      <MetaItem
-                        icon={
-                          <path d="M12 2a7 7 0 017 7c0 5-7 13-7 13S5 14 5 9a7 7 0 017-7z" />
-                        }
-                        label={job.location}
-                      />
-                      <MetaItem
-                        icon={
-                          <path d="M6 4l6 2l6-2M6 4v6c0 4 6 10 6 10s6-6 6-10V4" />
-                        }
-                        label={job.education}
-                      />
+                <div className="p-6 flex flex-col flex-1 justify-between space-y-5">
+                  <div className="grid grid-cols-2 gap-2 text-[12px] text-[#5a7a9a]">
+                    <div className="bg-[#f8fafc] p-2.5 rounded-xl border border-[#eef2f6]">
+                      <span className="block font-bold text-[#0d2a4a]">Education</span>
+                      <span className="truncate block">{job.education}</span>
                     </div>
-                    <div className="grid grid-cols-2 gap-3">
-                      <MetaItem
-                        icon={
-                          <>
-                            <circle cx="12" cy="12" r="10" />
-                            <path d="M12 8v4l3 2" />
-                          </>
-                        }
-                        label={job.internshipDuration}
-                      />
-                      <MetaItem
-                        icon={<path d="M6 12h12M12 4v16M8 8h8M8 16h8" />}
-                        label={job.jobType}
-                      />
+                    <div className="bg-[#f8fafc] p-2.5 rounded-xl border border-[#eef2f6]">
+                      <span className="block font-bold text-[#0d2a4a]">Functional Area</span>
+                      <span className="truncate block">{job.functionalArea}</span>
                     </div>
-                    <MetaItem
-                      icon={
-                        <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM5.5 21a6.5 6.5 0 0113 0" />
-                      }
-                      label={job.functionalArea}
-                    />
                   </div>
 
-                  <div className="mb-5">
-                    <h3 className="text-sm font-semibold text-slate-300 mb-2">
-                      Key Responsibilities
-                    </h3>
-                    <ul className="space-y-2 text-xs text-slate-400 list-disc ml-5">
+                  <div>
+                    <h4 className="text-[13px] font-bold text-[#0d2a4a] mb-2">
+                      Role Overview & Responsibilities
+                    </h4>
+                    <ul className="space-y-1.5 text-[12.5px] text-[#5a7a9a]">
                       {(isExpanded
                         ? job.jobDescription
-                        : job.jobDescription.slice(0, 1)
+                        : job.jobDescription.slice(0, 2)
                       ).map((res, i) => (
-                        <li key={i} className="-ml-8">{res}</li>
-                      ))}
-                      {job.jobDescription.length > 1 && (
-                        <li
-                          className="text-indigo-400 cursor-pointer"
-                          onClick={() => toggleExpand(job.id)}
-                        >
-                          {isExpanded ? "Read Less" : "Read More"}
+                        <li key={i} className="flex items-start gap-1.5">
+                          <span className="text-[#00A88F] font-bold">•</span>
+                          <span>{res}</span>
                         </li>
-                      )}
+                      ))}
                     </ul>
                   </div>
 
-                  <div className="mb-5">
-                    <h3 className="text-sm font-semibold text-slate-300 mb-2">
-                      Who Can Apply :-
-                    </h3>
-                    <h3>Only those students or fresher's can apply who:</h3>
-                    <ul className="space-y-2 text-xs text-slate-400 list-disc ml-5">
+                  <div>
+                    <h4 className="text-[13px] font-bold text-[#0d2a4a] mb-2">
+                      Who Can Apply
+                    </h4>
+                    <ul className="space-y-1 text-[12px] text-[#5a7a9a]">
                       {(isExpanded
                         ? job.whoCanApply
-                        : job.whoCanApply.slice(0, 4)
+                        : job.whoCanApply.slice(0, 2)
                       ).map((res, i) => (
-                        <li key={i}>{res}</li>
-                      ))}
-                      {job.whoCanApply.length > 4 && (
-                        <li
-                          className="text-indigo-400 cursor-pointer"
-                          onClick={() => toggleExpand(job.id)}
-                        >
-                          {isExpanded ? "Read Less" : "Read More"}
+                        <li key={i} className="flex items-start gap-1.5">
+                          <span className="text-[#00A88F] font-bold">•</span>
+                          <span>{res}</span>
                         </li>
-                      )}
+                      ))}
                     </ul>
+                    {job.whoCanApply.length > 2 && (
+                      <button
+                        className="text-[12px] font-bold text-[#00A88F] hover:underline mt-2 inline-block cursor-pointer"
+                        onClick={() => toggleExpand(job.id)}
+                      >
+                        {isExpanded ? "Show Less" : "Read More"}
+                      </button>
+                    )}
                   </div>
 
-                  <div className="mt-auto text-center pt-4 border-t border-slate-800">
-                    <Button
-                      size="sm"
-                      className="px-6 py-2 rounded-full font-semibold text-white
-             bg-slate-900 shadow-lg  
-             transition-transform hover:scale-105"
+                  <div className="pt-4 border-t border-[#f0f5fa]">
+                    <Link
+                      href={`/join-our-team?role=${encodeURIComponent(job.role)}&id=${job.id}`}
+                      className="w-full py-2.5 rounded-full text-center block text-white text-[13.5px] font-[600] transition-all shadow-sm"
+                      style={{ background: "#00A88F" }}
+                      onMouseEnter={(e) => (e.currentTarget.style.background = "#008f79")}
+                      onMouseLeave={(e) => (e.currentTarget.style.background = "#00A88F")}
                     >
-                      <Link
-                        href={`/join-our-team?role=${encodeURIComponent(
-                          job.role
-                        )}&id=${job.id}`}
-                        className="text-white"
-                      >
-                        Apply Now
-                      </Link>
-                    </Button>
+                      Apply For Internship
+                    </Link>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             );
           })}
         </div>
       </div>
-    </div>
-  );
-}
-
-function MetaItem({ icon, label }) {
-  return (
-    <div className="flex items-center gap-2 px-3 py-2 bg-slate-800/60 rounded-lg text-xs text-slate-300">
-      <svg
-        className="w-4 h-4 text-indigo-400 flex-shrink-0"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        viewBox="0 0 24 24"
-      >
-        {icon}
-      </svg>
-      <span className="truncate">{label}</span>
     </div>
   );
 }

@@ -2,67 +2,95 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { ExternalLink, ArrowRight, Sparkles, ArrowUpRight } from "lucide-react";
 
 export default function Portfolio() {
   const [activeFilter, setActiveFilter] = useState("All");
 
-  const filters = [
-    "All",
-    "E-commerce",
-    
-    "SEO & Analytics",
-    "Web Design",
-  ];
+  const filters = ["All", "Mobile Apps", "Web Development", "E-Commerce", "SEO & Marketing", "Web Design", "Software"];
 
   const projects = [
     {
       id: 1,
-      title: "Beauty Products",
-      category: "E-commerce",
-      image:
-        "https://www.marswebsolution.com/images/portfolio/e-commerce1.jpg",
-        url: "https://cassevabeauty.com/" // Added URL
+      title: "Shrote Technology Platform",
+      category: "Web Development",
+      tags: ["Next.js 14", "Tailwind CSS", "Firebase"],
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
+      url: "https://www.shrote.com/",
+      year: "2026",
+      isNew: true,
+      description: "Full enterprise architecture with Next.js 14 App Router, responsive design system & Firestore integrations.",
+    },
+    {
+      id: 101,
+      title: "BlueTees Golf Companion App",
+      category: "Mobile Apps",
+      tags: ["Flutter", "iOS & Android", "BLE", "Firebase"],
+      image: "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?q=80&w=800&auto=format&fit=crop",
+      url: "/application-development",
+      year: "2024",
+      isNew: true,
+      description: "Cross-platform golf GPS rangefinder mobile app with instant Bluetooth device sync and live player scorecards.",
+    },
+    {
+      id: 102,
+      title: "FitPulse Health & Workout Tracker",
+      category: "Mobile Apps",
+      tags: ["React Native", "HealthKit", "AI Plans"],
+      image: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=800&auto=format&fit=crop",
+      url: "/application-development",
+      year: "2024",
+      description: "AI-powered mobile fitness application with Apple Health & Google Fit synchronization and real-time heart rate stats.",
     },
     {
       id: 2,
-      title: "Bionova Store",
-      category: "E-commerce",
-      image:
-        "https://www.marswebsolution.com/images/portfolio/design56.jpg",
-        url: "https://bionovastore.com/"
+      title: "NES Electrical Supplies",
+      category: "E-Commerce",
+      tags: ["E-Commerce", "Next.js", "Payment Gateway"],
+      image: "https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=800&auto=format&fit=crop",
+      url: "https://www.neselectricalsupplies.com/",
+      year: "2024",
+      description: "End-to-end electrical supply store with custom catalog, live cart, automated billing & inventory management.",
     },
     {
       id: 3,
-      title: "Family Resort",
-      category: "SEO & Analytics",
-      image:
-        "https://www.marswebsolution.com/images/portfolio/seo3.jpg",
-        url: "https://jaladhama.net/"
+      title: "Luxify Digital Agency",
+      category: "SEO & Marketing",
+      tags: ["SEO", "Digital Marketing", "Analytics"],
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop",
+      url: "https://luxifydigital.com/",
+      year: "2024",
+      description: "Global digital marketing agency platform engineered with headless CMS and high-speed core web vitals.",
     },
     {
       id: 4,
-      title: "Reverse Inventory Commerce",
-      category: "Web Design",
-      image:
-        "https://www.marswebsolution.com/images/portfolio/design11.jpg",
-        url: "https://www.blubirch.com/"
+      title: "Zealwise Technologies",
+      category: "Web Development",
+      tags: ["React", "Cloud Microservices"],
+      image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=800&auto=format&fit=crop",
+      url: "https://zealwise.com/",
+      year: "2024",
+      description: "Technology consulting corporate website delivering high-impact solutions with modern animations.",
     },
     {
       id: 5,
-      title: "Interior & Home Furnishing",
-      category: "SEO & Analytics",
-      image:
-        "https://www.marswebsolution.com/images/portfolio/seo2.jpg",
-        url: "https://karnatakafurnishing.com/"
-    }
-    ,
+      title: "Knowledge C Distribution Portal",
+      category: "Web Design",
+      tags: ["UI/UX", "Enterprise Portal"],
+      image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=800&auto=format&fit=crop",
+      url: "https://appvenuz.com/",
+      year: "2024",
+      description: "Enterprise-grade web application for managing multi-tier distribution networks and order workflows.",
+    },
     {
       id: 6,
-      title: "Granite & Stone Cladding",
-      category: "Web Design",
-      image:
-        "https://www.marswebsolution.com/images/portfolio/design7.jpg",
-        url: "http://floorsandwalls.in/"
+      title: "Gentium Luxury Retail",
+      category: "E-Commerce",
+      tags: ["Shopify", "E-Commerce", "UX"],
+      image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=800&auto=format&fit=crop",
+      url: "https://www.gentium.in/",
+      year: "2023",
+      description: "High-converting bespoke e-commerce storefront with integrated payment gateway and live shipping tracking.",
     },
   ];
 
@@ -72,118 +100,116 @@ export default function Portfolio() {
       : projects.filter((project) => project.category === activeFilter);
 
   return (
-    <section className="section-padding px-4 md:px-8 lg:mr-16 lg:ml-16 bg-black min-h-screen">
-  <div className="mb-8 md:mb-16 max-w-[90%] sm:max-w-full mx-auto">
-    <p className="text-sm uppercase text-white/60 tracking-wider mb-4 md:mb-6 font-medium">
-      <span className="text-blue-400 text-lg mr-2">✱</span>
-      <span className="text-white/90">Portfolio</span>
-    </p>
-
-    <div className="flex flex-col md:flex-row flex-wrap items-start gap-4 md:gap-0 mb-12 md:mb-24 overflow-visible">
-      <div className="w-full md:flex-1">
-        <div className="lojpa md:text-5xl leading-tight text-white">
-          Proven our{" "}
-          <span className="text-blue-400 font-bold">process</span> for{" "}
-          <br className="hidden md:block" />
-          achieving success
+    <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      {/* Header */}
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12">
+        <div>
+          <div
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-[12px] font-[700] uppercase tracking-[1.5px] mb-3"
+            style={{ background: "#eef7f5", color: "#00A88F" }}
+          >
+            <Sparkles size={14} /> Proven Track Record
+          </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0d2a4a] tracking-tight">
+            Recent Client <span style={{
+              background: "linear-gradient(90deg, #00A88F, #00d4b4)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}>Deliveries</span> & Case Studies
+          </h2>
         </div>
-      </div>
-      <div className="w-full md:flex-1">
-        <p className="text-base  md:text-xl text-gray-300 leading-relaxed" style={{ color:"#f5f5f4"}}>
-          Proven our process combines research, strategy, and creativity to
-          deliver tailored solutions that drive measurable results.
-        </p>
-      </div>
-    </div>
 
-    
-    <div className="flex flex-wrap justify-start md:justify-center gap-2 md:gap-4 mb-12 md:mb-24 overflow-x-auto py-2 max-w-[90%] sm:max-w-full mx-auto">
-      {filters.map((filter) => (
-        <button
-          key={filter}
-          onClick={() => setActiveFilter(filter)}
-          className={`flex items-center h-auto capitalize rounded-[10px] border transition-all duration-300 px-3 md:px-5 py-1 md:py-2 text-sm md:text-base ${
-            filter === "All" && activeFilter === "All"
-              ? "bg-blue-400 text-black border-blue-400"
-              : activeFilter === filter
-              ? "border-blue-400 text-blue-400 hover:bg-blue-500 hover:text-black"
-              : "border-white/10 text-gray-300 hover:bg-blue-500 hover:text-black"
-          }`}
+        <Link
+          href="/portfolio"
+          className="inline-flex items-center gap-2 text-[14px] font-bold text-[#00A88F] hover:underline"
         >
-          {filter}
-        </button>
-      ))}
-    </div>
+          View All 500+ Projects <ArrowRight size={16} />
+        </Link>
+      </div>
 
-    
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 max-w-[90%] sm:max-w-full mx-auto">
-      {filteredProjects.map((project) => (
-        <div
-          key={project.id}
-          className="group relative rounded-xl md:rounded-3xl overflow-hidden transition-all duration-300"
-        >
-          <div className="relative">
-            <img
-              src={project.image || "/placeholder.svg"}
-              alt={project.title}
-              className="w-full h-48 sm:h-56 md:h-80 object-cover transition-transform duration-300 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-black bg-opacity-10 transition-opacity duration-300 group-hover:bg-opacity-30">
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="w-12 h-12 md:w-16 md:h-16 border-2 border-white rounded-full flex items-center justify-center transition-all duration-300 ease-in-out hover:bg-blue-400">
-                   <Link 
-                      href={project.url} target="_blank" 
-                      className="w-12 h-12 md:w-16 md:h-16 border-2 border-white rounded-full flex items-center justify-center transition-all duration-300 ease-in-out hover:bg-blue-400"
-                      aria-label={`View ${project.title} project`}
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        className="text-white transition-all duration-300 ease-in-out transform -rotate-45 hover:rotate-0 hover:text-black hover:translate-x-1"
-                      >
-                        <path
-                          d="M5 12H19M19 12L13 6M19 12L13 18"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </Link>
+      {/* Filter Tabs */}
+      <div className="flex flex-wrap gap-2 mb-10">
+        {filters.map((f) => (
+          <button
+            key={f}
+            onClick={() => setActiveFilter(f)}
+            className="px-4 py-2 rounded-full text-[13px] font-[600] border transition-all duration-200"
+            style={{
+              background: activeFilter === f ? "#00A88F" : "#ffffff",
+              color: activeFilter === f ? "#ffffff" : "#0d2a4a",
+              borderColor: activeFilter === f ? "#00A88F" : "#e8f0f7",
+              boxShadow: activeFilter === f ? "0 4px 12px rgba(0,168,143,0.25)" : "none",
+            }}
+          >
+            {f}
+          </button>
+        ))}
+      </div>
+
+      {/* Projects Grid */}
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
+        {filteredProjects.map((project) => (
+          <div
+            key={project.id}
+            className="bg-white rounded-3xl overflow-hidden border border-[#e8f0f7] hover:border-[#00A88F]/40 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
+          >
+            {/* Image Container */}
+            <div className="relative h-56 overflow-hidden">
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+
+              {project.isNew && (
+                <div
+                  className="absolute top-4 left-4 px-2.5 py-1 rounded-full text-[11px] font-bold text-white uppercase tracking-wider"
+                  style={{ background: "#00A88F" }}
+                >
+                  ✦ Latest Launch
                 </div>
+              )}
+
+              <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-2.5 py-0.5 rounded-full text-[11.5px] font-bold text-[#0d2a4a]">
+                {project.year}
+              </div>
+            </div>
+
+            {/* Content */}
+            <div className="p-6 flex flex-col flex-1 justify-between">
+              <div>
+                <div className="flex flex-wrap gap-1.5 mb-3">
+                  {project.tags.map((tag, tIdx) => (
+                    <span
+                      key={tIdx}
+                      className="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-[#eef7f5] text-[#00A88F]"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <h3 className="text-lg font-bold text-[#0d2a4a] mb-2 group-hover:text-[#00A88F] transition-colors leading-snug">
+                  {project.title}
+                </h3>
+                <p className="text-[13px] text-[#5a7a9a] leading-relaxed mb-4">
+                  {project.description}
+                </p>
               </div>
 
-              <div className="absolute top-2 right-2 md:top-4 md:right-4">
-                <span
-                  className="inline-block text-xs md:text-[14px] capitalize rounded-lg md:rounded-xl px-2 py-1 md:px-[15px] md:py-[6px] text-[var(--e-global-color-text)] bg-[var(--e-global-color-divider)] backdrop-blur-[20px] supports-[backdrop-filter]:backdrop-blur-[20px]"
-                  style={{ WebkitBackdropFilter: "blur(20px)" }}
-                >
+              <div className="pt-4 border-t border-[#f0f5fa] flex items-center justify-between">
+                <span className="text-[11.5px] font-bold uppercase tracking-wider text-[#0d2a4a] bg-[#f0f5fa] px-3 py-1 rounded-full">
                   {project.category}
+                </span>
+                <span className="text-[12px] font-medium text-[#7a9ab5]">
+                  Case Study
                 </span>
               </div>
             </div>
           </div>
-
-          <h5 className="mt-2 md:mt-4 text-center text-lg md:text-xl font-bold text-white group-hover:text-blue-400 transition-colors duration-300">
-            {project.title}
-          </h5>
-        </div>
-      ))}
-    </div>
-
-    
-    {filteredProjects.length === 0 && (
-      <div className="text-center py-8 md:py-16">
-        <p className="text-gray-400 text-base md:text-lg">
-          No projects found for "{activeFilter}"
-        </p>
+        ))}
       </div>
-    )}
-  </div>
-</section>
-
+    </section>
   );
 }
+

@@ -99,95 +99,102 @@ export default function Contact() {
   ]
 
   return (
-    <section id="contact" className="py-20 bg-black" ref={ref}>
-      <div className="container mx-auto px-6">
+    <section id="contact" className="py-24 bg-[#F5F5F4] relative overflow-hidden" ref={ref}>
+      {/* Background Orbs */}
+      <div className="absolute top-[20%] right-[10%] w-[350px] h-[350px] bg-blue-600/5 rounded-full blur-[120px] pointer-events-none"></div>
+      <div className="absolute bottom-[10%] left-[5%] w-[300px] h-[300px] bg-purple-600/5 rounded-full blur-[100px] pointer-events-none"></div>
+
+      <div className="container mx-auto px-6 relative z-10">
         <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 50 }}
+          className="text-center mb-20"
+          initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-5xl font-playfair font-bold text-white mb-6">
-            Get In <span className="gradient-text">Touch</span>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-stone-900 mb-6">
+            Get In <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-indigo-600 bg-clip-text text-transparent">Touch</span>
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Ready to start your next project? Let's create something amazing together. We'd love to hear from you.
+          <p className="text-lg md:text-xl text-stone-500 max-w-2xl mx-auto font-light leading-relaxed">
+            Ready to start your next project or have questions? Let's build something exceptional together.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16">
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
           
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
+            className="space-y-8"
           >
-            <h3 className="text-3xl font-playfair font-bold text-white mb-8">Let's Start a Conversation</h3>
-            <p className="text-gray-400 mb-8 leading-relaxed">
-              We're here to help bring your vision to life. Whether you have a specific project in mind or just want to
-              explore possibilities, we'd love to chat about how we can work together.
-            </p>
+            <div>
+              <h3 className="text-2xl md:text-3xl font-bold text-stone-900 mb-4">Let's Start a Conversation</h3>
+              <p className="text-stone-500 leading-relaxed font-light">
+                We're here to help bring your vision to life. Whether you have a specific project in mind or just want to
+                explore possibilities, we'd love to chat about how we can work together.
+              </p>
+            </div>
 
-            <div className="space-y-6">
+            <div className="space-y-4">
               {contactInfo.map((item, index) => (
                 <motion.div
                   key={index}
-                  className="flex items-start space-x-4 glass-effect rounded-xl p-6 hover:bg-white hover:bg-opacity-5 transition-all duration-300"
-                  initial={{ opacity: 0, y: 30 }}
+                  className="flex items-start space-x-4 bg-white border border-gray-100 hover:border-blue-500/20 rounded-2xl p-5 hover:bg-gray-50 shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-all duration-500"
+                  initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+                  whileHover={{ y: -4 }}
                 >
-                  <div className="w-12 h-12 bg-gradient-to-br from-purple-600 to-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <item.icon className="w-6 h-6 text-white" />
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-[0_0_15px_rgba(59,130,246,0.3)]">
+                    <item.icon className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <h4 className="text-white font-semibold mb-1">{item.title}</h4>
-                    <p className="text-purple-400 font-medium mb-1">{item.info}</p>
-                    <p className="text-gray-500 text-sm">{item.description}</p>
+                    <h4 className="text-stone-900 font-semibold text-base mb-0.5">{item.title}</h4>
+                    <p className="text-blue-600 font-medium text-sm mb-1">{item.info}</p>
+                    <p className="text-stone-500 text-xs font-light">{item.description}</p>
                   </div>
                 </motion.div>
               ))}
             </div>
           </motion.div>
 
-         
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
+            className="bg-slate-950/30 backdrop-blur-md border border-white/5 rounded-3xl p-8 shadow-[0_8px_32px_rgba(0,0,0,0.3)]"
           >
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6 bg-white border border-gray-100 rounded-3xl p-8 shadow-[0_8px_32px_rgb(0,0,0,0.06)]">
               <div className="grid md:grid-cols-2 gap-6">
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 15 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: 0.6 }}
+                  transition={{ duration: 0.5, delay: 0.5 }}
                 >
-                  <label className="block text-white font-medium mb-2">Name</label>
+                  <label className="block text-stone-700 font-medium text-sm mb-2">Name</label>
                   <input
                     type="text"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:border-purple-500 focus:outline-none transition-colors duration-300"
+                    className="w-full px-4 py-3 bg-stone-50 border border-gray-200 rounded-xl text-stone-900 placeholder-stone-400 focus:border-blue-500 focus:ring-1 focus:ring-blue-500/20 focus:outline-none transition-all duration-300 text-sm"
                     placeholder="Your name"
                     required
                   />
                 </motion.div>
 
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 15 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: 0.7 }}
+                  transition={{ duration: 0.5, delay: 0.6 }}
                 >
-                  <label className="block text-white font-medium mb-2">Email</label>
+                  <label className="block text-stone-700 font-medium text-sm mb-2">Email</label>
                   <input
                     type="email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:border-purple-500 focus:outline-none transition-colors duration-300"
+                    className="w-full px-4 py-3 bg-stone-50 border border-gray-200 rounded-xl text-stone-900 placeholder-stone-400 focus:border-blue-500 focus:ring-1 focus:ring-blue-500/20 focus:outline-none transition-all duration-300 text-sm"
                     placeholder="your@email.com"
                     required
                   />
@@ -195,34 +202,34 @@ export default function Contact() {
               </div>
 
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.8 }}
+                transition={{ duration: 0.5, delay: 0.7 }}
               >
-                <label className="block text-white font-medium mb-2">Subject</label>
+                <label className="block text-stone-700 font-medium text-sm mb-2">Subject</label>
                 <input
                   type="text"
                   name="subject"
                   value={formData.subject}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:border-purple-500 focus:outline-none transition-colors duration-300"
+                  className="w-full px-4 py-3 bg-stone-50 border border-gray-200 rounded-xl text-stone-900 placeholder-stone-400 focus:border-blue-500 focus:ring-1 focus:ring-blue-500/20 focus:outline-none transition-all duration-300 text-sm"
                   placeholder="Project inquiry"
                   required
                 />
               </motion.div>
 
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.9 }}
+                transition={{ duration: 0.5, delay: 0.8 }}
               >
-                <label className="block text-white font-medium mb-2">Message</label>
+                <label className="block text-stone-700 font-medium text-sm mb-2">Message</label>
                 <textarea
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  rows={6}
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:border-purple-500 focus:outline-none transition-colors duration-300 resize-none"
+                  rows={5}
+                  className="w-full px-4 py-3 bg-stone-50 border border-gray-200 rounded-xl text-stone-900 placeholder-stone-400 focus:border-blue-500 focus:ring-1 focus:ring-blue-500/20 focus:outline-none transition-all duration-300 resize-none text-sm"
                   placeholder="Tell us about your project..."
                   required
                 />
@@ -231,19 +238,19 @@ export default function Contact() {
               <motion.button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-300 disabled:opacity-50"
-                initial={{ opacity: 0, y: 20 }}
+                className="w-full flex items-center justify-center gap-2 px-8 py-3.5 bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 text-white rounded-xl font-bold tracking-wide shadow-[0_4px_20px_rgba(59,130,246,0.25)] hover:shadow-[0_4px_30px_rgba(59,130,246,0.45)] hover:opacity-95 transition-all duration-300 hover:scale-[1.01] active:scale-[0.99] disabled:opacity-50 disabled:pointer-events-none text-sm"
+                initial={{ opacity: 0, y: 15 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 1.0 }}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                transition={{ duration: 0.5, delay: 0.9 }}
               >
-                <Send size={20} />
+                <Send size={16} />
                 {isSubmitting ? "Sending..." : "Send Message"}
               </motion.button>
 
               {result && (
-                <p className="text-center mt-4 text-sm text-gray-300">{result}</p>
+                <p className={`text-center mt-4 text-sm font-medium ${result.includes("successfully") ? "text-green-400" : "text-slate-400"}`}>
+                  {result}
+                </p>
               )}
             </form>
           </motion.div>

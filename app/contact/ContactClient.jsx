@@ -1,30 +1,25 @@
 "use client";
-import MouseCursor from "../components/MouseCursor"
-import FloatingIcons from "../components/FloatingIcons"
-import Header from "../Header"
-import MapSection from "./Map"
-import ContactHero from "./ContactHero"
-import FormSection from "./FormSection"
+import Header from "../Header";
+import ContactHero from "./ContactHero";
+import FormSection from "./FormSection";
+import MapSection from "./Map";
 import Collaboration from "../components/Collaboration";
-import Footer from "../components/Footer"
+import Footer from "../components/Footer";
+import AnimatedBackground from "../components/AnimatedBackground";
 
 function ContactUs() {
   return (
-    <div className="min-h-screen bg-black text-white">
-      <MouseCursor />
-      <FloatingIcons />
-      <Header />
-
-     <ContactHero />
-
-      <FormSection />
-
-      
-      <MapSection />
-      
-      <Footer/>
+    <div className="min-h-screen relative" style={{ background: "#f5f9fd" }}>
+      <AnimatedBackground variant="mesh" />
+      <div className="relative z-10">
+        <Header />
+        <ContactHero />
+        <FormSection />
+        <MapSection />
+        <Footer />
+      </div>
     </div>
-  )
+  );
 }
 
 export default ContactUs;

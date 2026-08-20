@@ -1,57 +1,76 @@
-import { CheckCircle } from "lucide-react";
+"use client";
+
+import { Smartphone, Layers, ShieldCheck, Zap, ArrowRight } from "lucide-react";
 
 export default function DigitalMarketingFeatures() {
   const features = [
-    "Content Marketing That Tells Your Brand's Story",
-    "Personalized Email Marketing To Nurture Leads",
-    "Social Media Marketing That Engages And Converts",
-    "Comprehensive SEO Services For Visibility",
-    "Performance Analytics & Reporting",
-    "Performance Analytics & Reporting",
+    {
+      icon: Smartphone,
+      title: "Cross-Platform & Native Apps",
+      desc: "High-performance iOS and Android applications built with Flutter, React Native, Swift, and Kotlin for 60fps native feel.",
+    },
+    {
+      icon: Layers,
+      title: "Scalable API & Cloud Microservices",
+      desc: "Robust backends engineered with Node.js, GraphQL, PostgreSQL, and Redis caching for ultra-low latency.",
+    },
+    {
+      icon: ShieldCheck,
+      title: "Bank-Grade App Security",
+      desc: "End-to-end data encryption, biometrics (FaceID/Fingerprint), OAuth2, and HIPAA/GDPR compliance out of the box.",
+    },
+    {
+      icon: Zap,
+      title: "Real-Time Sync & Offline First",
+      desc: "Seamless offline SQLite caching, instant WebSocket messaging, and background sync when connection resumes.",
+    },
   ];
 
   return (
-    <div className="bg-black text-white px-8 py-12 rounded-2xl max-w-7xl mx-auto">
-  <h2 className="text-[40px] font-jakarta mb-6 leading-tight">
-    Key <span className="text-blue-400 font-bold font-jakarta">feature</span> of digital marketing
-  </h2>
+    <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div className="text-center max-w-3xl mx-auto mb-12">
+        <p className="text-[12px] font-[700] uppercase tracking-[2px] mb-2" style={{ color: "#00A88F" }}>
+          Core Engineering Pillars
+        </p>
+        <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0d2a4a] tracking-tight">
+          Modern Capabilities for Scalable Apps
+        </h2>
+        <p className="text-[15px] text-[#5a7a9a] mt-3 leading-relaxed">
+          From concept and UI/UX design to App Store / Google Play publishing and cloud scaling, we build mobile apps users love.
+        </p>
+      </div>
 
-  <p className="text-gray-300 text-[16px] font-jakarta mb-4 leading-relaxed max-w-4xl">
-    Our digital marketing approach is a data-driven strategy that combines
-    targeted outreach with creative content. We focus on reaching the right
-    audience through precision techniques like SEO, PPC, and social media
-    advertising, supported by engaging content marketing and email campaigns.
-  </p>
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {features.map((item, index) => {
+          const Icon = item.icon;
+          return (
+            <div
+              key={index}
+              className="bg-white rounded-3xl p-7 transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 group flex flex-col justify-between"
+              style={{ border: "1px solid #e8f0f7" }}
+            >
+              <div>
+                <div
+                  className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110"
+                  style={{ background: "#eef7f5", color: "#00A88F" }}
+                >
+                  <Icon size={26} />
+                </div>
+                <h3 className="text-lg font-bold text-[#0d2a4a] mb-2.5 leading-snug">
+                  {item.title}
+                </h3>
+                <p className="text-[13.5px] text-[#5a7a9a] leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
 
-  <p className="text-gray-300 text-[16px] font-jakarta mb-8 leading-relaxed max-w-4xl">
-    We utilize audience segmentation to divide your customer base into
-    distinct groups based on demographics, interests, and behaviors. This
-    allows us to deliver personalized content and messaging, ensuring
-    relevance and higher engagement rates.
-  </p>
-
-
-  <div className="grid md:grid-cols-2 gap-10 items-center">
-   
-    <ul className="space-y-4">
-      {features.map((feature, index) => (
-        <li key={index} className="flex items-center text-lg">
-          <CheckCircle className="text-lime-400 mr-3" size={22} />
-          {feature}
-        </li>
-      ))}
-    </ul>
-
-    
-    <div className="overflow-hidden rounded-2xl">
-      <img
-        src="https://demo.awaikenthemes.com/artistics/wp-content/uploads/2024/11/service-entry-img.jpg"
-        alt="Team working"
-        className="w-full h-auto rounded-2xl transform transition-transform duration-500 hover:scale-105"
-      />
-    </div>
-  </div>
-</div>
-
+              <div className="pt-4 mt-6 border-t border-[#f0f5fa] flex items-center gap-1 text-[12px] font-bold text-[#00A88F]">
+                <span>Enterprise Grade</span>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </section>
   );
 }

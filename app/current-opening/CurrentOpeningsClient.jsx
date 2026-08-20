@@ -1,7 +1,5 @@
 "use client";
-import FloatingIcons from '@/app/components/FloatingIcons'
 import Footer from '@/app/components/Footer'
-import MouseCursor from '@/app/components/MouseCursor'
 import Header from '@/app/Header'
 import React from 'react'
 import CurrentOpeningHero from './CurrentOpeningHero'
@@ -9,9 +7,7 @@ import Current from './Current'
 
 function CurrentOpeningsPage() {
   return (
-    <div className="min-h-screen bg-black text-white">
-      <MouseCursor />
-      <FloatingIcons />
+    <div className="min-h-screen" style={{ background: "#f5f9fd" }}>
       <Header />
       <CurrentOpeningHero />
       <Current />
@@ -20,4 +16,4 @@ function CurrentOpeningsPage() {
   )
 }
 
-export default CurrentOpeningsPage;
+export default CurrentOpeningsPage;

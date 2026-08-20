@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 70" width="300" height="70" fill="none">
+  <!-- Gradient definitions -->
+  <defs>
+    <linearGradient id="shroteTeal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00d4b4" />
+      <stop offset="100%" stop-color="#00A88F" />
+    </linearGradient>
+    <linearGradient id="shroteNavy" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d2a4a" />
+      <stop offset="100%" stop-color="#1b497a" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00A88F" flood-opacity="0.25" />
+    </filter>
+  </defs>
+
+  <!-- Logo Mark (Hexagonal Tech S Emblem) -->
+  <g transform="translate(10, 8)" filter="url(#glow)">
+    <!-- Outer Hex Shape -->
+    <rect x="0" y="4" width="46" height="46" rx="14" fill="url(#shroteNavy)" />
+    <!-- Dynamic Accent Shape -->
+    <path d="M12 18 C12 14, 18 12, 25 12 L34 12 C36 12, 38 14, 38 16 C38 18, 36 20, 34 20 L24 20 C18 20, 16 23, 16 26 C16 30, 20 32, 26 33 L32 34 C38 35, 42 38, 42 43 C42 49, 36 52, 28 52 L16 52 C14 52, 12 50, 12 48 C12 46, 14 44, 16 44 L28 44 C32 44, 34 42, 34 39 C34 36, 30 35, 24 34 L18 33 C14 31, 12 28, 12 24 Z" fill="url(#shroteTeal)" />
+    <circle cx="34" cy="16" r="3" fill="#ffffff" />
+    <circle cx="16" cy="48" r="3" fill="#ffffff" />
+  </g>
+
+  <!-- Typography -->
+  <!-- "SHROTE" Text -->
+  <text x="72" y="38" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="900" letter-spacing="1.5" fill="#0d2a4a">SHROTE</text>
+  
+  <!-- "TECHNOLOGY" Text -->
+  <text x="73" y="52" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="700" letter-spacing="4.5" fill="#00A88F">TECHNOLOGY</text>
+</svg>

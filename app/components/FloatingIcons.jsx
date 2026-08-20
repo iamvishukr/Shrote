@@ -93,32 +93,34 @@ export default function FloatingIcons() {
 
   return (
     <>
-      <div className="w-[50px] fixed top-1/2 right-0 bg-[#222222] transform -translate-y-1/2 border-t border-l border-b border-gray-600 rounded-l-[10px] z-[10000]">
+      <div className="fixed top-1/2 right-0 transform -translate-y-1/2 z-[10000] flex flex-col items-center bg-slate-950/80 backdrop-blur-md border-t border-l border-b border-white/10 rounded-l-2xl shadow-[0_8px_32px_0_rgba(0,0,0,0.5)] overflow-hidden">
         <button
           onClick={() => setShowForm(true)}
-          className="w-full h-[50px] flex items-center justify-center border-b border-gray-600"
+          className="w-12 h-12 flex items-center justify-center border-b border-white/5 hover:bg-white/10 text-slate-300 hover:text-white transition-all duration-300"
+          aria-label="Contact Form"
         >
-          <MailIcon size={25} className="text-gray-300" />
+          <MailIcon size={20} className="transition-transform duration-300 hover:scale-110" />
         </button>
 
         <a
-          href="tel:+1234567890"
-          className="w-full h-[50px] flex items-center justify-center"
+          href="tel:+917667983607"
+          className="w-12 h-12 flex items-center justify-center hover:bg-white/10 text-slate-300 hover:text-white transition-all duration-300"
+          aria-label="Call Us"
         >
-          <PhoneCall size={25} className="text-gray-300" />
+          <PhoneCall size={20} className="transition-transform duration-300 hover:scale-110" />
         </a>
       </div>
 
       <div
-        className={`fixed top-1/2 right-0 w-64 bg-slate-900 rounded-l-xl transform transition-transform duration-300 z-[10001] ${
-          showForm ? "translate-x-0" : "translate-x-full"
+        className={`fixed top-1/2 right-0 w-80 max-w-[90vw] bg-slate-950/95 backdrop-blur-lg border-t border-l border-b border-white/10 rounded-l-2xl shadow-[0_8px_32px_0_rgba(0,0,0,0.8)] transform transition-all duration-500 ease-out z-[10001] ${
+          showForm ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
         } -translate-y-1/2`}
       >
-        <div className="flex justify-between items-center p-3 border-b border-gray-700">
-          <h2 className="text-lg font-bold text-white">Contact Us</h2>
+        <div className="flex justify-between items-center p-4 border-b border-white/10">
+          <h2 className="text-base font-semibold tracking-wide bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Quick Enquiry</h2>
           <button
             onClick={() => setShowForm(false)}
-            className="text-gray-400 hover:text-white text-xl"
+            className="w-8 h-8 flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 rounded-full transition-all duration-300"
           >
             ✖
           </button>
@@ -126,89 +128,99 @@ export default function FloatingIcons() {
 
         <form
           onSubmit={handleSubmit}
-          className="p-4 flex flex-col gap-2"
+          className="p-5 flex flex-col gap-4"
           noValidate
         >
-          <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            value={formData.name}
-            onChange={(e) => {
-              const value = e.target.value;
+          <div className="flex flex-col gap-1">
+            <input
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              value={formData.name}
+              onChange={(e) => {
+                const value = e.target.value;
 
-              const regex = /^[A-Za-z\s]*$/;
-              if (regex.test(value)) {
-                handleChange(e);
-              }
-            }}
-            className={`border p-2 rounded placeholder-gray-400 bg-slate-800 text-white ${
-              errors.name ? "border-red-500" : "border-gray-600"
-            }`}
-          />
+                const regex = /^[A-Za-z\s]*$/;
+                if (regex.test(value)) {
+                  handleChange(e);
+                }
+              }}
+              className={`w-full px-3 py-2 bg-slate-900/50 border rounded-lg text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-blue-500/50 transition-all duration-300 ${
+                errors.name ? "border-red-500/60 focus:border-red-500/60" : "border-white/10 focus:border-blue-500/60"
+              }`}
+            />
+            {errors.name && <p className="text-red-400 text-xs pl-1">{errors.name}</p>}
+          </div>
 
-          {errors.name && <p className="text-red-400 text-xs">{errors.name}</p>}
+          <div className="flex flex-col gap-1">
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              value={formData.email}
+              onChange={handleChange}
+              className={`w-full px-3 py-2 bg-slate-900/50 border rounded-lg text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-blue-500/50 transition-all duration-300 ${
+                errors.email ? "border-red-500/60 focus:border-red-500/60" : "border-white/10 focus:border-blue-500/60"
+              }`}
+            />
+            {errors.email && (
+              <p className="text-red-400 text-xs pl-1">{errors.email}</p>
+            )}
+          </div>
 
-          <input
-            type="email"
-            name="email"
-            placeholder="Your Email"
-            value={formData.email}
-            onChange={handleChange}
-            className={`border p-2 rounded placeholder-gray-400 bg-slate-800 text-white ${
-              errors.email ? "border-red-500" : "border-gray-600"
-            }`}
-          />
-          {errors.email && (
-            <p className="text-red-400 text-xs">{errors.email}</p>
-          )}
+          <div className="flex flex-col gap-1">
+            <input
+              type="text"
+              name="mobile"
+              placeholder="Your Mobile"
+              value={formData.mobile}
+              maxLength={13}
+              onChange={(e) => {
+                const value = e.target.value;
 
-          <input
-            type="text"
-            name="mobile"
-            placeholder="Your Mobile"
-            value={formData.mobile}
-            maxLength={13}
-            onChange={(e) => {
-              const value = e.target.value;
+                const regex = /^[0-9]*$/;
+                if (regex.test(value)) {
+                  handleChange(e);
+                }
+              }}
+              className={`w-full px-3 py-2 bg-slate-900/50 border rounded-lg text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-blue-500/50 transition-all duration-300 ${
+                errors.mobile ? "border-red-500/60 focus:border-red-500/60" : "border-white/10 focus:border-blue-500/60"
+              }`}
+            />
+            {errors.mobile && (
+              <p className="text-red-400 text-xs pl-1">{errors.mobile}</p>
+            )}
+          </div>
 
-              const regex = /^[0-9]*$/;
-              if (regex.test(value)) {
-                handleChange(e);
-              }
-            }}
-            className={`border p-2 rounded placeholder-gray-400 bg-slate-800 text-white ${
-              errors.mobile ? "border-red-500" : "border-gray-600"
-            }`}
-          />
-
-          {errors.mobile && (
-            <p className="text-red-400 text-xs">{errors.mobile}</p>
-          )}
-
-          <textarea
-            name="message"
-            rows="3"
-            placeholder="Your Message"
-            value={formData.message}
-            onChange={handleChange}
-            className={`border p-2 rounded placeholder-gray-400 bg-slate-800 text-white ${
-              errors.message ? "border-red-500" : "border-gray-600"
-            }`}
-          />
-          {errors.message && (
-            <p className="text-red-400 text-xs">{errors.message}</p>
-          )}
+          <div className="flex flex-col gap-1">
+            <textarea
+              name="message"
+              rows="3"
+              placeholder="Your Message"
+              value={formData.message}
+              onChange={handleChange}
+              className={`w-full px-3 py-2 bg-slate-900/50 border rounded-lg text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-blue-500/50 transition-all duration-300 resize-none ${
+                errors.message ? "border-red-500/60 focus:border-red-500/60" : "border-white/10 focus:border-blue-500/60"
+              }`}
+            />
+            {errors.message && (
+              <p className="text-red-400 text-xs pl-1">{errors.message}</p>
+            )}
+          </div>
 
           <button
             type="submit"
             disabled={loading}
-            className="bg-blue-900 text-white py-2 rounded hover:bg-blue-700 disabled:opacity-70"
+            className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-medium py-2 rounded-lg hover:opacity-95 disabled:opacity-50 transition-all duration-300 text-sm shadow-[0_4px_20px_0_rgba(59,130,246,0.3)] hover:shadow-[0_4px_25px_0_rgba(59,130,246,0.5)] active:scale-98"
           >
-            {loading ? "Sending..." : "Submit"}
+            {loading ? "Sending..." : "Submit Enquiry"}
           </button>
 
-          {success && <p className="text-sm text-green-400">{success}</p>}
+          {success && (
+            <p className={`text-center text-sm font-medium ${success.includes("successfully") ? "text-green-400" : "text-red-400"}`}>
+              {success}
+            </p>
+          )}
         </form>
       </div>
     </>

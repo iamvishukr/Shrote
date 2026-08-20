@@ -1,441 +1,136 @@
 "use client";
 
-import { Diamond, TrendingUp, Palette } from "lucide-react";
-import { BsLaptop, BsRocketTakeoff } from "react-icons/bs";
-
-
+import Link from "next/link";
+import {
+  Code2,
+  Layout,
+  Smartphone,
+  Globe2,
+  Server,
+  ShoppingCart,
+  LineChart,
+  Search,
+  MessageSquare,
+  ArrowRight,
+  Sparkles,
+} from "lucide-react";
 
 export default function Services() {
-  
-  const CustomRocketIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="90"
-    height="90"
-    viewBox="0 0 60 60"
-    fill="none"
-    className="w-18 h-18"
-  >
-    <g transform="rotate(45, 30, 30)">
-      
-      <path
-        d="M30 4C25 10 22 18 22 26C22 33 26 41 30 46C34 41 38 33 38 26C38 18 35 10 30 4Z"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        fill="none"
-      />
-      
-      
-      <circle
-        cx="30"
-        cy="22"
-        r="3.5"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        fill="none"
-      />
-
-     
-      <path
-        d="M22 36L16 44L24 42"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M38 36L44 44L36 42"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-
-      
-      <path
-        d="M26 48C27 52 33 52 34 48C33 50 27 50 26 48Z"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        fill="none"
-      />
-    </g>
-  </svg>
-);
-
-const CustomLaptopIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="90"
-    height="90"
-    viewBox="0 0 60 60"
-    fill="none"
-    className="w-18 h-18"
-  >
-   
-    <rect
-      x="12"
-      y="12"
-      width="36"
-      height="24"
-      rx="2"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinejoin="round"
-      fill="none"
-    />
-
-    
-    <rect
-      x="14"
-      y="14"
-      width="32"
-      height="20"
-      rx="1"
-      stroke="currentColor"
-      strokeWidth="1.2"
-      fill="none"
-    />
-
-    
-    <path
-      d="M8 40H52L56 48H4L8 40Z"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      fill="none"
-    />
-
-   
-    <rect
-      x="26"
-      y="43"
-      width="8"
-      height="3"
-      rx="1"
-      stroke="currentColor"
-      strokeWidth="1.2"
-      fill="none"
-    />
-  </svg>
-);
-
-
-  
-  const CustomRavelryIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="90"
-    height="90"
-    viewBox="0 0 60 60"
-    fill="none"
-    className="w-18 h-18"
-  >
-   
-    <circle
-      cx="30"
-      cy="30"
-      r="20"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      fill="none"
-    />
-
-   
-    <path
-      d="M18 24C22 20 38 20 42 24"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      fill="none"
-    />
-    <path
-      d="M16 30C22 26 38 26 44 30"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      fill="none"
-    />
-    <path
-      d="M18 36C22 40 38 40 42 36"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      fill="none"
-    />
-
-    
-    <path
-      d="M40 44C46 38 48 28 42 20"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      fill="none"
-    />
-  </svg>
-);
-
-const CustomServerIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="80"
-    height="80"
-    viewBox="0 0 60 60"
-    fill="none"
-    className="w-18 h-18"
-  >
-   
-    <rect
-      x="10" y="10" width="40" height="12" rx="3"
-      stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" fill="none"
-    />
-    <circle cx="16" cy="16" r="1.6" stroke="currentColor" strokeWidth="1.5" fill="none" />
-    <circle cx="21" cy="16" r="1.6" stroke="currentColor" strokeWidth="1.5" fill="none" />
-    <path
-      d="M28 14H46M28 18H38"
-      stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"
-    />
-
-    
-    <rect
-      x="10" y="24" width="40" height="12" rx="3"
-      stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" fill="none"
-    />
-    <circle cx="16" cy="30" r="1.6" stroke="currentColor" strokeWidth="1.5" fill="none" />
-    <circle cx="21" cy="30" r="1.6" stroke="currentColor" strokeWidth="1.5" fill="none" />
-    <path
-      d="M28 28H46M28 32H38"
-      stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"
-    />
-
-    
-    <rect
-      x="10" y="38" width="40" height="12" rx="3"
-      stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" fill="none"
-    />
-    <circle cx="16" cy="44" r="1.6" stroke="currentColor" strokeWidth="1.5" fill="none" />
-    <circle cx="21" cy="44" r="1.6" stroke="currentColor" strokeWidth="1.5" fill="none" />
-    <path
-      d="M28 42H46M28 46H38"
-      stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"
-    />
-
-    
-    <path
-      d="M10 22H50M10 36H50"
-      stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"
-    />
-  </svg>
-);
-const CustomEcommerceIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="70"
-    height="70"
-    viewBox="0 0 60 60"
-    fill="none"
-    className="w-18 h-18"
-  >
-    
-    <path
-      d="M12 16H48L42 40H18L12 16Z"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      fill="none"
-    />
-
-    
-    <path
-      d="M12 16L8 8H4"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      fill="none"
-    />
-
-    
-    <circle
-      cx="20"
-      cy="44"
-      r="3"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      fill="none"
-    />
-    <circle
-      cx="40"
-      cy="44"
-      r="3"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      fill="none"
-    />
-
-    
-    <path
-      d="M18 24H42"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-    />
-    <path
-      d="M18 32H42"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-    />
-  </svg>
-);
-
-const CustomSEOSearchIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="90"
-    height="90"
-    viewBox="0 0 60 60"
-    fill="none"
-    className="w-18 h-18"
-  >
-    
-    <circle
-      cx="24"
-      cy="24"
-      r="14"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      fill="none"
-    />
-
-    
-    <path
-      d="M34 34L42 42"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-    />
-
-   
-    <rect x="20" y="22" width="2" height="8" fill="currentColor" />
-    <rect x="24" y="18" width="2" height="12" fill="currentColor" />
-    <rect x="28" y="26" width="2" height="4" fill="currentColor" />
-
-    
-    <path
-      d="M18 30L24 24L28 28"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      fill="none"
-    />
-  </svg>
-);
-
-
-
   const services = [
     {
-      icon: <CustomLaptopIcon/>,
+      icon: Code2,
       title: "Web Development",
-      description:
-        "A professional website scoped-out correctly translates measurable results.",
+      description: "Custom web applications, responsive SPAs, and robust SaaS platforms built with Next.js, React, and Node.js.",
+      href: "/web-development",
     },
     {
-      icon: <CustomRocketIcon />,
+      icon: Layout,
+      title: "UI/UX & Web Design",
+      description: "High-converting user interfaces, design systems in Figma, and interactive user journeys tailored for scale.",
+      href: "/web-design",
+    },
+    {
+      icon: Smartphone,
       title: "Application Development",
-      description:
-        "We have solution for most dynamic and complex application that runs business.",
+      description: "Cross-platform mobile applications for iOS & Android built with React Native and Flutter with real-time sync.",
+      href: "/application-development",
     },
     {
-      icon: <CustomRavelryIcon />,
+      icon: Globe2,
       title: "Portal Development",
-      description:
-        "We convert versatile shopping cart into an online super store for your business.",
+      description: "Enterprise intranets, B2B supplier hubs, and customer self-service portals with strict role permissions.",
+      href: "/portal-development",
     },
     {
-      icon: <CustomServerIcon />,
+      icon: Server,
       title: "Software Development",
-      description:
-        "Creative ideas addressing their expectations planned strategically",
+      description: "Custom ERP, CRM, microservices backends, and cloud data pipelines engineered for 99.9% uptime.",
+      href: "/software-development",
     },
     {
-      icon: <CustomEcommerceIcon />,
-      title: "E-commerce Solution",
-      description:
-        "Transforming your idea into an engaging shopping experience.",
+      icon: ShoppingCart,
+      title: "E-commerce Solutions",
+      description: "Scalable digital storefronts, custom checkout flows, and automated inventory sync with Shopify and headless setups.",
+      href: "/ecommerce-solution",
     },
     {
-      icon: <CustomSEOSearchIcon />,
-      title: "SEO & SEM",
-      description:
-        "Leverage the SEO Insights to Engage with Right targeted Audience",
+      icon: LineChart,
+      title: "Data Science & AI",
+      description: "Predictive machine learning models, autonomous LLM agents, chatbots, and actionable BI dashboard analytics.",
+      href: "/data-science-solution",
+    },
+    {
+      icon: Search,
+      title: "SEO & SEM Optimization",
+      description: "Technical SEO audits, organic ranking acceleration, and high-ROI Google Ads campaigns.",
+      href: "/seo-sem",
+    },
+    {
+      icon: MessageSquare,
+      title: "Bulk SMS & OTP Services",
+      description: "Enterprise-grade transactional OTP messaging, promotional campaigns, and high-throughput WhatsApp APIs.",
+      href: "/bulk-sms",
     },
   ];
 
   return (
-    <section id="services"  className=" md:mt-8  w-full">
-      <div className="w-full px-4 sm:px-6 md:px-8">
-        
+    <section id="services" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      {/* Header */}
+      <div className="text-center max-w-3xl mx-auto mb-16">
+        <div
+          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-[12px] font-[700] uppercase tracking-[1.5px] mb-3"
+          style={{ background: "#eef7f5", color: "#00A88F" }}
+        >
+          <Sparkles size={14} /> Full-Stack Engineering Capabilities
+        </div>
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0d2a4a] tracking-tight">
+          Comprehensive Technology Services
+        </h2>
+        <p className="text-[15.5px] text-[#5a7a9a] mt-3.5 leading-relaxed">
+          From concept and design to deployment and cloud scaling, we deliver end-to-end digital solutions for modern businesses.
+        </p>
+      </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {services.map((service, index) => (
-            <div
+      {/* Grid */}
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        {services.map((service, index) => {
+          const Icon = service.icon;
+          return (
+            <Link
               key={index}
-              className="relative bg-gray-900 rounded-[20px] sm:rounded-[25px] md:rounded-[30px] p-6 sm:p-8 md:p-[40px] border border-solid border-gray-700 overflow-visible"
-              style={{
-                "--overlay-opacity": "0.4",
-                "--border-radius": "30px",
-                "--padding-top": "40px",
-                "--padding-bottom": "40px",
-                "--padding-left": "40px",
-                "--padding-right": "40px",
-              }}
+              href={service.href}
+              className="bg-white rounded-3xl p-8 border border-[#e8f0f7] hover:border-[#00A88F]/40 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
             >
-              <div className="absolute inset-0 rounded-[30px] bg-blue-400  opacity-0 group-hover:opacity-[0.4] transition-opacity duration-300 z-0"></div>
-
-              <div className="relative z-10 group">
-                <div className="flex justify-between items-start mb-6 sm:mb-8 group">
-                  <div className="text-blue-400 dsa text-[70px] w-10 h-10 sm:w-12 sm:h-12">
-                    {service.icon}
+              <div>
+                <div className="flex justify-between items-start mb-6">
+                  <div
+                    className="w-14 h-14 rounded-2xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110"
+                    style={{ background: "#eef7f5", color: "#00A88F" }}
+                  >
+                    <Icon size={28} />
                   </div>
 
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-transparent flex items-center justify-center rounded-full transition-all duration-300 group-hover:w-12 sm:group-hover:w-14 group-hover:h-12 sm:group-hover:h-14 group-hover:bg-white">
-                    <svg
-                      className="w-6 h-6 text-blue-400 transition-transform duration-300 rotate-45 group-hover:rotate-0"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M7 17l9.2-9.2M17 17V7H7"
-                      />
-                    </svg>
+                  <div className="w-10 h-10 rounded-full bg-[#f0f5fa] flex items-center justify-center text-[#0d2a4a] group-hover:bg-[#00A88F] group-hover:text-white transition-all duration-300">
+                    <ArrowRight size={16} className="transform -rotate-45 group-hover:rotate-0 transition-transform duration-300" />
                   </div>
                 </div>
 
-                <h3 className="text-xl sm:text-2xl pt-8 md:pt-12 font-bold mb-3 sm:mb-4 text-white">
+                <h3 className="text-xl font-bold text-[#0d2a4a] mb-3 group-hover:text-[#00A88F] transition-colors leading-snug">
                   {service.title}
                 </h3>
-                <p className="edem sm:text-base leading-relaxed" >
+                <p className="text-[14px] text-[#5a7a9a] leading-relaxed">
                   {service.description}
                 </p>
               </div>
-            </div>
-          ))}
-        </div>
+
+              <div className="pt-6 mt-6 border-t border-[#f0f5fa] flex items-center gap-1 text-[13px] font-bold text-[#00A88F]">
+                <span>Explore Service</span>
+                <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+          );
+        })}
       </div>
-     
     </section>
   );
 }

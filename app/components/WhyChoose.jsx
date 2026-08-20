@@ -7,54 +7,54 @@ export default function WhyChoose() {
         <div className="grid lg:grid-cols-2 gap-0 items-start">
           <div className="order-1 lg:order-none  py-20 px-8">
             <div className="max-w-4xl  mx-auto">
-              <div className="section-tag mb-4">WHY CHOOSE</div>
+              <div className="section-tag mb-4 bg-stone-100 border-gray-200 text-stone-500 font-semibold tracking-wider">WHY CHOOSE</div>
 
-              <h2 className="text-7xl ddd md:text-5xl lg:text-5xl mb-8 lg:mb-32 leading-tight">
+              <h2 className="text-7xl ddd md:text-5xl lg:text-5xl mb-8 lg:mb-32 leading-tight text-stone-900 font-extrabold">
                 Expertise for{" "}
-                <span className="text-blue-400 font-bold">your digital</span>{" "}
+                <span className="text-blue-600 font-bold">your digital</span>{" "}
                 growth journey
               </h2>
 
-              <p className=" text-base lg:text-lg leading-relaxed mb-8 block lg:hidden electromotion">
+              <p className="text-stone-500 text-base lg:text-lg leading-relaxed mb-8 block lg:hidden electromotion">
                 Our dedicated team is committed to understanding your unique
                 needs, ensuring that we provide innovative strategies that drive
                 results. With a focus on quality and integrity.
               </p>
 
               <div className="space-y-6 lg:space-y-8">
-                <div className="relative group  bg-gray-900 rounded-2xl p-6 lg:p-8 overflow-hidden transition-all duration-300 hover:shadow-lg">
-                  <div className="absolute inset-0 bg-gradient-to-r from-gray-700/30 via-gray-200/20 to-transparent translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-700 ease-in-out z-0" />
+                <div className="relative group bg-white border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] rounded-2xl p-6 lg:p-8 overflow-hidden transition-all duration-300 hover:shadow-lg">
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-50/50 via-gray-50/20 to-transparent translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-700 ease-in-out z-0" />
                   <div className="relative z-10">
-                    <h3 className="vishu lg:text-2xl font-bold mb-3 lg:mb-4">
+                    <h3 className="vishu lg:text-2xl font-bold mb-3 lg:mb-4 text-stone-900">
                       Data-Driven Approach
                     </h3>
-                    <p className="electromotion text-base lg:text-lg leading-relaxed">
+                    <p className="text-stone-500 electromotion text-base lg:text-lg leading-relaxed">
                       We leverage data and insights to make informed decisions
                       that lead to more effective and efficient solutions.
                     </p>
                   </div>
                 </div>
 
-                <div className="relative group bg-gray-900 rounded-2xl p-6 lg:p-8 overflow-hidden transition-all duration-300 hover:shadow-lg">
-                  <div className="absolute inset-0 bg-gradient-to-r from-gray-700/30 via-gray-200/20 to-transparent translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-700 ease-in-out z-0" />
+                <div className="relative group bg-white border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] rounded-2xl p-6 lg:p-8 overflow-hidden transition-all duration-300 hover:shadow-lg">
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-50/50 via-gray-50/20 to-transparent translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-700 ease-in-out z-0" />
                   <div className="relative z-10">
-                    <h3 className="vishu lg:text-2xl font-bold mb-3 lg:mb-4">
+                    <h3 className="vishu lg:text-2xl font-bold mb-3 lg:mb-4 text-stone-900">
                       Competitive Pricing
                     </h3>
-                    <p className="electromotion text-base lg:text-lg leading-relaxed">
+                    <p className="text-stone-500 electromotion text-base lg:text-lg leading-relaxed">
                       We offer our top-quality services at competitive prices,
                       providing you with great value for your investment.
                     </p>
                   </div>
                 </div>
 
-                <div className="relative group bg-gray-900 rounded-2xl p-6 lg:p-8 overflow-hidden transition-all duration-300 hover:shadow-lg">
-                  <div className="absolute inset-0 bg-gradient-to-r from-gray-700/30 via-gray-200/20 to-transparent translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-700 ease-in-out z-0" />
+                <div className="relative group bg-white border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] rounded-2xl p-6 lg:p-8 overflow-hidden transition-all duration-300 hover:shadow-lg">
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-50/50 via-gray-50/20 to-transparent translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-700 ease-in-out z-0" />
                   <div className="relative z-10">
-                    <h3 className="vishu lg:text-2xl font-bold mb-3 lg:mb-4">
+                    <h3 className="vishu lg:text-2xl font-bold mb-3 lg:mb-4 text-stone-900">
                       Ethical Business Practices
                     </h3>
-                    <p className="electromotion text-base lg:text-lg leading-relaxed">
+                    <p className="text-stone-500 electromotion text-base lg:text-lg leading-relaxed">
                       We maintain the highest level of professionalism and
                       ethical standards in all our business dealings.
                     </p>
@@ -67,7 +67,7 @@ export default function WhyChoose() {
           <div className="relative w-full order-0 lg:order-none py-0 md:py-20 lg:py-20 px-8">
             <div className="max-w-4xl mx-auto">
               <div className="relative z-10 mb-12 mt-16 lg:mb-12 hidden lg:block">
-                <p className="text-gray-300 text-base lg:text-lg leading-relaxed">
+                <p className="text-stone-500 text-base lg:text-lg leading-relaxed">
                   Our dedicated team is committed to understanding your unique
                   needs, ensuring that we provide innovative strategies that
                   drive results. With a focus on quality and integrity.

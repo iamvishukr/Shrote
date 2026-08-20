@@ -1,54 +1,65 @@
+"use client";
+
+import { Sparkles, Layout, Smartphone } from "lucide-react";
+
 export default function Objectives() {
   return (
-    <div className="px-8  py-24">
-      
-      <h2 className="text-4xl font-bold text-center">
-        Project <span className="text-green-700 italic">Challenges</span>
-      </h2>
-      <p className="text-center text-gray-300 mt-2 max-w-2xl mx-auto">
-        The Project Needed A Website That Looked Modern But Was Easy For Everyone To Use.
-        It Also Had To Help People Quickly Find Mental Health Experts Near Them Based On Their Location.
-      </p>
+    <section className="py-12 md:py-16">
+      <div className="text-center max-w-3xl mx-auto mb-12">
+        <div
+          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-[12px] font-[700] uppercase tracking-[1.5px] mb-3"
+          style={{ background: "#eef7f5", color: "#00A88F" }}
+        >
+          <Sparkles size={14} /> Engineering Challenges & Scope
+        </div>
+        <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0d2a4a] tracking-tight">
+          Project Core <span style={{
+            background: "linear-gradient(90deg, #00A88F, #00d4b4)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+          }}>Objectives</span>
+        </h2>
+        <p className="text-[#5a7a9a] text-[15px] mt-3 leading-relaxed">
+          The platform required a modern, accessible user experience integrated with high-concurrency database queries, location-based practitioner filtering, and zero-downtime scalability.
+        </p>
+      </div>
 
-      
-      <div className="grid grid-cols-1  md:grid-cols-2 gap-10 mt-12">
-        
-        <div >
-          <h3 className="text-3xl font-jakarta mb-3">Mobile App Design</h3>
-          <p className="text-gray-300 font-jakarta leading-relaxed">
-            One Of The Key Project Challenges Was Creating A Design That Blended Aesthetics With User-Friendliness.
-            The Platform Had To Work Well For Two Different Groups—Mental Health Professionals And People Looking For Help.
-            Each Of Them Had Unique Expectations From The Platform. So, Creating A Design That Was Both Approachable
-            And Professional Was Necessary. It Required Careful Selection Of Typography, Layout, Colors, And Content
-            Structure. This Was Another Challenge That We Faced. The Main Goal Was To Make A Design That’s Easy For
-            Everyone To Use, Helps Them Find Information Quickly, And Makes Them Feel Comfortable The Whole Time.
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="bg-white rounded-3xl p-8 border border-[#e8f0f7] shadow-sm hover:shadow-md transition-all">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-10 h-10 rounded-xl flex items-center justify-center text-white" style={{ background: "#00A88F" }}>
+              <Layout size={20} />
+            </div>
+            <h3 className="text-xl font-bold text-[#0d2a4a]">UI/UX Experience Architecture</h3>
+          </div>
+          <p className="text-[#5a7a9a] text-[14px] leading-relaxed mb-6">
+            A key challenge was engineering dual-portal UX for healthcare professionals and patients. We created accessible design systems in Figma with WCAG 2.1 compliance, intuitive appointment funnels, and soothing color psychology.
           </p>
           <img
-            src="https://www.webskitters.com/wp-content/uploads/2025/07/webdesign.webp"
-            alt="Mobile App Design"
-            className="rounded-xl mt-5 w-full"
+            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop"
+            alt="Mobile UI Design"
+            className="rounded-2xl w-full h-64 object-cover"
           />
         </div>
 
-
-        
-        <div className="border-l border-gray-600 pl-8">
-          <h3 className="text-3xl font-jakarta mb-3">Mobile App Development</h3>
-          <p className="text-gray-300 font-jakarta leading-relaxed">
-            Geo-Targeted Search Functionality Was The Major Development Challenge. As MHISA Wanted To Provide Users
-            With Mental Healthcare Professionals From Their Region, This Feature Was A Top Priority. This Included
-            Smooth Integration Of Location-Based Data, Filtering Options, And Great Responsiveness With Fast Load Times
-            And High Website Performance. So, The Challenge Was To Build A System That Was Both Technically Good And
-            Helpful To The Users. This Ensured An Ease With Which Help Seekers Can Find Support Without Delay Or Problems.
-            It Needed Accurate Backend Logic And A User-Friendly Frontend To Allow Smooth And Location-Specific Results.
+        <div className="bg-white rounded-3xl p-8 border border-[#e8f0f7] shadow-sm hover:shadow-md transition-all">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-10 h-10 rounded-xl flex items-center justify-center text-white" style={{ background: "#0d2a4a" }}>
+              <Smartphone size={20} />
+            </div>
+            <h3 className="text-xl font-bold text-[#0d2a4a]">Geo-Targeted Performance Engine</h3>
+          </div>
+          <p className="text-[#5a7a9a] text-[14px] leading-relaxed mb-6">
+            We implemented sub-second geolocation spatial indexing, allowing users to match with certified specialists nearby with instant filtering, real-time calendar availability, and automated SMS reminders.
           </p>
           <img
-            src="https://www.webskitters.com/wp-content/uploads/2025/07/webdevelopment.png"
-            alt="Mobile App Development"
-            className="rounded-xl mt-5 w-full"
+            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop"
+            alt="Web App Development"
+            className="rounded-2xl w-full h-64 object-cover"
           />
         </div>
       </div>
-    </div>
+    </section>
   );
 }
+

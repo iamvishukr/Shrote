@@ -174,7 +174,7 @@ function ProductCard({ product, index }) {
       <div className={`absolute -inset-[1px] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0 bg-gradient-to-br ${product.gradient}`}></div>
 
       {/* Card inner */}
-      <div className="relative z-10 bg-[#0a0a12] rounded-2xl p-6 h-full flex flex-col gap-4 group-hover:bg-[#0d0d18] transition-colors duration-500">
+      <div className="relative z-10 bg-white/90 backdrop-blur-xl border border-gray-100 rounded-2xl p-8 h-full flex flex-col gap-5 group-hover:bg-white transition-colors duration-500 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
         {/* Glow effect */}
         <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${product.gradient} opacity-0 group-hover:opacity-[0.07] rounded-full blur-3xl transition-opacity duration-700 -translate-y-8 translate-x-8`}></div>
 
@@ -183,35 +183,35 @@ function ProductCard({ product, index }) {
           <span className={`text-[10px] font-bold px-2.5 py-1 rounded-md bg-gradient-to-r ${product.gradient} text-white uppercase tracking-wider`}>
             {product.tag}
           </span>
-          <span className="text-[11px] text-gray-500 font-medium">{product.category}</span>
+          <span className="text-[11px] text-stone-500 font-medium">{product.category}</span>
         </div>
 
-        {/* Icon with animated ring — hidden on mobile */}
-        <div className="relative w-14 h-14 hidden sm:block">
-          <div className={`absolute inset-0 rounded-xl bg-gradient-to-br ${product.gradient} opacity-20 blur-sm group-hover:opacity-40 group-hover:blur-md transition-all duration-500`}></div>
-          <div className={`relative w-14 h-14 rounded-xl ${product.iconBg} flex items-center justify-center text-white shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-500`}>
+        {/* Icon with animated ring */}
+        <div className="relative w-16 h-16 hidden sm:block mb-2">
+          <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${product.gradient} opacity-20 blur-sm group-hover:opacity-50 group-hover:blur-md transition-all duration-500`}></div>
+          <div className={`relative w-16 h-16 rounded-2xl ${product.iconBg} flex items-center justify-center text-white shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-500`}>
             {product.icon}
           </div>
         </div>
 
         {/* Content */}
         <div className="flex-1">
-          <h3 className="text-white font-bold text-lg mb-1 group-hover:text-blue-50 transition-colors">{product.name}</h3>
+          <h3 className="text-stone-900 font-bold text-lg mb-1 group-hover:text-blue-600 transition-colors">{product.name}</h3>
           <p className={`text-transparent bg-clip-text bg-gradient-to-r ${product.gradient} text-xs font-semibold mb-3 tracking-wide`} style={{ marginTop: "26px" }}>{product.tagline}</p>
-          <p className="text-gray-400 text-[13px] leading-relaxed line-clamp-3 group-hover:text-gray-300 transition-colors">{product.description}</p>
+          <p className="text-stone-500 text-[13px] leading-relaxed line-clamp-3 group-hover:text-stone-600 transition-colors">{product.description}</p>
         </div>
 
         {/* Features pills */}
         <div className="flex flex-wrap gap-1.5">
           {product.features.map((f, i) => (
-            <span key={i} className="text-[10px] px-2 py-0.5 rounded-full bg-white/[0.05] text-gray-400 group-hover:bg-white/[0.1] group-hover:text-gray-200 transition-all duration-300">
+            <span key={i} className="text-[10px] px-2 py-0.5 rounded-full bg-stone-100 text-stone-600 group-hover:bg-stone-200 group-hover:text-stone-800 transition-all duration-300">
               {f}
             </span>
           ))}
         </div>
 
         {/* CTA */}
-        <Link href={`/products/${product.slug}`} className="mt-auto pt-2 flex items-center gap-2 text-sm font-semibold text-gray-500 group-hover:text-blue-400 transition-all duration-300">
+        <Link href={`/products/${product.slug}`} className="mt-auto pt-2 flex items-center gap-2 text-sm font-semibold text-stone-500 group-hover:text-blue-600 transition-all duration-300">
           <span>View Details</span>
           <svg className="w-4 h-4 transition-transform group-hover:translate-x-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -232,7 +232,7 @@ export default function Products() {
   return (
     <section id="products" className="relative py-24 md:py-32 overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute inset-0 bg-[#050508]"></div>
+      <div className="absolute inset-0 bg-[#FAFAF9]"></div>
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-blue-600/[0.03] rounded-full blur-[150px]"></div>
       <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-purple-600/[0.03] rounded-full blur-[120px]"></div>
 
@@ -252,13 +252,13 @@ export default function Products() {
             <span className="relative flex h-2 w-2"><span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span><span className="relative inline-flex rounded-full h-2 w-2 bg-blue-400"></span></span>
             <span className="text-blue-400 text-sm font-semibold tracking-wider uppercase">Our Products</span>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-5">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-stone-900 leading-tight mb-5">
             Enterprise-Grade{" "}
-            <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-700 bg-clip-text text-transparent">
               Software Products
             </span>
           </h2>
-          <p className="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed">
+          <p className="text-stone-500 text-lg max-w-3xl mx-auto leading-relaxed">
             Powering businesses across industries with purpose-built, scalable software solutions.
             Every product is engineered for enterprise performance and ease of use.
           </p>
@@ -280,7 +280,7 @@ export default function Products() {
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                 activeCategory === cat
                   ? "bg-blue-500 text-white shadow-lg shadow-blue-500/25 scale-105"
-                  : "bg-white/[0.04] text-gray-400 hover:bg-white/[0.08] hover:text-white border border-white/[0.06]"
+                  : "bg-stone-100 text-stone-500 hover:bg-stone-200 hover:text-stone-900 border border-gray-200"
               }`}
             >
               {cat}
@@ -289,7 +289,7 @@ export default function Products() {
         </div>
 
         {/* ── Products Grid ── */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {filtered.map((product, i) => (
             <ProductCard key={product.id} product={product} index={i} />
           ))}
@@ -304,12 +304,12 @@ export default function Products() {
             transition: "all 0.7s cubic-bezier(.4,0,.2,1) 0.3s",
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-cyan-600/10 to-purple-600/20"></div>
-          <div className="absolute inset-0" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0)", backgroundSize: "24px 24px" }}></div>
-          <div className="relative z-10 p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-50 via-cyan-50 to-purple-50"></div>
+          <div className="absolute inset-0" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, rgba(0,0,0,0.05) 1px, transparent 0)", backgroundSize: "24px 24px" }}></div>
+          <div className="relative z-10 p-10 md:p-14 flex flex-col md:flex-row items-center justify-between gap-8 border border-gray-100 rounded-3xl bg-white/80 shadow-[0_10px_40px_rgb(0,0,0,0.05)]">
             <div>
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">Need a Custom Enterprise Solution?</h3>
-              <p className="text-gray-400 text-lg">We build tailor-made software for your specific business requirements.</p>
+              <h3 className="text-2xl md:text-3xl font-bold text-stone-900 mb-2">Need a Custom Enterprise Solution?</h3>
+              <p className="text-stone-500 text-lg">We build tailor-made software for your specific business requirements.</p>
             </div>
             <Link
               href="/contact"

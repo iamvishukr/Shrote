@@ -7,9 +7,9 @@ export default function HowItWork() {
  const steps = [
   {
     number: "01",
-    title: "Discovery",
+    title: "Cognitive Discovery",
     description:
-      "Initial consultation to understand your brand, goals, and target audience. Conducting research and analysis.",
+      "Initial consultation to understand your data infrastructure, goals, and target audience for AI integration.",
     icon: () => (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -55,9 +55,9 @@ export default function HowItWork() {
   },
   {
     number: "02",
-    title: "Implementation",
+    title: "Generative Implementation",
     description:
-      "Bringing ideas to life by executing strategies, developing solutions, and delivering high-quality outcomes.",
+      "Executing strategies by fine-tuning models, deploying AI workflows, and integrating cognitive systems into operations.",
     icon: () => (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -95,9 +95,9 @@ export default function HowItWork() {
   },
   {
     number: "03",
-    title: "Collaboration",
+    title: "Agentic Scale",
     description:
-      "Working together closely with clients to refine, improve, and ensure ongoing success of the delivered project.",
+      "Working together closely to monitor autonomous agents, refine predictive models, and scale enterprise capabilities.",
     icon: () => (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -119,12 +119,12 @@ export default function HowItWork() {
 
 
   return (
-    <section className="bg-black text-white py-12 md:py-16 lg:py-16 px-8 ">
+    <section className="bg-[#F5F5F4] text-stone-900 py-12 md:py-16 lg:py-16 px-8 ">
       <div className="max-w-7xl mx-auto">
         
         <div className="mb-4">
-          <div className="inline-flex items-center gap-2 text-sm font-medium text-blue-400 mb-0 md:mb-8 lg:mb-8">
-            <span className="text-blue-400 text-lg mr-2">✱{" "}HOW IT WORK</span>
+          <div className="inline-flex items-center gap-2 text-sm font-medium text-blue-600 mb-0 md:mb-8 lg:mb-8">
+            <span className="text-blue-600 text-lg mr-2">✱{" "}HOW IT WORK</span>
             
           </div>
         </div>
@@ -133,12 +133,12 @@ export default function HowItWork() {
           <div>
             <h2 className="text-5xl md:text-6xl dfd font-light leading-tight">
               Our proven{" "}
-              <span className="text-blue-400 font-bold">process</span> for
+              <span className="text-blue-600 font-bold">process</span> for
               achieving success
             </h2>
           </div>
           <div className="lg:pt-16">
-            <p className="text-xl alok text-white leading-relaxed">
+            <p className="text-xl alok text-stone-500 leading-relaxed">
               Our proven process combines research, strategy, and creativity to
               deliver tailored solutions that drive measurable results.
             </p>
@@ -155,29 +155,29 @@ export default function HowItWork() {
             {steps.map((step, index) => (
               <div
                 key={index}
-                className={`relative group p-8 rounded-[2rem] sdcard bg-gradient-to-br from-black to-gray-900 text-white overflow-hidden h-[340px] md:h-[400px] lg:h-[400px]`}
+                className={`relative group p-8 rounded-[2rem] sdcard bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 text-stone-900 overflow-hidden h-[340px] md:h-[400px] lg:h-[400px]`}
               >
                
-                <div className="absolute top-6 right-6 w-8 h-8 rounded-full border border-white flex items-center justify-center">
-                  <ArrowUpRight className="w-4 h-4 text-white group-hover:rotate-45 transition-transform duration-300" />
+                <div className="absolute top-6 right-6 w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center">
+                  <ArrowUpRight className="w-4 h-4 text-stone-900 group-hover:rotate-45 transition-transform duration-300" />
                 </div>
 
                
                 <h3 className="text-xl md:text-2xllg:text-2xl font-semibold mb-4">{step.title}</h3>
 
                
-                <p className=" md:text-xl lg:text-xl edem mb-16">{step.description}</p>
+                <p className="md:text-xl lg:text-xl edem mb-16 text-stone-500">{step.description}</p>
 
                 
                 <div className="absolute bottom-6  ml-2  left-6">
                   <p className="text-3xl electromotion">STEP</p>
-                  <p className="text-4xl justify-center font-bold text-blue-400">
+                  <p className="text-4xl justify-center font-bold text-blue-600">
                     {step.number}
                   </p>
                 </div>
 
                 <div className="absolute bottom-0 right-0 w-1/2 h-40 bg-blue-500 rounded-tl-[3rem] overflow-hidden flex items-center justify-center z-10">
-                  <div className="absolute inset-0 bg-white opacity-80 scale-0 group-hover:scale-100 origin-bottom-right transition-transform duration-700 pointer-events-none z-0" />
+                  <div className="absolute inset-0 bg-stone-50 opacity-80 scale-0 group-hover:scale-100 origin-bottom-right transition-transform duration-700 pointer-events-none z-0" />
                   <step.icon className="w-12 h-12 text-black z-10 relative" />
                 </div>
               </div>

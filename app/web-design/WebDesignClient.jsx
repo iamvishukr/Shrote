@@ -1,7 +1,5 @@
 "use client";
-import FloatingIcons from "../components/FloatingIcons";
 import Header from "../Header";
-import MouseCursor from "../components/MouseCursor";
 import React from "react";
 import WebDesignHero from "./WebDesignHero";
 import ServiceCard from "../application-development/ServiceCard";
@@ -13,9 +11,7 @@ import Footer from "../components/Footer";
 
 function WebDesignPage() {
   return (
-    <div className="min-h-screen bg-black text-white">
-      <MouseCursor />
-      <FloatingIcons />
+    <div className="min-h-screen" style={{ background: "#f5f9fd" }}>
       <Header />
       <WebDesignHero />
       <ServiceCard />
@@ -28,4 +24,4 @@ function WebDesignPage() {
   );
 }
 
-export default WebDesignPage;
+export default WebDesignPage;

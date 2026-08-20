@@ -54,41 +54,40 @@ export default function Stats() {
   return (
     <section 
       ref={sectionRef}
-      className="py-0 md:py-20 lg:py-20 bg-black"
+      className="py-0 md:py-20 lg:py-20 bg-[#FAFAF9]"
     >
       <div className="max-w-8xl mx-auto px-4">
         <div
           className="relative rounded-[30px] p-[2px]"
           style={{
             backgroundImage:
-              "linear-gradient(180deg, #60A5FA 0%, #00000000 90.04%)",
+              "linear-gradient(180deg, #93C5FD 0%, #FFFFFF00 90.04%)",
           }}
         >
-          <div className="bg-black rounded-[28px] px-10 py-20">
-            <div className="grid lg:grid-cols-2 gap-16 items-center text-white">
+          <div className="bg-white rounded-[28px] px-10 py-20 shadow-[0_10px_40px_rgb(0,0,0,0.05)] border border-gray-100">
+            <div className="grid lg:grid-cols-2 gap-16 items-center text-stone-900">
               <div>
                 <h2 className="text-4xl md:text-5xl mr-2 mb-12 leading-tight">
-                  Expertise that drives
+                  Expertise that scales
                   <br />
-                  digital <span className="text-blue-400">success</span>
+                  enterprise <span className="text-blue-600">intelligence</span>
                 </h2>
 
                 <div className="grid md:grid-cols-2 gap-8">
                   <div>
-                    <div className="text-6xl font-bold text-blue-400">
+                    <div className="text-6xl font-bold text-blue-600">
                       +{count1}%
                     </div>
-                    <p className="text-gray-300 mt-2">
-                      By optimizing your website for search engines.
+                    <p className="text-stone-500 mt-2">
+                      Task automation achieved with bespoke LLM agents.
                     </p>
                   </div>
                   <div>
-                    <div className="text-6xl font-bold text-blue-400">
+                    <div className="text-6xl font-bold text-blue-600">
                       +{count2}%
                     </div>
-                    <p className="text-gray-300 mt-2">
-                      Rise in revenue as more visitors convert into paying
-                      customers.
+                    <p className="text-stone-500 mt-2">
+                      Reduction in manual operational overhead after integrating our cognitive automation suite.
                     </p>
                   </div>
                 </div>
@@ -97,27 +96,19 @@ export default function Stats() {
               <div className="space-y-10">
                 <div>
                   <h3 className="text-2xl font-bold mb-3">
-                    <span className="text-blue-400">✱</span> Social Media
-                    Management:
+                    <span className="text-blue-600">✱</span> Cognitive Search Integration:
                   </h3>
-                  <p className="text-gray-300 leading-relaxed">
-                    Our social media management services focus on building and
-                    enhancing your brand's online presence. We create engaging
-                    content, manage your social media accounts, and analyze
-                    performance.
+                  <p className="text-stone-500 leading-relaxed">
+                    Our cognitive search systems leverage semantic vector databases to help your enterprise index internal knowledge bases and provide instant AI-driven answers.
                   </p>
                 </div>
 
                 <div>
                   <h3 className="text-2xl font-bold mb-3">
-                    <span className="text-blue-400">✱</span> E-commerce
-                    Solutions:
+                    <span className="text-blue-600">✱</span> Intelligent Automations:
                   </h3>
-                  <p className="text-gray-300 leading-relaxed">
-                    Our e-commerce solutions are designed to create seamless
-                    online shopping experiences. From user-friendly website
-                    design to secure payment processing and inventory
-                    management.
+                  <p className="text-stone-500 leading-relaxed">
+                    We deploy multi-agent systems that can navigate software autonomously, automate repetitive data entry, and orchestrate complex ERP and HR workflows seamlessly.
                   </p>
                 </div>
               </div>

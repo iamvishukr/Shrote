@@ -1,25 +1,21 @@
 "use client";
-import React from 'react'
-import MouseCursor from "../components/MouseCursor"
-import FloatingIcons from "../components/FloatingIcons"
-import Header from "../Header"
-import PortfolioHero from "./PortfolioHero"
-import Portfolio from "./Portfolio"
-import Footer from '../components/Footer';
-import CardHoverEffectDemo from "./card-hover-effect-demo"
 
-function PortfolioPage() {
+import Header from "../Header";
+import PortfolioHero from "./PortfolioHero";
+import Portfolio from "./Portfolio";
+import Footer from "../components/Footer";
+import AnimatedBackground from "../components/AnimatedBackground";
+
+export default function PortfolioPage() {
   return (
-    <div className="min-h-screen bg-black text-white">
-      <MouseCursor />
-      <FloatingIcons />
-      <Header />
-      <PortfolioHero />
-    
-      <CardHoverEffectDemo />
-      <Footer />
+    <div className="min-h-screen relative" style={{ background: "#f5f9fd" }}>
+      <AnimatedBackground variant="grid" />
+      <div className="relative z-10">
+        <Header />
+        <PortfolioHero />
+        <Portfolio />
+        <Footer />
+      </div>
     </div>
-  )
+  );
 }
-
-export default PortfolioPage;

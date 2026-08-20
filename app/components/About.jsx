@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, CheckCircle, Star } from "lucide-react";
+import Link from "next/link";
 
 export default function About() {
   const features = [
@@ -58,9 +59,9 @@ export default function About() {
           ></path>
         </svg>
       ),
-      title: "Your Success, Our Mission",
+      title: "Autonomous AI Agents",
       description:
-        "We measure our success by the success of our clients. With a focus on results and a dedication to quality, our mission is to deliver digital solutions that make a real impact.",
+        "Deploy intelligent AI agents that autonomously execute complex workflows, orchestrate tasks across APIs, and act as smart copilots for operations, database processing, and data entry.",
     },
     {
       icon: (
@@ -122,9 +123,9 @@ export default function About() {
           ></path>
         </svg>
       ),
-      title: "Creators Of Digital Excellence",
+      title: "Generative LLM Chatbots",
       description:
-        "At the core of our agency is a commitment to excellence and creativity. We specialize in crafting digital solutions that not only meet your needs but also elevate your brand.",
+        "Deliver human-grade customer experiences 24/7 with bespoke conversational AI assistants, fine-tuned on custom datasets and deployed across web, mobile, and popular chat tools.",
     },
     {
       icon: (
@@ -161,9 +162,9 @@ export default function About() {
           ></path>
         </svg>
       ),
-      title: "Innovating the digital landscape",
+      title: "Cognitive Enterprise Systems",
       description:
-        "We stay ahead of the curve with cutting-edge technologies and creative solutions that set your brand apart in the digital landscape.",
+        "Upgrade traditional systems to intelligent software. Infuse legacy ERPs, payroll portals, and school directories with predictive analytics and cognitive machine learning pipelines.",
     },
     {
       icon: (
@@ -200,9 +201,9 @@ export default function About() {
           ></path>
         </svg>
       ),
-      title: "Helping Brands Thrive Online",
+      title: "Predictive Big Data Analytics",
       description:
-        "We help brands establish a strong digital presence and connect with their audience through innovative strategies and compelling content.",
+        "Unlock deeper analytics. Process millions of data points to generate demand forecasts, financial reconciliations, and behavioral modeling in real-time.",
     },
   ];
 
@@ -243,17 +244,17 @@ export default function About() {
       id="about"
       className="section-padding relative mb-8 sm:mb-12 md:mb-16 bg-transparent"
     >
-      {/* Replaced missing background image with custom CSS glowing orbs */}
-      <div className="absolute left-[-50px] sm:left-[-75px] md:left-[-100px] top-1/2 -translate-y-1/2 w-[200px] sm:w-[300px] md:w-[400px] h-[200px] sm:h-[300px] md:h-[400px] bg-blue-500/20 rounded-full blur-[80px] pointer-events-none z-0"></div>
-      <div className="absolute right-[-50px] top-1/4 w-[250px] h-[250px] bg-purple-500/10 rounded-full blur-[100px] pointer-events-none z-0"></div>
+      {/* Background Orbs */}
+      <div className="absolute left-[-50px] sm:left-[-75px] md:left-[-100px] top-1/2 -translate-y-1/2 w-[200px] sm:w-[300px] md:w-[400px] h-[200px] sm:h-[300px] md:h-[400px] bg-indigo-600/15 rounded-full blur-[80px] pointer-events-none z-0"></div>
+      <div className="absolute right-[-50px] top-1/4 w-[250px] h-[250px] bg-purple-600/10 rounded-full blur-[100px] pointer-events-none z-0"></div>
 
       <div className="mr-2 ml-2 sm:ml-3 md:ml-5 relative z-10" ref={sectionRef}>
         <div className="grid md:grid-cols-2  items-start">
-          <div className="lg:sticky top-24">
-            <div className="section-tag ">ABOUT AGENCY</div>
-            <h2 className="text-5xl md:text-6xl  mb-8 leading-tight">
+          <div className="lg:sticky top-32 bg-white/80 backdrop-blur-xl border border-gray-100 rounded-[2.5rem] p-8 lg:p-12 shadow-[0_10px_40px_rgb(0,0,0,0.06)]">
+            <div className="section-tag bg-stone-100 border-gray-200 text-stone-500 font-semibold tracking-wider">ABOUT AGENCY</div>
+            <h2 className="text-5xl md:text-6xl text-stone-900 mb-8 leading-tight font-extrabold">
               Crafting{" "}
-              <span className=" font-bold text-blue-400">unique digital</span>
+              <span className="font-bold bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">unique digital</span>
               <br />
               experiences that elevate
               <br />
@@ -261,12 +262,18 @@ export default function About() {
             </h2>
 
             <div className="flex items-center gap-6 mb-12">
-              <button className="px-8 py-4 bg-gray-800 text-white rounded-full hover:bg-gray-700 transition-all duration-300">
+              <Link
+                href="/contact"
+                className="px-8 py-4 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white font-bold rounded-full hover:opacity-95 shadow-[0_4px_15px_rgba(139,92,246,0.3)] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] text-sm tracking-wide"
+              >
                 Contact Us
-              </button>
-              <div className="w-16 h-16 bg-blue-400 rounded-full flex items-center justify-center group cursor-pointer hover:bg-blue-500 transition-all duration-300">
+              </Link>
+              <Link
+                href="/contact"
+                className="w-14 h-14 bg-stone-100 border border-gray-200 rounded-full flex items-center justify-center group cursor-pointer hover:bg-stone-200 transition-all duration-300 shadow-[0_4px_10px_rgba(0,0,0,0.05)]"
+              >
                 <svg
-                  className="w-8 h-8 text-black transform transition-transform duration-300 group-hover:animate-rotate-to-right"
+                  className="w-6 h-6 text-purple-600 transform transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -274,21 +281,21 @@ export default function About() {
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    strokeWidth={2}
+                    strokeWidth={2.5}
                     d="M7 17l9.2-9.2M17 17V7H7"
                   />
                 </svg>
-              </div>
+              </Link>
             </div>
           </div>
 
           <div className="relative">
             <div
               ref={timelineRef}
-              className="absolute left-[26px] top-0 h-full w-0.5 bg-gray-700"
+              className="absolute left-[26px] top-0 h-full w-0.5 bg-gray-200"
             >
               <div
-                className="absolute top-0 left-0 w-0.5  transition-all duration-300"
+                className="absolute top-0 left-0 w-0.5 bg-gradient-to-b from-blue-500 to-purple-500 transition-all duration-300 shadow-[0_0_15px_rgba(59,130,246,0.8)]"
                 style={{ height: `var(--active-height, 0)` }}
               />
             </div>
@@ -300,12 +307,12 @@ export default function About() {
                 return (
                   <div
                     key={index}
-                    className="flex items-start gap-6 group p-6 rounded-xl hover:bg-gray-900/50 transition-all duration-300"
+                    className="flex items-start gap-6 group p-6 rounded-xl hover:bg-stone-50 transition-all duration-300"
                   >
                     <div className="absolute left-[18px] mt-2">
                       <div
-                        className={`w-4 h-4 rounded-full flex-shrink-0 transition-all duration-300 ${
-                          isActive ? "bg-blue-400 scale-125" : "bg-gray-600"
+                        className={`w-4 h-4 rounded-full flex-shrink-0 transition-all duration-500 shadow-[0_0_15px_rgba(59,130,246,0)] ${
+                          isActive ? "bg-blue-500 scale-150 shadow-[0_0_15px_rgba(59,130,246,0.5)]" : "bg-gray-300"
                         }`}
                       />
                     </div>
@@ -313,7 +320,7 @@ export default function About() {
                     <div className="flex-1">
                       <div className="flex items-center gap-4 mb-6">
                         <div className="flex items-center justify-center">
-                          <span className="text-blue-400 text-4xl">
+                          <span className="text-blue-600 text-4xl">
                             {feature.icon}
                           </span>
                         </div>
@@ -322,13 +329,13 @@ export default function About() {
                       <h3
                         className={`text-3xl font-bold mb-4 abcd transition-colors duration-300 ${
                           isActive
-                            ? "text-blue-400"
-                            : "group-hover:text-blue-400"
+                            ? "text-stone-900"
+                            : "text-stone-400 group-hover:text-stone-600"
                         }`}
                       >
                         {feature.title}
                       </h3>
-                      <p className="text-white jj leading-relaxed text-lg">
+                      <p className="text-stone-600 jj leading-relaxed text-lg">
                         {feature.description}
                       </p>
                     </div>
